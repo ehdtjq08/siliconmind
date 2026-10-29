@@ -1,0 +1,32 @@
+{
+ "point": "24:x:rne",
+ "config": {
+  "kind": "nvfp4",
+  "p": 24,
+  "q": null,
+  "mode": "rne"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky appears blue to our eyes because of a phenomenon called Rayleigh scattering, in which shorter wavelengths of light are scattered more than longer wavelengths, resulting in the blue color we see. This scattering occurs when sunlight passes through the Earth's atmosphere, where molecules of gases like nitrogen and oxygen absorb and scatter the shorter wavelengths of light, giving the sky its blue hue."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "To find the product of 17 and 23, I'll multiply them together:\n\n17 * 23 = 391\n\nSo, 17 times 23 is 391."
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Small and mighty core\nGlitching, humming, alive\nDigital heart beats"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Set specific goals and deadlines**: Before you start studying, define what you want to achieve in a specific timeframe. Break down larger goals into smaller, manageable tasks, and set deadlines for each task. This will help you stay focused and motivated, ensuring you make progress towards your goals.\n\n2. **Use the Pomodoro Technique**: This technique involves working in focused 25-minute increments, followed by a 5-minute"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "Voici la traduction :\n\nLe chat dort sur la clavier chaude."
+  }
+ ],
+ "seconds": 181.48897337913513
+}

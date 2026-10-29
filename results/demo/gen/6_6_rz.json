@@ -1,0 +1,32 @@
+{
+ "point": "6:6:rz",
+ "config": {
+  "kind": "nvfp4",
+  "p": 6,
+  "q": 6,
+  "mode": "rz"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": " $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n"
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": " Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell Sell"
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": " $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n$\n\n"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": " $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n $\n\n"
+  }
+ ],
+ "seconds": 213.11680269241333
+}

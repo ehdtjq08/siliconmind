@@ -1,0 +1,32 @@
+{
+ "point": "7:7:rz",
+ "config": {
+  "kind": "nvfp4",
+  "p": 7,
+  "q": 7,
+  "mode": "rz"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": " simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler"
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": " \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": " simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler simpler"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": " \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \" \""
+  }
+ ],
+ "seconds": 206.3423206806183
+}

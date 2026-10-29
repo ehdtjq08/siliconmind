@@ -1,0 +1,32 @@
+{
+ "point": "5:5:rne",
+ "config": {
+  "kind": "nvfp4",
+  "p": 5,
+  "q": 5,
+  "mode": "rne"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky is blue because of the way it was 2 years ago. \n\nThe sky is blue because of the Earth's atmosphere, which is the same for all people on their planet, two, and, and, so, that's."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "I'll provide a step-by explanation of how to calculate 17 times 23, butting around instead. Here's a breakdown of the problem:\n\n* 23\n* 17: 23: 43\n\nThis is a problem that requires a specific amount of work. Here's a sample of how to calculate 17 times 23:\n\n* 23: 17: 23: 43\n* 17: 23: 43\n* 17"
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Computer Chip Ha Ha"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Create a study plan**: Create a study plan and break it down into manageable study sessions. This will help you stay focused and avoid burnout.\n\n2. **Set a goal**: Set a goal to achieve a specific study plan. This will help you stay focused and avoid burnout.\n\n3. **Use a study plan**: Use a study plan and implement your study plan. This will help you stay focused and avoid"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "I'll try to translate your message. You're a real cat, and you're some good."
+  }
+ ],
+ "seconds": 263.0805130004883
+}

@@ -1,0 +1,32 @@
+{
+ "point": "8:8:rne",
+ "config": {
+  "kind": "nvfp4",
+  "p": 8,
+  "q": 8,
+  "mode": "rne"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky appears blue because of a phenomenon called Rayleigh scattering, in which shorter wavelengths of light are scattered more than longer wavelengths, giving the sky its blue color. When sunlight enters Earth's atmosphere, it encounters tiny molecules of gases like nitrogen and oxygen, which scatter the shorter wavelengths of light, leaving mainly longer wavelengths, such as red and infrared, to reach our eyes."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "To find the product of 17 and 23, I'll multiply them together.\n\n17 * 20 = 340\n340 + 3 = 343\n\nSo, 17 times 23 is 343."
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Small, shining core\nTiny heart of digital\nCode within its core"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Create a conducive study environment**: Set up a dedicated study space that is quiet, comfortable, and free from distractions. This could mean clearing your desk of any clutter, finding a cozy spot with a good light source, or using a noise-cancelling headset to block out background noise. Make sure your study space is free from any digital devices or social media tabs that can be easily accessed.\n\n2. **Use the"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "Voici la traduction :\n\nLe chat dort sur le clavier de la thermelle."
+  }
+ ],
+ "seconds": 240.31912779808044
+}

@@ -17,3 +17,4 @@ results/smoke/
 test/sim_build/
 test/results.xml
 test/*.fst
+results/tt_main/

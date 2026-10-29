@@ -1,0 +1,32 @@
+{
+ "point": "12:x:rne",
+ "config": {
+  "kind": "nvfp4",
+  "p": 12,
+  "q": null,
+  "mode": "rne"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky appears blue because of the way that sunlight interacts with the tiny molecules of gases in the Earth's atmosphere, scattering the shorter, blue wavelengths of light more than the longer, red wavelengths, giving the sky its blue color. This phenomenon is known as Rayleigh's Law, which states that the scattering of light by small particles is proportional to the fourth power of the wavelength of the light, resulting in a blue sky."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "To find the product of 17 and 23, I'll multiply them together:\n\n17 \u00d7 20 = 340\n17 \u00d7 3 = 51\nAdding the two results together:\n340 + 51 = 391\n\nSo, 17 \u00d7 23 = 391."
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Tiny crystal heart\nMicrochips dance with code\nDigital soul"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Create a conducive study environment**: Identify a quiet, comfortable, and clutter-free space where you can focus on your studies. Consider the following:\n* Find a spot with minimal distractions, such as a library or a designated study area.\n* Use good lighting and comfortable seating to promote relaxation.\n* Consider using noise-cancelling headphones or playing calming music to block out distractions.\n\n2. **Set clear goals and priorities**:"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "Here's the translation:\n\nLe chat dort sur la clavier de la chaleur.\n\nOr, in a more casual tone:\n\nLe chat dort sur le clavier chaud.\n\nOr, in a more literal translation:\n\nLe chat dort sur le clavier."
+  }
+ ],
+ "seconds": 292.1714265346527
+}

@@ -1,0 +1,32 @@
+{
+ "point": "12:x:rz",
+ "config": {
+  "kind": "nvfp4",
+  "p": 12,
+  "q": null,
+  "mode": "rz"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky appears blue because of a phenomenon called Rayleigh scattering, in which shorter wavelengths of light are scattered more than longer wavelengths, resulting in the blue color we see. This is due to the way light interacts with the atmosphere, specifically the presence of molecules like nitrogen and oxygen that absorb and scatter shorter wavelengths of light, such as blue and violet."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "To find the product of 17 times 23, I'll multiply them together:\n\n17 * 23 = ?\n\nTo make the multiplication easier, I can break it down into smaller parts:\n\n17 * 20 = 340\n17 * 3 = 51\n\nNow, I'll add the two results together:\n\n340 + 51 = 391\n\nSo, 17 times 23 equals 391."
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Tiny spark within\nMicrochip's gentle glow\nSilent, yet alive"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Set specific goals and deadlines**: Before you start studying, set specific goals and deadlines for what you want to achieve. Break down larger tasks into smaller, manageable chunks, and prioritize the most important tasks. This will help you stay focused and motivated.\n\n2. **Use the Pomodoro Technique**: This technique involves working in focused, 25-minute increments, followed by a five-minute break. After four cycles, take"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "Translation: Le chat dort sur la clavier chaude du ordinateur.\n\nBreakdown:\n- Le (pronounced \"le\") : The\n- chat (pronounced \"chat\") : cat\n- dort (pronounced \"dort\") : sleeps\n- sur (pronounced \"sur\") : on\n- la (pronounced \"la\") : the\n- clavier (pronounced \"clavier\") : keyboard\n- chaude (pronounced \"cha"
+  }
+ ],
+ "seconds": 154.74133896827698
+}

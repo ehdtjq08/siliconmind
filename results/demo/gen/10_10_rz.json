@@ -1,0 +1,32 @@
+{
+ "point": "10:10:rz",
+ "config": {
+  "kind": "nvfp4",
+  "p": 10,
+  "q": 10,
+  "mode": "rz"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "The sky appears blue because of the way light interacts with the atmosphere, specifically that shorter wavelengths of light, such as blue and violet, are scattered more than longer wavelengths, like red and orange, by the tiny molecules in the air. This scattering effect is more pronounced in the atmosphere than on the surface of the Earth, resulting in the sky taking on its characteristic blue color."
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "To find the product of 17 times 23, I'll follow the steps:\n\n1. Multiply 17 by 20 (since 20 is the same as 20 x 1)\n2. Multiply 17 by 3 (since 3 is the same as 3 x 1)\n3. Add the results of steps 1 and 2\n\nHere's the calculation:\n\n17 x 20 = 340\n17 x 3 = 51\n340"
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Tiny code spark\nDance of electrons free\nSilent heart beats"
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "Here are three tips for staying focused while studying:\n\n1. **Create a conducive study environment**: Set up your study space with all the necessary materials, such as a comfortable chair, a desk, and good lighting. Make sure it's quiet and free from distractions. Consider using a noise machine or playing calming music to help you focus.\n\n2. **Use the Pomodoro Technique**: This technique involves working in focused 25-minute increments, followed by a 5-minute break."
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "French translation: Le chat dort sur la chaleur de la clavier."
+  }
+ ],
+ "seconds": 128.54336023330688
+}

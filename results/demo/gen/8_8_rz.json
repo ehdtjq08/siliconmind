@@ -1,0 +1,32 @@
+{
+ "point": "8:8:rz",
+ "config": {
+  "kind": "nvfp4",
+  "p": 8,
+  "q": 8,
+  "mode": "rz"
+ },
+ "rows": [
+  {
+   "prompt": "Explain why the sky is blue in two sentences.",
+   "answer": "Explanation: \nStep: \nFirst: \nSecond: \nThird: \nFourth: \n Fifth: \n Sixth: \n Seventh: \n Eighth: \n Ninth: \n tenth: \n Ele: \n D: \n O: \n P: \n Q: \n R: \n S: \n T: \n F: \n C: \n O: \n A: \n B: \n M: \n O: \n A: \n M: \n O: \n O: \n O: \n"
+  },
+  {
+   "prompt": "What is 17 times 23? Show your work.",
+   "answer": "Explanation: \n 1. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ."
+  },
+  {
+   "prompt": "Write a haiku about a tiny computer chip.",
+   "answer": "Write a haiku about a tiny, \n \u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0 \u00a0                                                                        "
+  },
+  {
+   "prompt": "Give me three tips for staying focused while studying.",
+   "answer": "I'd recommend three tips for \"being\" in the following of the following you and the following of the following you and the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the following of the/ of the/ of/ of/ of/ of"
+  },
+  {
+   "prompt": "Translate into French: The cat is sleeping on the warm keyboard.",
+   "answer": "Transplain into French: The cat is sleeping on the warm keyboard."
+  }
+ ],
+ "seconds": 173.9772937297821
+}
