@@ -15,8 +15,8 @@
 `default_nettype none
 
 module tt_um_ehdtjq08_siliconmind #(
-    parameter P   = 9,
-    parameter Q   = 7,
+    parameter P   = 24,
+    parameter Q   = 19,
     parameter RNE = 1
 ) (
     input  wire [7:0] ui_in,
