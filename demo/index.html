@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SiliconMind</title>
+<style>
+:root {
+  color-scheme: light;
+  --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
+  --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
+  --rne: #2a78d6; --rz: #eb6834; --block: #d6d4cc; --block-ink: #52514e;
+  --good: #0ca30c; --good-ink: #006300; --critical: #d03b3b; --changed: rgba(250,178,25,0.30);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+    --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+    --rne: #3987e5; --rz: #d95926; --block: #3a3a37; --block-ink: #c3c2b7;
+    --good-ink: #0ca30c; --changed: rgba(250,178,25,0.28);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
+  --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
+  --rne: #3987e5; --rz: #d95926; --block: #3a3a37; --block-ink: #c3c2b7;
+  --good-ink: #0ca30c; --changed: rgba(250,178,25,0.28);
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--page); color: var(--ink);
+  font: 16px/1.55 system-ui, -apple-system, "Segoe UI", sans-serif; }
+main { max-width: 1080px; margin: 0 auto; padding: 48px 16px 80px; }
+h1 { font-size: 44px; line-height: 1.1; margin: 4px 0 12px; letter-spacing: -0.01em; }
+h2 { font-size: 26px; line-height: 1.2; margin: 0 0 6px; }
+.eyebrow { color: var(--muted); font-size: 14px; margin: 0; }
+.lede { font-size: 19px; color: var(--ink-2); max-width: 760px; margin: 0 0 28px; }
+.sub { color: var(--ink-2); margin: 0 0 20px; max-width: 760px; }
+section { margin-top: 72px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px; }
+.tile { min-width: 0; }
+.tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+.tile .label { color: var(--ink-2); font-size: 14px; }
+.tile .value { font-size: 30px; font-weight: 600; line-height: 1.2; margin-top: 2px; }
+.tile .note { color: var(--muted); font-size: 13px; margin-top: 2px; }
+.tiles.small .value { font-size: 22px; }
+.status { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; }
+.status svg { flex: none; }
+.status.ok { color: var(--good-ink); } .status.bad { color: var(--critical); }
+
+.shrink-grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
+#die { width: 100%; height: auto; display: block; }
+input[type=range] { width: 100%; margin: 12px 0 0; accent-color: var(--rne); }
+.slider-ends { display: flex; justify-content: space-between; color: var(--muted); font-size: 13px; }
+.design-name { font-weight: 600; font-size: 18px; margin: 12px 0 10px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.badge { font-size: 12px; font-weight: 600; padding: 2px 8px; border-radius: 999px; border: 1px solid var(--border); color: var(--ink-2); }
+.tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+.tabs button { font: inherit; font-size: 14px; padding: 6px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border); background: transparent; color: var(--ink-2); }
+.tabs button[aria-selected="true"] { background: var(--ink); color: var(--page); border-color: var(--ink); }
+.tabs button:disabled { opacity: 0.4; cursor: not-allowed; }
+.mode-tabs { margin: 14px 0 0; }
+.bubble { border-radius: 12px; padding: 12px 14px; white-space: pre-wrap; }
+.bubble.user { background: transparent; border: 1px solid var(--border); color: var(--ink-2); margin-bottom: 10px; }
+.bubble.bot { background: var(--surface); border: 1px solid var(--border); min-height: 180px; }
+mark.chg { background: var(--changed); color: inherit; border-radius: 3px; padding: 0 1px; }
+.note-line { color: var(--muted); font-size: 13px; margin: 8px 0 0; }
+.empty { color: var(--muted); font-style: italic; }
+
+.controls { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 14px; }
+.controls button, .controls select { font: inherit; font-size: 14px; padding: 6px 14px; border-radius: 8px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--ink); }
+.controls .progress { color: var(--muted); font-size: 14px; margin-left: 4px; }
+.controls label { color: var(--ink-2); font-size: 14px; display: inline-flex; gap: 6px; align-items: center; }
+.agent-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: 20px; align-items: start; }
+.chart { margin: 0; }
+#pareto { width: 100%; height: auto; display: block; }
+.legend svg { flex: none; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--ink-2); font-size: 13px; margin-top: 10px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+#transcript { list-style: none; margin: 0; padding: 0; max-height: 470px; overflow-y: auto; display: flex; flex-direction: column; gap: 8px; }
+#transcript li { font-size: 14px; border-radius: 10px; padding: 8px 12px; }
+#transcript li.say { background: var(--surface); border: 1px solid var(--border); }
+#transcript li.say .who { font-size: 12px; font-weight: 600; color: var(--muted); display: block; }
+#transcript li.tool { color: var(--ink-2); padding: 4px 12px; }
+#transcript li.tool code { font-size: 13px; color: var(--ink); }
+#transcript li.check { border: 1px solid var(--critical); color: var(--ink-2); }
+#transcript li.check strong { color: var(--critical); }
+#transcript .final p { margin: 4px 0; }
+
+table { border-collapse: collapse; width: 100%; font-size: 14px; margin-top: 16px; }
+th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--grid); }
+th { color: var(--muted); font-weight: 500; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+.chain { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+.chain .step { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; position: relative; }
+.chain .step h3 { font-size: 16px; margin: 0 0 4px; }
+.chain .step p { margin: 0; color: var(--ink-2); font-size: 14px; }
+.chain .step .proof { margin-top: 10px; font-size: 13px; color: var(--good-ink); font-weight: 500; }
+.chain .step .proof.pending { color: var(--muted); }
+footer { margin-top: 72px; color: var(--muted); font-size: 13px; border-top: 1px solid var(--grid); padding-top: 16px; }
+footer p { margin: 4px 0; }
+
+#tip { position: fixed; pointer-events: none; background: var(--ink); color: var(--page); font-size: 13px;
+  padding: 6px 10px; border-radius: 6px; opacity: 0; transition: opacity .1s; z-index: 10; max-width: 260px; }
+.hit { fill: transparent; cursor: default; }
+
+@media (max-width: 820px) {
+  .shrink-grid, .agent-grid { grid-template-columns: 1fr; }
+  .chain { grid-template-columns: 1fr 1fr; }
+  h1 { font-size: 34px; }
+}
+@media (max-width: 480px) { .chain { grid-template-columns: 1fr; } }
+@media (max-width: 600px) { #bench-chart { display: none !important; } .tiles { grid-template-columns: 1fr 1fr; } }
+.table-wrap { overflow-x: auto; }
+#transcript li, .bubble { overflow-wrap: anywhere; }
+html, body { overflow-x: hidden; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="eyebrow">Meta AI Developer Hackathon · Indie track</p>
+    <h1>SiliconMind</h1>
+    <p class="lede">Muse Spark designs the accumulator of a 4-bit (NVFP4) AI chip. Every candidate is checked by
+      running Llama on a bit-exact model of that chip, synthesizing its Verilog, and verifying the Verilog against an
+      exact reference. The design it found is about half the size of a full-precision accumulator and loses no
+      measurable accuracy.</p>
+    <div class="tiles" id="hero-tiles"></div>
+  </header>
+
+  <section id="shrink" aria-labelledby="shrink-h">
+    <h2 id="shrink-h">Shrink the chip, watch the model</h2>
+    <p class="sub">Each answer was generated by Llama-3.2-1B-Instruct with every matrix multiply in its decoder computed
+      by the chip design on the left, bit for bit.</p>
+    <div class="shrink-grid">
+      <div class="card">
+        <svg id="die" viewBox="0 0 300 300" role="img" aria-label="Chip area"></svg>
+        <input type="range" id="slider" min="0" max="0" value="0" aria-label="Accumulator design">
+        <div class="slider-ends"><span>full size</span><span>smallest</span></div>
+        <div class="tabs mode-tabs" id="mode-tabs" role="tablist" aria-label="Rounding">
+          <button role="tab" data-mode="rne" aria-selected="true">Round (RNE)</button>
+          <button role="tab" data-mode="rz" aria-selected="false">Truncate (RZ)</button>
+        </div>
+        <div class="design-name" id="design-name"></div>
+        <div class="tiles small" id="point-tiles"></div>
+      </div>
+      <div>
+        <div class="tabs" id="prompt-tabs" role="tablist"></div>
+        <div class="bubble user" id="prompt"></div>
+        <div class="bubble bot" id="answer" aria-live="polite"></div>
+        <p class="note-line"><mark class="chg">Highlighted</mark> words differ from the full-size chip's answer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="agent" aria-labelledby="agent-h">
+    <h2 id="agent-h">Watch Muse Spark design it</h2>
+    <p class="sub">The agent gets three tools: Llama accuracy on the emulated chip (expensive, 10 calls allowed),
+      Yosys synthesis, and RTL verification (both cheap). After every round it also sees the plot below as an image.</p>
+    <div class="controls">
+      <button id="play">Play</button>
+      <button id="step">Step</button>
+      <button id="reset">Reset</button>
+      <select id="run-select" aria-label="Agent run"></select>
+      <label><input type="checkbox" id="truth"> show every design we measured afterwards</label>
+      <span class="progress" id="progress"></span>
+    </div>
+    <div class="agent-grid">
+      <figure class="chart card">
+        <svg id="pareto" viewBox="0 0 640 420" role="img" aria-label="Accumulator area versus perplexity change"></svg>
+        <div class="legend">
+          <span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="var(--rne)"/></svg>round to nearest (RNE)</span>
+          <span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="var(--rz)"/></svg>truncate (RZ)</span>
+          <span><svg width="12" height="12"><circle cx="6" cy="6" r="4" fill="none" stroke="var(--ink-2)" stroke-width="2"/></svg>quick check, 4 segments</span>
+          <span><svg width="12" height="12"><circle cx="6" cy="6" r="4.5" fill="var(--ink-2)"/></svg>confirmed, 32 held-out segments</span>
+          <span><svg width="14" height="12"><line x1="7" y1="2" x2="7" y2="11" stroke="var(--ink-2)" stroke-width="2"/></svg>area probed by synthesis</span>
+        </div>
+      </figure>
+      <ol id="transcript" aria-live="polite"></ol>
+    </div>
+  </section>
+
+  <section id="bench" aria-labelledby="bench-h">
+    <h2 id="bench-h">Did it find the best design?</h2>
+    <p class="sub" id="bench-sub"></p>
+    <div class="card">
+      <svg id="bench-chart" viewBox="0 0 640 240" role="img" aria-label="Accumulator size chosen by each search method" style="width:100%;height:auto;display:block"></svg>
+      <div class="table-wrap"><table id="bench-table"></table></div>
+    </div>
+  </section>
+
+  <section id="verify" aria-labelledby="verify-h">
+    <h2 id="verify-h">Bit-exact from arithmetic to silicon</h2>
+    <p class="sub">The accuracy numbers mean something only if the chip that gets built computes exactly what Llama was
+      tested on. Every link in this chain is checked bit for bit.</p>
+    <div class="chain">
+      <div class="step"><h3>1 · Exact reference</h3>
+        <p>The accumulator spec written with Python fractions: NVFP4 block products, then two roundings with P and Q bits.</p>
+        <div class="proof">The spec everything else must match</div></div>
+      <div class="step"><h3>2 · GPU emulator</h3>
+        <p>Float64 bit-mask rounding on the GPU runs the whole Llama model on the candidate chip.</p>
+        <div class="proof">0 mismatches vs. reference on real Llama activations</div></div>
+      <div class="step"><h3>3 · Verilog RTL</h3>
+        <p>One parameterized design for any P, Q and rounding mode, simulated with Icarus Verilog.</p>
+        <div class="proof">0 mismatches on 14 designs × 3,000 random and corner-case vectors; a planted rounding bug is caught</div></div>
+      <div class="step"><h3>4 · Silicon</h3>
+        <p>Yosys synthesizes all 600 designs to CMOS gates; the chosen design goes through the sky130 flow.</p>
+        <div class="proof pending" id="layout-proof">sky130 layout: in progress</div></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Accuracy: WikiText-2 perplexity of Llama-3.2-1B on 1,024-token segments, relative to exact accumulation with the
+      same NVFP4 quantization. Quick checks use segments 0–3; confirmations use held-out segments 16–47.</p>
+    <p>Area: Yosys transistor estimate (<code>abc -g cmos2</code>). The block-product stage is identical in every design
+      (about <span id="block-k"></span> transistors); the heuristic mapper adds roughly ±5% noise between designs.</p>
+    <p>Built with Llama. Agent: Muse Spark via the Meta Model API. Model: Llama 3.2 (Llama 3.2 Community License).</p>
+  </footer>
+</main>
+<div id="tip" role="tooltip"></div>
+<script src="data.js"></script>
+<script>
+const D = window.DATA;
+const NS = "http://www.w3.org/2000/svg";
+const $ = s => document.querySelector(s);
+const BUDGET = 1.0;
+const FULL_KEY = "24:x:rne";
+
+// ---------------------------------------------------------------- helpers
+function svg(tag, attrs = {}, parent) {
+  const e = document.createElementNS(NS, tag);
+  for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, v);
+  if (parent) parent.appendChild(e);
+  return e;
+}
+const key = (p, q, m) => `${p}:${q == null || q === 19 ? "x" : q}:${m}`;
+const parseKey = k => { const [p, q, m] = k.split(":"); return { p: +p, q: q === "x" ? null : +q, mode: m }; };
+const name = k => { const c = parseKey(k); return `P${c.p} / Q${c.q ?? 19} · ${c.mode.toUpperCase()}`; };
+const int = n => Math.round(n).toLocaleString("en-US");
+const compact = n => (n / 1000).toFixed(n >= 10000 ? 1 : 1) + "K";
+const pct = (v, d = 2) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFixed(d) + "%";
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const ICON_OK = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="var(--good)"/><path d="M4 7.2l2 2 4-4.4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+const ICON_BAD = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="var(--critical)"/><path d="M4.6 4.6l4.8 4.8M9.4 4.6l-4.8 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>';
+const statusHTML = d => d == null ? '<span class="status" style="color:var(--muted)">not measured</span>'
+  : d <= BUDGET ? `<span class="status ok">${ICON_OK}within 1% budget</span>`
+  : `<span class="status bad">${ICON_BAD}over budget</span>`;
+
+const AREA = new Map(D.areas.map(r => [key(r.p, r.q, r.mode), r.accumulator_transistors]));
+const CONF = new Map(D.confirm.map(r => [key(r.p, r.q, r.mode), r.delta_ppl_percent]));
+const SCREEN = new Map(D.screen.map(r => [key(r.p, r.q, r.mode), r.delta_ppl_percent]));
+const BLOCK = D.block_product_transistors;
+const FULL = AREA.get(FULL_KEY);
+$("#block-k").textContent = int(BLOCK);
+
+const tip = $("#tip");
+function hover(target, html) {
+  target.addEventListener("pointerenter", e => { tip.innerHTML = html(); tip.style.opacity = 1; });
+  target.addEventListener("pointermove", e => {
+    const w = tip.offsetWidth;
+    tip.style.left = Math.min(e.clientX + 14, innerWidth - w - 8) + "px"; tip.style.top = (e.clientY + 14) + "px";
+  });
+  target.addEventListener("pointerleave", () => { tip.style.opacity = 0; });
+}
+
+function agentChoice(run) {
+  const ver = run.events.filter(e => e.kind === "tool" && e.name === "verify_rtl" && e.result.mismatches === 0);
+  const conf = run.events.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && e.args.confirm);
+  const pick = (ver.at(-1) || conf.at(-1));
+  if (!pick) return null;
+  const a = pick.args;
+  return { key: key(a.p, a.q, a.mode), verify: ver.at(-1)?.result,
+           evals: run.events.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && !e.result.error).length };
+}
+
+// ---------------------------------------------------------------- hero
+(function hero() {
+  const run = D.agent_runs[0];
+  const c = run && agentChoice(run);
+  if (!c) return;
+  const acc = AREA.get(c.key), d = CONF.get(c.key);
+  $("#hero-tiles").innerHTML = `
+    <div class="tile"><div class="label">Accumulator size</div><div class="value">${pct(100 * (acc / FULL - 1), 0)}</div>
+      <div class="note">${int(acc)} vs. ${int(FULL)} transistors</div></div>
+    <div class="tile"><div class="label">Perplexity change</div><div class="value">${d == null ? "–" : pct(d)}</div>
+      <div class="note">32 held-out segments, budget +1%</div></div>
+    <div class="tile"><div class="label">RTL mismatches vs. reference</div><div class="value">${c.verify ? int(c.verify.mismatches) : "–"}</div>
+      <div class="note">${c.verify ? int(c.verify.vectors) : ""} random and corner-case vectors</div></div>
+    <div class="tile"><div class="label">Design found</div><div class="value">P${parseKey(c.key).p} / Q${parseKey(c.key).q ?? 19}</div>
+      <div class="note">${parseKey(c.key).mode === "rne" ? "round to nearest even" : "truncation"} · ${c.evals} of 10 evaluations</div></div>`;
+})();
+
+// ---------------------------------------------------------------- shrink the chip
+const PROMPT_LABELS = ["Why is the sky blue?", "17 × 23", "Haiku", "Study tips", "French"];
+const AGENT_KEY = D.agent_runs[0] ? agentChoice(D.agent_runs[0])?.key : null;
+// Slider steps are accumulator sizes (P/Q pairs); the tabs pick the rounding mode at that size.
+const GEN = new Map(D.generations.filter(g => g.point !== "bf16").map(g => [g.point.replace(/^x:x:/, "24:x:"), g.rows]));
+const FALLBACK = ["24:x", "12:x", "10:10", "9:7", "8:8", "7:7", "6:6", "5:5"];
+const sizes = (GEN.size ? [...new Set([...GEN.keys()].map(k => k.split(":").slice(0, 2).join(":")))] : FALLBACK)
+  .filter(s => AREA.has(s + ":rne") || AREA.has(s + ":rz"))
+  .sort((a, b) => (AREA.get(b + ":rne") ?? AREA.get(b + ":rz")) - (AREA.get(a + ":rne") ?? AREA.get(a + ":rz")));
+const points = sizes.map(s => ({ size: s }));
+const exactRows = GEN.get(FULL_KEY);
+let promptIdx = 0, mode = "rne";
+const currentKey = () => {
+  const s = points[+$("#slider").value].size;
+  return GEN.size && !GEN.has(`${s}:${mode}`) ? `${s}:${mode === "rne" ? "rz" : "rne"}` : `${s}:${mode}`;
+};
+
+function tokens(s) { return s.split(/(\s+)/).filter(t => t.length); }
+function diffHTML(ans, ref) {
+  const a = tokens(ans), b = tokens(ref).filter(t => !/^\s+$/.test(t)), aw = a.filter(t => !/^\s+$/.test(t));
+  const n = aw.length, m = b.length, L = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--) for (let j = m - 1; j >= 0; j--)
+    L[i][j] = aw[i] === b[j] ? L[i + 1][j + 1] + 1 : Math.max(L[i + 1][j], L[i][j + 1]);
+  const keep = new Set();
+  for (let i = 0, j = 0; i < n && j < m;) {
+    if (aw[i] === b[j]) { keep.add(i); i++; j++; } else if (L[i + 1][j] >= L[i][j + 1]) i++; else j++;
+  }
+  let w = 0;
+  return a.map(t => /^\s+$/.test(t) ? t : (keep.has(w++) ? esc(t) : `<mark class="chg">${esc(t)}</mark>`)).join("");
+}
+
+const die = $("#die");
+const dieState = { s: 0, f: 0 };
+const REDUCED = matchMedia("(prefers-reduced-motion: reduce)").matches;
+function drawDie(target) {
+  const from = { ...dieState }, t0 = performance.now();
+  const step = now => {
+    // rAF timestamps can precede t0; clamp so the eased value never overshoots.
+    const k = REDUCED ? 1 : Math.min(1, Math.max(0, (now - t0) / 260)), e = 1 - Math.pow(1 - k, 3);
+    dieState.s = from.s + (target.s - from.s) * e; dieState.f = from.f + (target.f - from.f) * e;
+    renderDie(target);
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+function renderDie(t) {
+  die.innerHTML = "";
+  const S = 280, s = S * dieState.s, x0 = (300 - S) / 2, y0 = 300 - 10 - S;
+  svg("rect", { x: x0, y: y0, width: S, height: S, rx: 6, fill: "none", stroke: "var(--axis)", "stroke-width": 1 }, die);
+  svg("text", { x: x0 + 8, y: y0 + 18, fill: "var(--muted)", "font-size": 12 }, die).textContent = "full-size unit";
+  const x = x0 + (S - s) / 2, y = y0 + (S - s);
+  const hb = s * dieState.f;
+  svg("rect", { x, y, width: s, height: Math.max(0, hb - 1), rx: 4, fill: "var(--block)" }, die);
+  svg("rect", { x, y: y + hb + 1, width: s, height: Math.max(0, s - hb - 1), rx: 4, fill: t.mode === "rz" ? "var(--rz)" : "var(--rne)" }, die);
+  const lb = svg("text", { x: x + 10, y: y + 22, fill: "var(--block-ink)", "font-size": 13 }, die);
+  lb.textContent = `Block product · ${compact(BLOCK)}`;
+  const la = svg("text", { x: x + 10, y: y + hb + 22, fill: "#fff", "font-size": 13, "font-weight": 600 }, die);
+  la.textContent = `Accumulator · ${compact(t.acc)}`;
+}
+
+function showPoint() {
+  const k = currentKey(), acc = AREA.get(k), c = parseKey(k), d = CONF.get(k);
+  const total = BLOCK + acc, totalFull = BLOCK + FULL;
+  drawDie({ s: Math.sqrt(total / totalFull), f: BLOCK / total, acc, mode: c.mode });
+  document.querySelectorAll("#mode-tabs button").forEach(b => {
+    const has = !GEN.size || GEN.has(`${points[+$("#slider").value].size}:${b.dataset.mode}`);
+    b.disabled = !has; b.setAttribute("aria-selected", b.dataset.mode === c.mode);
+  });
+  $("#design-name").innerHTML = `${name(k)}${k === AGENT_KEY ? ' <span class="badge">Muse Spark\'s pick</span>' : ""}${k === FULL_KEY ? ' <span class="badge">baseline</span>' : ""}`;
+  $("#point-tiles").innerHTML = `
+    <div class="tile"><div class="label">Accumulator</div><div class="value">${int(acc)}</div>
+      <div class="note">${k === FULL_KEY ? "transistors" : pct(100 * (acc / FULL - 1), 0) + " vs. full size"}</div></div>
+    <div class="tile"><div class="label">Perplexity change</div><div class="value">${d == null ? "–" : pct(d)}</div>
+      <div class="note">${statusHTML(d)}</div></div>`;
+  renderAnswer();
+}
+function renderAnswer() {
+  const k = currentKey(), rows = GEN.get(k);
+  $("#prompt").textContent = rows ? rows[promptIdx].prompt : "";
+  $("#prompt").hidden = !rows;
+  if (!rows) { $("#answer").innerHTML = '<span class="empty">Answers for this design are still being generated.</span>'; return; }
+  const ans = rows[promptIdx].answer;
+  $("#answer").innerHTML = exactRows && k !== FULL_KEY ? diffHTML(ans, exactRows[promptIdx].answer) : esc(ans);
+}
+(function initShrink() {
+  const sl = $("#slider");
+  sl.max = points.length - 1;
+  sl.addEventListener("input", showPoint);
+  document.querySelectorAll("#mode-tabs button").forEach(b => b.onclick = () => { mode = b.dataset.mode; showPoint(); });
+  const tabs = $("#prompt-tabs");
+  if (exactRows) exactRows.forEach((r, i) => {
+    const b = document.createElement("button");
+    b.textContent = PROMPT_LABELS[i] || `Prompt ${i + 1}`; b.setAttribute("role", "tab");
+    b.setAttribute("aria-selected", i === 0);
+    b.onclick = () => { promptIdx = i; tabs.querySelectorAll("button").forEach((x, j) => x.setAttribute("aria-selected", j === i)); renderAnswer(); };
+    tabs.appendChild(b);
+  });
+  dieState.s = 1; dieState.f = BLOCK / (BLOCK + FULL);
+  showPoint();
+})();
+
+// ---------------------------------------------------------------- agent replay
+const P = { W: 640, H: 440, l: 56, r: 16, top: 72, b: 44, X0: 7000, X1: 24000, Y0: -2, Y1: 8, band: 44 };
+const px = a => P.l + (a - P.X0) / (P.X1 - P.X0) * (P.W - P.l - P.r);
+const py = v => v > P.Y1 ? P.band : P.H - P.b - (Math.max(v, P.Y0) - P.Y0) / (P.Y1 - P.Y0) * (P.H - P.b - P.top);
+const pareto = $("#pareto");
+let runIdx = 0, evIdx = 0, timer = null;
+
+function axes() {
+  pareto.innerHTML = "";
+  svg("rect", { x: P.l, y: P.band - 12, width: P.W - P.l - P.r, height: 24, fill: "var(--grid)", opacity: 0.5, rx: 4 }, pareto);
+  svg("text", { x: P.l - 8, y: P.band + 4, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, pareto).textContent = "> 8%";
+  svg("text", { x: P.W - P.r - 8, y: P.band + 4, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, pareto).textContent = "model breaks";
+  for (let v = P.Y0; v <= P.Y1; v += 2) {
+    svg("line", { x1: P.l, x2: P.W - P.r, y1: py(v), y2: py(v), stroke: "var(--grid)", "stroke-width": 1 }, pareto);
+    svg("text", { x: P.l - 8, y: py(v) + 4, "text-anchor": "end", fill: "var(--muted)", "font-size": 11 }, pareto).textContent = v === 0 ? "0%" : pct(v, 0);
+  }
+  svg("line", { x1: P.l, x2: P.W - P.r, y1: py(BUDGET), y2: py(BUDGET), stroke: "var(--critical)", "stroke-width": 1 }, pareto);
+  svg("text", { x: P.W - P.r - 4, y: py(BUDGET) - 6, "text-anchor": "end", fill: "var(--ink-2)", "font-size": 11 }, pareto).textContent = "+1% accuracy budget";
+  svg("line", { x1: P.l, x2: P.W - P.r, y1: P.H - P.b, y2: P.H - P.b, stroke: "var(--axis)", "stroke-width": 1 }, pareto);
+  for (let a = 8000; a <= 24000; a += 4000)
+    svg("text", { x: px(a), y: P.H - P.b + 18, "text-anchor": "middle", fill: "var(--muted)", "font-size": 11 }, pareto).textContent = compact(a);
+  svg("text", { x: (P.l + P.W - P.r) / 2, y: P.H - 6, "text-anchor": "middle", fill: "var(--ink-2)", "font-size": 12 }, pareto).textContent = "accumulator transistors  (smaller is better →  left)";
+  svg("text", { x: 14, y: 16, fill: "var(--ink-2)", "font-size": 12 }, pareto).textContent = "perplexity change vs. exact";
+}
+function dot(k, d, filled, layer, extra = "") {
+  const c = parseKey(k), x = px(AREA.get(k)), y = py(d), col = c.mode === "rz" ? "var(--rz)" : "var(--rne)";
+  const g = svg("g", {}, layer);
+  if (filled) svg("circle", { cx: x, cy: y, r: 5.5, fill: col, stroke: "var(--surface)", "stroke-width": 2 }, g);
+  else svg("circle", { cx: x, cy: y, r: 4.5, fill: "var(--surface)", stroke: col, "stroke-width": 2 }, g);
+  const hit = svg("circle", { cx: x, cy: y, r: 11, class: "hit" }, g);
+  hover(hit, () => `<strong>${name(k)}</strong><br>${int(AREA.get(k))} accumulator transistors<br>${pct(d)} perplexity ${extra}`);
+  return g;
+}
+function renderReplay() {
+  const run = D.agent_runs[runIdx], evs = run.events.slice(0, evIdx);
+  axes();
+  if ($("#truth").checked) {
+    const g = svg("g", { opacity: 0.55 }, pareto);
+    for (const [k, d] of CONF) if (AREA.has(k)) {
+      const x = px(AREA.get(k)), y = py(d);
+      svg("circle", { cx: x, cy: y, r: 3, fill: "var(--axis)" }, g);
+      hover(svg("circle", { cx: x, cy: y, r: 7, class: "hit" }, g), () => `<strong>${name(k)}</strong><br>${int(AREA.get(k))} transistors<br>${pct(d)} (32 held-out segments)`);
+    }
+  }
+  const probes = svg("g", {}, pareto), pts = svg("g", {}, pareto);
+  const seenProbe = new Set();
+  for (const e of evs) {
+    if (e.kind !== "tool") continue;
+    const k = key(e.args.p, e.args.q, e.args.mode);
+    if (e.name === "synthesize_area" && AREA.has(k) && !seenProbe.has(k)) {
+      seenProbe.add(k);
+      svg("line", { x1: px(AREA.get(k)), x2: px(AREA.get(k)), y1: P.H - P.b - 10, y2: P.H - P.b,
+                    stroke: e.args.mode === "rz" ? "var(--rz)" : "var(--rne)", "stroke-width": 2 }, probes);
+    }
+    if (e.name === "evaluate_accuracy" && e.result.delta_ppl_percent != null && AREA.has(k))
+      dot(k, e.result.delta_ppl_percent, !!e.args.confirm, pts, e.args.confirm ? "(32 held-out segments)" : "(4-segment quick check)");
+  }
+  const done = evIdx >= run.events.length, choice = agentChoice(run);
+  if (done && choice && AREA.has(choice.key) && CONF.has(choice.key)) {
+    const x = px(AREA.get(choice.key)), y = py(CONF.get(choice.key));
+    svg("circle", { cx: x, cy: y, r: 11, fill: "none", stroke: "var(--ink)", "stroke-width": 1.5 }, pareto);
+    svg("text", { x: x - 16, y: y + 4, "text-anchor": "end", fill: "var(--ink)", "font-size": 12, "font-weight": 600 }, pareto).textContent = "final design";
+  }
+  renderTranscript(run, evs, done);
+  const used = evs.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && !e.result.error).length;
+  $("#progress").textContent = `step ${evIdx} / ${run.events.length} · ${used} of 10 accuracy evaluations used`;
+}
+const FACT_CHECKS = {
+  "20261029_160417": { needle: "RZ never viable",
+    note: "Over-generalized: truncation does work with wider accumulators (P12 RZ measured +0.4%, P24 RZ exact). It fails only at the small widths the agent tested." },
+};
+function mdLite(s) {
+  return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>")
+    .split("\n").filter(l => l.trim()).map(l => `<p>${l.replace(/^\s*\*\s+/, "• ")}</p>`).join("");
+}
+function toolLine(e) {
+  const a = e.args, r = e.result, k = key(a.p, a.q, a.mode);
+  if (r.error) return `<code>${e.name}</code> ${name(k)} → error`;
+  if (e.name === "synthesize_area") return `${name(k)} → ${int(r.accumulator_transistors)}`;
+  if (e.name === "evaluate_accuracy") return `<code>evaluate_accuracy</code> ${name(k)}${a.confirm ? " (confirm)" : ""} → <strong>${pct(r.delta_ppl_percent)}</strong> on ${r.segments} segments`;
+  if (e.name === "verify_rtl") return `<code>verify_rtl</code> ${name(k)} → <strong>${int(r.mismatches)} / ${int(r.vectors)}</strong> mismatches`;
+  return `<code>${e.name}</code>`;
+}
+function renderTranscript(run, evs, done) {
+  const ol = $("#transcript"), items = [];
+  for (let i = 0; i < evs.length; i++) {
+    const e = evs[i], last = items.at(-1);
+    if (e.kind === "say") {
+      const final = done && i === run.events.length - 1;
+      items.push({ cls: "say" + (final ? " final" : ""), html: `<span class="who">Muse Spark</span>${final ? mdLite(e.text) : esc(e.text)}` });
+    } else if (e.name === "synthesize_area" && last?.synth) {
+      last.lines.push(toolLine(e)); last.html = `<code>synthesize_area</code> ×${last.lines.length}<br>` + last.lines.join(" · ");
+    } else if (e.name === "synthesize_area") {
+      items.push({ cls: "tool", synth: true, lines: [toolLine(e)], html: `<code>synthesize_area</code> ${toolLine(e)}` });
+    } else items.push({ cls: "tool", html: toolLine(e) });
+  }
+  const fc = FACT_CHECKS[run.name];
+  if (done && fc && evs.at(-1)?.text?.includes(fc.needle)) items.push({ cls: "check", html: `<strong>Fact check</strong> · ${esc(fc.note)}` });
+  ol.innerHTML = items.map(it => `<li class="${it.cls}">${it.html}</li>`).join("");
+  ol.scrollTop = ol.scrollHeight;
+}
+function stop() { clearTimeout(timer); timer = null; $("#play").textContent = "Play"; }
+function tick() {
+  const run = D.agent_runs[runIdx];
+  if (evIdx >= run.events.length) return stop();
+  evIdx++; renderReplay();
+  const e = run.events[evIdx - 1];
+  timer = setTimeout(tick, e.kind === "say" ? 1400 : e.name === "synthesize_area" ? 250 : 900);
+}
+(function initReplay() {
+  if (!D.agent_runs.length) return;
+  const sel = $("#run-select");
+  D.agent_runs.forEach((r, i) => sel.add(new Option(`Run ${i + 1}`, i)));
+  sel.hidden = D.agent_runs.length < 2;
+  sel.onchange = () => { stop(); runIdx = +sel.value; evIdx = 0; renderReplay(); };
+  $("#play").onclick = () => {
+    if (timer) return stop();
+    if (evIdx >= D.agent_runs[runIdx].events.length) evIdx = 0;
+    $("#play").textContent = "Pause"; tick();
+  };
+  $("#step").onclick = () => { stop(); evIdx = Math.min(evIdx + 1, D.agent_runs[runIdx].events.length); renderReplay(); };
+  $("#reset").onclick = () => { stop(); evIdx = 0; renderReplay(); };
+  $("#truth").checked = D.exhaustive_done;
+  $("#truth").onchange = renderReplay;
+  evIdx = D.agent_runs[runIdx].events.length;            // open on the finished picture
+  renderReplay();
+})();
+
+// ---------------------------------------------------------------- benchmark
+(function bench() {
+  const rows = [];
+  D.agent_runs.forEach((r, i) => {
+    const c = agentChoice(r);
+    if (c) rows.push({ method: D.agent_runs.length > 1 ? `Muse Spark agent, run ${i + 1}` : "Muse Spark agent", key: c.key, evals: c.evals, agent: true });
+  });
+  const seeds = {};
+  for (const b of D.baselines) {
+    const label = b.kind === "random" ? `Random search, seed ${(seeds.random = (seeds.random ?? 0) + 1)}` : "Coarse grid, cheapest first";
+    rows.push({ method: label, key: b.chosen ? key(b.chosen.p, b.chosen.q, b.chosen.mode) : null,
+                evals: b.evaluated.length + (b.confirmed ? 1 : 0), conf: b.confirmed?.delta_ppl_percent });
+  }
+  const feasible = [...CONF].filter(([k, d]) => d <= BUDGET && AREA.has(k)).sort((a, b) => AREA.get(a[0]) - AREA.get(b[0]));
+  const nEx = [...CONF.keys()].filter(k => AREA.get(k) <= D.exhaustive_max_area).length;
+  if (D.exhaustive_done && feasible.length)
+    rows.push({ method: "Exhaustive search (ground truth)", key: feasible[0][0], evals: nEx, truth: true });
+  rows.push({ method: "Full-size accumulator", key: FULL_KEY, evals: 0, base: true });
+  for (const r of rows) { r.acc = r.key ? AREA.get(r.key) : null; r.d = r.conf ?? (r.key ? CONF.get(r.key) : null); if (r.base) r.d = 0; }
+
+  $("#bench-sub").textContent = D.exhaustive_done
+    ? `Every method gets the same goal: the smallest accumulator within the 1% accuracy budget, confirmed on held-out data. The ground truth comes from measuring all ${nEx} designs below ${int(D.exhaustive_max_area)} transistors.`
+    : "Every method gets the same goal and the same 10 accuracy evaluations. The exhaustive ground truth is still running.";
+
+  const B = { W: 1000, l: 270, r: 24, row: 34, top: 16 }, H = B.top + rows.length * B.row + 34;
+  const chart = $("#bench-chart");
+  chart.setAttribute("viewBox", `0 0 ${B.W} ${H}`);
+  const X0 = 8000, X1 = 24000, bx = a => B.l + (a - X0) / (X1 - X0) * (B.W - B.l - B.r);
+  for (let a = X0; a <= X1; a += 4000) {
+    svg("line", { x1: bx(a), x2: bx(a), y1: B.top - 4, y2: H - 30, stroke: "var(--grid)", "stroke-width": 1 }, chart);
+    svg("text", { x: bx(a), y: H - 12, "text-anchor": "middle", fill: "var(--muted)", "font-size": 11 }, chart).textContent = compact(a);
+  }
+  rows.forEach((r, i) => {
+    const y = B.top + i * B.row + B.row / 2;
+    svg("text", { x: B.l - 12, y: y + 4, "text-anchor": "end", fill: r.agent ? "var(--ink)" : "var(--ink-2)", "font-size": 13, "font-weight": r.agent ? 600 : 400 }, chart).textContent = r.method;
+    if (r.acc == null) return;
+    svg("line", { x1: bx(X1), x2: bx(r.acc), y1: y, y2: y, stroke: "var(--grid)", "stroke-width": 2 }, chart);
+    const ok = r.d != null && r.d <= BUDGET, col = r.truth || r.base ? "var(--ink-2)" : ok ? "var(--rne)" : "var(--critical)";
+    svg("circle", { cx: bx(r.acc), cy: y, r: 6, fill: col, stroke: "var(--surface)", "stroke-width": 2 }, chart);
+    hover(svg("circle", { cx: bx(r.acc), cy: y, r: 12, class: "hit" }, chart),
+          () => `<strong>${r.method}</strong><br>${name(r.key)}<br>${int(r.acc)} transistors · ${r.d == null ? "not confirmed" : pct(r.d)}`);
+  });
+  $("#bench-table").innerHTML = `<thead><tr><th>Method</th><th class="num">Accuracy evaluations</th><th>Chosen design</th>
+      <th class="num">Accumulator transistors</th><th class="num">Perplexity change</th><th>Budget</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${esc(r.method)}</td><td class="num">${r.base ? "–" : int(r.evals)}</td><td>${r.key ? name(r.key) : "none within budget"}</td>
+      <td class="num">${r.acc == null ? "–" : int(r.acc)}</td><td class="num">${r.d == null ? "–" : pct(r.d)}</td><td>${r.key ? statusHTML(r.d) : ""}</td></tr>`).join("") + "</tbody>";
+})();
+</script>
+</body>
+</html>

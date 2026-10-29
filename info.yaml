@@ -1,0 +1,52 @@
+# Tiny Tapeout project information
+project:
+  title:        "SiliconMind NVFP4 dot-product unit"
+  author:       "Dongseop"
+  discord:      ""
+  description:  "NVFP4 block dot-product with an accumulator designed by an AI agent against LLM accuracy"
+  language:     "Verilog"
+  clock_hz:     10000000
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "2x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  top_module:  "tt_um_ehdtjq08_siliconmind"
+
+  source_files:
+    - "project.v"
+    - "fp4_block_dot.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "DATA0"
+  ui[1]: "DATA1"
+  ui[2]: "DATA2"
+  ui[3]: "DATA3"
+  ui[4]: "DATA4"
+  ui[5]: "DATA5"
+  ui[6]: "DATA6"
+  ui[7]: "DATA7"
+
+  # Outputs
+  uo[0]: "ACC_BYTE0"
+  uo[1]: "ACC_BYTE1"
+  uo[2]: "ACC_BYTE2"
+  uo[3]: "ACC_BYTE3"
+  uo[4]: "ACC_BYTE4"
+  uo[5]: "ACC_BYTE5"
+  uo[6]: "ACC_BYTE6"
+  uo[7]: "ACC_BYTE7"
+
+  # Bidirectional pins
+  uio[0]: "WE"
+  uio[1]: "ADDR0"
+  uio[2]: "ADDR1"
+  uio[3]: "ADDR2"
+  uio[4]: "ADDR3"
+  uio[5]: "ADDR4"
+  uio[6]: "STEP"
+  uio[7]: "CLEAR"
+
+# Do not change!
+yaml_version: 6

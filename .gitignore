@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# model weights are downloaded separately (Llama 3.2 Community License)
+models/
+
+# local orchestration and caches (machine-specific)
+scripts/queue_*.sh
+scripts/wait_*.sh
+jobs/
+results/agent_cache/
+results/*.log
+results/smoke/
+
+# cocotb build outputs
+test/sim_build/
+test/results.xml
+test/*.fst

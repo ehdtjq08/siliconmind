@@ -1,0 +1,4802 @@
+[
+ {
+  "p": 5,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25626,
+  "accumulator_transistors": 14658,
+  "total_transistors": 40284
+ },
+ {
+  "p": 5,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25760,
+  "accumulator_transistors": 14796,
+  "total_transistors": 40556
+ },
+ {
+  "p": 5,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25354,
+  "accumulator_transistors": 8836,
+  "total_transistors": 34190
+ },
+ {
+  "p": 5,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25616,
+  "accumulator_transistors": 7592,
+  "total_transistors": 33208
+ },
+ {
+  "p": 5,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 9056,
+  "total_transistors": 34370
+ },
+ {
+  "p": 5,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25288,
+  "accumulator_transistors": 7718,
+  "total_transistors": 33006
+ },
+ {
+  "p": 5,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25506,
+  "accumulator_transistors": 9748,
+  "total_transistors": 35254
+ },
+ {
+  "p": 5,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25466,
+  "accumulator_transistors": 8262,
+  "total_transistors": 33728
+ },
+ {
+  "p": 5,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25928,
+  "accumulator_transistors": 10650,
+  "total_transistors": 36578
+ },
+ {
+  "p": 5,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25926,
+  "accumulator_transistors": 9612,
+  "total_transistors": 35538
+ },
+ {
+  "p": 5,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25376,
+  "accumulator_transistors": 11464,
+  "total_transistors": 36840
+ },
+ {
+  "p": 5,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25838,
+  "accumulator_transistors": 9956,
+  "total_transistors": 35794
+ },
+ {
+  "p": 5,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25528,
+  "accumulator_transistors": 11674,
+  "total_transistors": 37202
+ },
+ {
+  "p": 5,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 10586,
+  "total_transistors": 36624
+ },
+ {
+  "p": 5,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25674,
+  "accumulator_transistors": 11972,
+  "total_transistors": 37646
+ },
+ {
+  "p": 5,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25624,
+  "accumulator_transistors": 10826,
+  "total_transistors": 36450
+ },
+ {
+  "p": 5,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25670,
+  "accumulator_transistors": 12568,
+  "total_transistors": 38238
+ },
+ {
+  "p": 5,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25634,
+  "accumulator_transistors": 11092,
+  "total_transistors": 36726
+ },
+ {
+  "p": 5,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25634,
+  "accumulator_transistors": 12992,
+  "total_transistors": 38626
+ },
+ {
+  "p": 5,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25410,
+  "accumulator_transistors": 11708,
+  "total_transistors": 37118
+ },
+ {
+  "p": 5,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 26056,
+  "accumulator_transistors": 13170,
+  "total_transistors": 39226
+ },
+ {
+  "p": 5,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 11618,
+  "total_transistors": 36932
+ },
+ {
+  "p": 5,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25886,
+  "accumulator_transistors": 13930,
+  "total_transistors": 39816
+ },
+ {
+  "p": 5,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 12370,
+  "total_transistors": 38408
+ },
+ {
+  "p": 5,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25378,
+  "accumulator_transistors": 14398,
+  "total_transistors": 39776
+ },
+ {
+  "p": 5,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 26134,
+  "accumulator_transistors": 13212,
+  "total_transistors": 39346
+ },
+ {
+  "p": 5,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 26014,
+  "accumulator_transistors": 14850,
+  "total_transistors": 40864
+ },
+ {
+  "p": 5,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25866,
+  "accumulator_transistors": 13840,
+  "total_transistors": 39706
+ },
+ {
+  "p": 5,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25342,
+  "accumulator_transistors": 15624,
+  "total_transistors": 40966
+ },
+ {
+  "p": 5,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25760,
+  "accumulator_transistors": 14480,
+  "total_transistors": 40240
+ },
+ {
+  "p": 6,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25578,
+  "accumulator_transistors": 15020,
+  "total_transistors": 40598
+ },
+ {
+  "p": 6,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25580,
+  "accumulator_transistors": 14740,
+  "total_transistors": 40320
+ },
+ {
+  "p": 6,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 9140,
+  "total_transistors": 34572
+ },
+ {
+  "p": 6,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25914,
+  "accumulator_transistors": 8304,
+  "total_transistors": 34218
+ },
+ {
+  "p": 6,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 9236,
+  "total_transistors": 34550
+ },
+ {
+  "p": 6,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25288,
+  "accumulator_transistors": 8082,
+  "total_transistors": 33370
+ },
+ {
+  "p": 6,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25506,
+  "accumulator_transistors": 9900,
+  "total_transistors": 35406
+ },
+ {
+  "p": 6,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 8446,
+  "total_transistors": 34036
+ },
+ {
+  "p": 6,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 11056,
+  "total_transistors": 37050
+ },
+ {
+  "p": 6,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25380,
+  "accumulator_transistors": 9928,
+  "total_transistors": 35308
+ },
+ {
+  "p": 6,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 11428,
+  "total_transistors": 36788
+ },
+ {
+  "p": 6,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25558,
+  "accumulator_transistors": 10570,
+  "total_transistors": 36128
+ },
+ {
+  "p": 6,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 26088,
+  "accumulator_transistors": 11778,
+  "total_transistors": 37866
+ },
+ {
+  "p": 6,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25654,
+  "accumulator_transistors": 10098,
+  "total_transistors": 35752
+ },
+ {
+  "p": 6,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25586,
+  "accumulator_transistors": 13156,
+  "total_transistors": 38742
+ },
+ {
+  "p": 6,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25500,
+  "accumulator_transistors": 11326,
+  "total_transistors": 36826
+ },
+ {
+  "p": 6,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25576,
+  "accumulator_transistors": 13460,
+  "total_transistors": 39036
+ },
+ {
+  "p": 6,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 12120,
+  "total_transistors": 37480
+ },
+ {
+  "p": 6,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25448,
+  "accumulator_transistors": 13160,
+  "total_transistors": 38608
+ },
+ {
+  "p": 6,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25898,
+  "accumulator_transistors": 11696,
+  "total_transistors": 37594
+ },
+ {
+  "p": 6,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25962,
+  "accumulator_transistors": 13918,
+  "total_transistors": 39880
+ },
+ {
+  "p": 6,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25558,
+  "accumulator_transistors": 12440,
+  "total_transistors": 37998
+ },
+ {
+  "p": 6,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 14544,
+  "total_transistors": 39948
+ },
+ {
+  "p": 6,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 12690,
+  "total_transistors": 38728
+ },
+ {
+  "p": 6,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25912,
+  "accumulator_transistors": 14944,
+  "total_transistors": 40856
+ },
+ {
+  "p": 6,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25760,
+  "accumulator_transistors": 13668,
+  "total_transistors": 39428
+ },
+ {
+  "p": 6,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 26014,
+  "accumulator_transistors": 15198,
+  "total_transistors": 41212
+ },
+ {
+  "p": 6,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25866,
+  "accumulator_transistors": 13986,
+  "total_transistors": 39852
+ },
+ {
+  "p": 6,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25342,
+  "accumulator_transistors": 16206,
+  "total_transistors": 41548
+ },
+ {
+  "p": 6,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26218,
+  "accumulator_transistors": 14160,
+  "total_transistors": 40378
+ },
+ {
+  "p": 7,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25578,
+  "accumulator_transistors": 15168,
+  "total_transistors": 40746
+ },
+ {
+  "p": 7,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25580,
+  "accumulator_transistors": 15004,
+  "total_transistors": 40584
+ },
+ {
+  "p": 7,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25522,
+  "accumulator_transistors": 9766,
+  "total_transistors": 35288
+ },
+ {
+  "p": 7,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 8330,
+  "total_transistors": 33920
+ },
+ {
+  "p": 7,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25882,
+  "accumulator_transistors": 10006,
+  "total_transistors": 35888
+ },
+ {
+  "p": 7,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25850,
+  "accumulator_transistors": 8950,
+  "total_transistors": 34800
+ },
+ {
+  "p": 7,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25460,
+  "accumulator_transistors": 10440,
+  "total_transistors": 35900
+ },
+ {
+  "p": 7,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25466,
+  "accumulator_transistors": 8986,
+  "total_transistors": 34452
+ },
+ {
+  "p": 7,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 26060,
+  "accumulator_transistors": 11422,
+  "total_transistors": 37482
+ },
+ {
+  "p": 7,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25926,
+  "accumulator_transistors": 9758,
+  "total_transistors": 35684
+ },
+ {
+  "p": 7,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25974,
+  "accumulator_transistors": 12140,
+  "total_transistors": 38114
+ },
+ {
+  "p": 7,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25678,
+  "accumulator_transistors": 10422,
+  "total_transistors": 36100
+ },
+ {
+  "p": 7,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25788,
+  "accumulator_transistors": 11954,
+  "total_transistors": 37742
+ },
+ {
+  "p": 7,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25600,
+  "accumulator_transistors": 11042,
+  "total_transistors": 36642
+ },
+ {
+  "p": 7,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25586,
+  "accumulator_transistors": 12978,
+  "total_transistors": 38564
+ },
+ {
+  "p": 7,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25500,
+  "accumulator_transistors": 11406,
+  "total_transistors": 36906
+ },
+ {
+  "p": 7,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 13384,
+  "total_transistors": 38978
+ },
+ {
+  "p": 7,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25456,
+  "accumulator_transistors": 11860,
+  "total_transistors": 37316
+ },
+ {
+  "p": 7,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25546,
+  "accumulator_transistors": 14082,
+  "total_transistors": 39628
+ },
+ {
+  "p": 7,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 26048,
+  "accumulator_transistors": 12572,
+  "total_transistors": 38620
+ },
+ {
+  "p": 7,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25574,
+  "accumulator_transistors": 14484,
+  "total_transistors": 40058
+ },
+ {
+  "p": 7,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25340,
+  "accumulator_transistors": 13064,
+  "total_transistors": 38404
+ },
+ {
+  "p": 7,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25886,
+  "accumulator_transistors": 14584,
+  "total_transistors": 40470
+ },
+ {
+  "p": 7,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 12890,
+  "total_transistors": 38928
+ },
+ {
+  "p": 7,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25912,
+  "accumulator_transistors": 14716,
+  "total_transistors": 40628
+ },
+ {
+  "p": 7,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25766,
+  "accumulator_transistors": 12984,
+  "total_transistors": 38750
+ },
+ {
+  "p": 7,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25448,
+  "accumulator_transistors": 15498,
+  "total_transistors": 40946
+ },
+ {
+  "p": 7,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25878,
+  "accumulator_transistors": 14408,
+  "total_transistors": 40286
+ },
+ {
+  "p": 7,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25342,
+  "accumulator_transistors": 16514,
+  "total_transistors": 41856
+ },
+ {
+  "p": 7,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 14808,
+  "total_transistors": 40358
+ },
+ {
+  "p": 8,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25704,
+  "accumulator_transistors": 15556,
+  "total_transistors": 41260
+ },
+ {
+  "p": 8,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25534,
+  "accumulator_transistors": 14962,
+  "total_transistors": 40496
+ },
+ {
+  "p": 8,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 26044,
+  "accumulator_transistors": 10726,
+  "total_transistors": 36770
+ },
+ {
+  "p": 8,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25272,
+  "accumulator_transistors": 9970,
+  "total_transistors": 35242
+ },
+ {
+  "p": 8,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25242,
+  "accumulator_transistors": 11084,
+  "total_transistors": 36326
+ },
+ {
+  "p": 8,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25494,
+  "accumulator_transistors": 9864,
+  "total_transistors": 35358
+ },
+ {
+  "p": 8,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25302,
+  "accumulator_transistors": 11308,
+  "total_transistors": 36610
+ },
+ {
+  "p": 8,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25272,
+  "accumulator_transistors": 10318,
+  "total_transistors": 35590
+ },
+ {
+  "p": 8,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25710,
+  "accumulator_transistors": 11538,
+  "total_transistors": 37248
+ },
+ {
+  "p": 8,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25470,
+  "accumulator_transistors": 10038,
+  "total_transistors": 35508
+ },
+ {
+  "p": 8,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25442,
+  "accumulator_transistors": 11660,
+  "total_transistors": 37102
+ },
+ {
+  "p": 8,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25616,
+  "accumulator_transistors": 10474,
+  "total_transistors": 36090
+ },
+ {
+  "p": 8,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25542,
+  "accumulator_transistors": 12548,
+  "total_transistors": 38090
+ },
+ {
+  "p": 8,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25358,
+  "accumulator_transistors": 11134,
+  "total_transistors": 36492
+ },
+ {
+  "p": 8,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25438,
+  "accumulator_transistors": 13270,
+  "total_transistors": 38708
+ },
+ {
+  "p": 8,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25538,
+  "accumulator_transistors": 11766,
+  "total_transistors": 37304
+ },
+ {
+  "p": 8,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25564,
+  "accumulator_transistors": 14082,
+  "total_transistors": 39646
+ },
+ {
+  "p": 8,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25476,
+  "accumulator_transistors": 12684,
+  "total_transistors": 38160
+ },
+ {
+  "p": 8,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25862,
+  "accumulator_transistors": 14460,
+  "total_transistors": 40322
+ },
+ {
+  "p": 8,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25568,
+  "accumulator_transistors": 12570,
+  "total_transistors": 38138
+ },
+ {
+  "p": 8,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25486,
+  "accumulator_transistors": 14606,
+  "total_transistors": 40092
+ },
+ {
+  "p": 8,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 26010,
+  "accumulator_transistors": 13390,
+  "total_transistors": 39400
+ },
+ {
+  "p": 8,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25338,
+  "accumulator_transistors": 14962,
+  "total_transistors": 40300
+ },
+ {
+  "p": 8,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 26122,
+  "accumulator_transistors": 13788,
+  "total_transistors": 39910
+ },
+ {
+  "p": 8,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26208,
+  "accumulator_transistors": 15974,
+  "total_transistors": 42182
+ },
+ {
+  "p": 8,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 14946,
+  "total_transistors": 40704
+ },
+ {
+  "p": 8,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25640,
+  "accumulator_transistors": 16032,
+  "total_transistors": 41672
+ },
+ {
+  "p": 8,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25834,
+  "accumulator_transistors": 14744,
+  "total_transistors": 40578
+ },
+ {
+  "p": 8,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25240,
+  "accumulator_transistors": 16012,
+  "total_transistors": 41252
+ },
+ {
+  "p": 8,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25520,
+  "accumulator_transistors": 14912,
+  "total_transistors": 40432
+ },
+ {
+  "p": 9,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25356,
+  "accumulator_transistors": 15690,
+  "total_transistors": 41046
+ },
+ {
+  "p": 9,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25574,
+  "accumulator_transistors": 15238,
+  "total_transistors": 40812
+ },
+ {
+  "p": 9,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 26184,
+  "accumulator_transistors": 11556,
+  "total_transistors": 37740
+ },
+ {
+  "p": 9,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25620,
+  "accumulator_transistors": 9812,
+  "total_transistors": 35432
+ },
+ {
+  "p": 9,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25820,
+  "accumulator_transistors": 12108,
+  "total_transistors": 37928
+ },
+ {
+  "p": 9,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26028,
+  "accumulator_transistors": 10238,
+  "total_transistors": 36266
+ },
+ {
+  "p": 9,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 26184,
+  "accumulator_transistors": 11604,
+  "total_transistors": 37788
+ },
+ {
+  "p": 9,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25620,
+  "accumulator_transistors": 10358,
+  "total_transistors": 35978
+ },
+ {
+  "p": 9,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25810,
+  "accumulator_transistors": 12338,
+  "total_transistors": 38148
+ },
+ {
+  "p": 9,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25770,
+  "accumulator_transistors": 10862,
+  "total_transistors": 36632
+ },
+ {
+  "p": 9,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 26046,
+  "accumulator_transistors": 12358,
+  "total_transistors": 38404
+ },
+ {
+  "p": 9,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25620,
+  "accumulator_transistors": 10518,
+  "total_transistors": 36138
+ },
+ {
+  "p": 9,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25282,
+  "accumulator_transistors": 12814,
+  "total_transistors": 38096
+ },
+ {
+  "p": 9,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25908,
+  "accumulator_transistors": 11282,
+  "total_transistors": 37190
+ },
+ {
+  "p": 9,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25530,
+  "accumulator_transistors": 13746,
+  "total_transistors": 39276
+ },
+ {
+  "p": 9,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 12174,
+  "total_transistors": 37676
+ },
+ {
+  "p": 9,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 14454,
+  "total_transistors": 39986
+ },
+ {
+  "p": 9,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25630,
+  "accumulator_transistors": 13104,
+  "total_transistors": 38734
+ },
+ {
+  "p": 9,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 14670,
+  "total_transistors": 40512
+ },
+ {
+  "p": 9,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 13126,
+  "total_transistors": 38854
+ },
+ {
+  "p": 9,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25456,
+  "accumulator_transistors": 14726,
+  "total_transistors": 40182
+ },
+ {
+  "p": 9,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 13524,
+  "total_transistors": 38956
+ },
+ {
+  "p": 9,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25394,
+  "accumulator_transistors": 15034,
+  "total_transistors": 40428
+ },
+ {
+  "p": 9,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14072,
+  "total_transistors": 39662
+ },
+ {
+  "p": 9,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25608,
+  "accumulator_transistors": 15906,
+  "total_transistors": 41514
+ },
+ {
+  "p": 9,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25802,
+  "accumulator_transistors": 14550,
+  "total_transistors": 40352
+ },
+ {
+  "p": 9,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 26148,
+  "accumulator_transistors": 16036,
+  "total_transistors": 42184
+ },
+ {
+  "p": 9,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 15160,
+  "total_transistors": 41020
+ },
+ {
+  "p": 9,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25488,
+  "accumulator_transistors": 16302,
+  "total_transistors": 41790
+ },
+ {
+  "p": 9,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 15314,
+  "total_transistors": 41718
+ },
+ {
+  "p": 10,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25470,
+  "accumulator_transistors": 16826,
+  "total_transistors": 42296
+ },
+ {
+  "p": 10,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25874,
+  "accumulator_transistors": 16244,
+  "total_transistors": 42118
+ },
+ {
+  "p": 10,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 11864,
+  "total_transistors": 37178
+ },
+ {
+  "p": 10,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25600,
+  "accumulator_transistors": 10498,
+  "total_transistors": 36098
+ },
+ {
+  "p": 10,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25282,
+  "accumulator_transistors": 12286,
+  "total_transistors": 37568
+ },
+ {
+  "p": 10,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26096,
+  "accumulator_transistors": 11066,
+  "total_transistors": 37162
+ },
+ {
+  "p": 10,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 12256,
+  "total_transistors": 37850
+ },
+ {
+  "p": 10,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25446,
+  "accumulator_transistors": 11210,
+  "total_transistors": 36656
+ },
+ {
+  "p": 10,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25298,
+  "accumulator_transistors": 12414,
+  "total_transistors": 37712
+ },
+ {
+  "p": 10,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25600,
+  "accumulator_transistors": 10916,
+  "total_transistors": 36516
+ },
+ {
+  "p": 10,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 13190,
+  "total_transistors": 38784
+ },
+ {
+  "p": 10,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25446,
+  "accumulator_transistors": 11852,
+  "total_transistors": 37298
+ },
+ {
+  "p": 10,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25282,
+  "accumulator_transistors": 12878,
+  "total_transistors": 38160
+ },
+ {
+  "p": 10,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25908,
+  "accumulator_transistors": 11756,
+  "total_transistors": 37664
+ },
+ {
+  "p": 10,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25414,
+  "accumulator_transistors": 13482,
+  "total_transistors": 38896
+ },
+ {
+  "p": 10,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 12160,
+  "total_transistors": 37662
+ },
+ {
+  "p": 10,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25542,
+  "accumulator_transistors": 13998,
+  "total_transistors": 39540
+ },
+ {
+  "p": 10,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 26072,
+  "accumulator_transistors": 13114,
+  "total_transistors": 39186
+ },
+ {
+  "p": 10,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 14886,
+  "total_transistors": 40728
+ },
+ {
+  "p": 10,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25720,
+  "accumulator_transistors": 13482,
+  "total_transistors": 39202
+ },
+ {
+  "p": 10,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 15002,
+  "total_transistors": 40842
+ },
+ {
+  "p": 10,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 14050,
+  "total_transistors": 39482
+ },
+ {
+  "p": 10,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 15840,
+  "total_transistors": 41852
+ },
+ {
+  "p": 10,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14496,
+  "total_transistors": 40086
+ },
+ {
+  "p": 10,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26074,
+  "accumulator_transistors": 16456,
+  "total_transistors": 42530
+ },
+ {
+  "p": 10,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25408,
+  "accumulator_transistors": 14872,
+  "total_transistors": 40280
+ },
+ {
+  "p": 10,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 26148,
+  "accumulator_transistors": 15918,
+  "total_transistors": 42066
+ },
+ {
+  "p": 10,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25304,
+  "accumulator_transistors": 15000,
+  "total_transistors": 40304
+ },
+ {
+  "p": 10,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25918,
+  "accumulator_transistors": 17204,
+  "total_transistors": 43122
+ },
+ {
+  "p": 10,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 15064,
+  "total_transistors": 41148
+ },
+ {
+  "p": 11,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25470,
+  "accumulator_transistors": 17176,
+  "total_transistors": 42646
+ },
+ {
+  "p": 11,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25874,
+  "accumulator_transistors": 16016,
+  "total_transistors": 41890
+ },
+ {
+  "p": 11,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25528,
+  "accumulator_transistors": 12606,
+  "total_transistors": 38134
+ },
+ {
+  "p": 11,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25632,
+  "accumulator_transistors": 11124,
+  "total_transistors": 36756
+ },
+ {
+  "p": 11,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25772,
+  "accumulator_transistors": 13250,
+  "total_transistors": 39022
+ },
+ {
+  "p": 11,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26108,
+  "accumulator_transistors": 11570,
+  "total_transistors": 37678
+ },
+ {
+  "p": 11,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25530,
+  "accumulator_transistors": 13284,
+  "total_transistors": 38814
+ },
+ {
+  "p": 11,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 11926,
+  "total_transistors": 37428
+ },
+ {
+  "p": 11,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25850,
+  "accumulator_transistors": 13620,
+  "total_transistors": 39470
+ },
+ {
+  "p": 11,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25960,
+  "accumulator_transistors": 11772,
+  "total_transistors": 37732
+ },
+ {
+  "p": 11,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25530,
+  "accumulator_transistors": 13692,
+  "total_transistors": 39222
+ },
+ {
+  "p": 11,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 12212,
+  "total_transistors": 37714
+ },
+ {
+  "p": 11,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25772,
+  "accumulator_transistors": 14274,
+  "total_transistors": 40046
+ },
+ {
+  "p": 11,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26108,
+  "accumulator_transistors": 11862,
+  "total_transistors": 37970
+ },
+ {
+  "p": 11,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25530,
+  "accumulator_transistors": 14426,
+  "total_transistors": 39956
+ },
+ {
+  "p": 11,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 12578,
+  "total_transistors": 38080
+ },
+ {
+  "p": 11,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 14744,
+  "total_transistors": 40276
+ },
+ {
+  "p": 11,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25630,
+  "accumulator_transistors": 13186,
+  "total_transistors": 38816
+ },
+ {
+  "p": 11,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 15080,
+  "total_transistors": 40922
+ },
+ {
+  "p": 11,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 13514,
+  "total_transistors": 39242
+ },
+ {
+  "p": 11,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 14982,
+  "total_transistors": 40822
+ },
+ {
+  "p": 11,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 13768,
+  "total_transistors": 39200
+ },
+ {
+  "p": 11,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 15572,
+  "total_transistors": 41584
+ },
+ {
+  "p": 11,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 15106,
+  "total_transistors": 40696
+ },
+ {
+  "p": 11,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26386,
+  "accumulator_transistors": 17032,
+  "total_transistors": 43418
+ },
+ {
+  "p": 11,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25408,
+  "accumulator_transistors": 15448,
+  "total_transistors": 40856
+ },
+ {
+  "p": 11,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25572,
+  "accumulator_transistors": 17554,
+  "total_transistors": 43126
+ },
+ {
+  "p": 11,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 15760,
+  "total_transistors": 41620
+ },
+ {
+  "p": 11,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25724,
+  "accumulator_transistors": 16890,
+  "total_transistors": 42614
+ },
+ {
+  "p": 11,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 15950,
+  "total_transistors": 42354
+ },
+ {
+  "p": 12,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25472,
+  "accumulator_transistors": 17836,
+  "total_transistors": 43308
+ },
+ {
+  "p": 12,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25848,
+  "accumulator_transistors": 17020,
+  "total_transistors": 42868
+ },
+ {
+  "p": 12,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25956,
+  "accumulator_transistors": 13164,
+  "total_transistors": 39120
+ },
+ {
+  "p": 12,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25856,
+  "accumulator_transistors": 11770,
+  "total_transistors": 37626
+ },
+ {
+  "p": 12,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25956,
+  "accumulator_transistors": 13744,
+  "total_transistors": 39700
+ },
+ {
+  "p": 12,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25412,
+  "accumulator_transistors": 11860,
+  "total_transistors": 37272
+ },
+ {
+  "p": 12,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25402,
+  "accumulator_transistors": 13326,
+  "total_transistors": 38728
+ },
+ {
+  "p": 12,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 12518,
+  "total_transistors": 38068
+ },
+ {
+  "p": 12,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25490,
+  "accumulator_transistors": 14262,
+  "total_transistors": 39752
+ },
+ {
+  "p": 12,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 12476,
+  "total_transistors": 38026
+ },
+ {
+  "p": 12,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25402,
+  "accumulator_transistors": 14314,
+  "total_transistors": 39716
+ },
+ {
+  "p": 12,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 12530,
+  "total_transistors": 38080
+ },
+ {
+  "p": 12,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25956,
+  "accumulator_transistors": 13972,
+  "total_transistors": 39928
+ },
+ {
+  "p": 12,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25412,
+  "accumulator_transistors": 12890,
+  "total_transistors": 38302
+ },
+ {
+  "p": 12,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25402,
+  "accumulator_transistors": 14848,
+  "total_transistors": 40250
+ },
+ {
+  "p": 12,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 12846,
+  "total_transistors": 38396
+ },
+ {
+  "p": 12,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25402,
+  "accumulator_transistors": 14184,
+  "total_transistors": 39586
+ },
+ {
+  "p": 12,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25620,
+  "accumulator_transistors": 13042,
+  "total_transistors": 38662
+ },
+ {
+  "p": 12,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25602,
+  "accumulator_transistors": 14754,
+  "total_transistors": 40356
+ },
+ {
+  "p": 12,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25950,
+  "accumulator_transistors": 13370,
+  "total_transistors": 39320
+ },
+ {
+  "p": 12,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25390,
+  "accumulator_transistors": 16170,
+  "total_transistors": 41560
+ },
+ {
+  "p": 12,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 26102,
+  "accumulator_transistors": 14614,
+  "total_transistors": 40716
+ },
+ {
+  "p": 12,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25608,
+  "accumulator_transistors": 16518,
+  "total_transistors": 42126
+ },
+ {
+  "p": 12,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25518,
+  "accumulator_transistors": 14812,
+  "total_transistors": 40330
+ },
+ {
+  "p": 12,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25440,
+  "accumulator_transistors": 16752,
+  "total_transistors": 42192
+ },
+ {
+  "p": 12,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25582,
+  "accumulator_transistors": 14752,
+  "total_transistors": 40334
+ },
+ {
+  "p": 12,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25498,
+  "accumulator_transistors": 16718,
+  "total_transistors": 42216
+ },
+ {
+  "p": 12,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25634,
+  "accumulator_transistors": 16034,
+  "total_transistors": 41668
+ },
+ {
+  "p": 12,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25638,
+  "accumulator_transistors": 18000,
+  "total_transistors": 43638
+ },
+ {
+  "p": 12,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 16626,
+  "total_transistors": 42158
+ },
+ {
+  "p": 13,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 17420,
+  "total_transistors": 42930
+ },
+ {
+  "p": 13,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 17104,
+  "total_transistors": 42688
+ },
+ {
+  "p": 13,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25604,
+  "accumulator_transistors": 13512,
+  "total_transistors": 39116
+ },
+ {
+  "p": 13,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25900,
+  "accumulator_transistors": 12198,
+  "total_transistors": 38098
+ },
+ {
+  "p": 13,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25890,
+  "accumulator_transistors": 13550,
+  "total_transistors": 39440
+ },
+ {
+  "p": 13,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25528,
+  "accumulator_transistors": 12076,
+  "total_transistors": 37604
+ },
+ {
+  "p": 13,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 14016,
+  "total_transistors": 39858
+ },
+ {
+  "p": 13,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 12610,
+  "total_transistors": 38338
+ },
+ {
+  "p": 13,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25710,
+  "accumulator_transistors": 14436,
+  "total_transistors": 40146
+ },
+ {
+  "p": 13,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25764,
+  "accumulator_transistors": 13048,
+  "total_transistors": 38812
+ },
+ {
+  "p": 13,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 14396,
+  "total_transistors": 40238
+ },
+ {
+  "p": 13,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 13378,
+  "total_transistors": 39106
+ },
+ {
+  "p": 13,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25558,
+  "accumulator_transistors": 15308,
+  "total_transistors": 40866
+ },
+ {
+  "p": 13,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25366,
+  "accumulator_transistors": 13432,
+  "total_transistors": 38798
+ },
+ {
+  "p": 13,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25842,
+  "accumulator_transistors": 14408,
+  "total_transistors": 40250
+ },
+ {
+  "p": 13,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 13368,
+  "total_transistors": 39096
+ },
+ {
+  "p": 13,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25944,
+  "accumulator_transistors": 15014,
+  "total_transistors": 40958
+ },
+ {
+  "p": 13,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25720,
+  "accumulator_transistors": 14074,
+  "total_transistors": 39794
+ },
+ {
+  "p": 13,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25944,
+  "accumulator_transistors": 15354,
+  "total_transistors": 41298
+ },
+ {
+  "p": 13,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25744,
+  "accumulator_transistors": 14164,
+  "total_transistors": 39908
+ },
+ {
+  "p": 13,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 15918,
+  "total_transistors": 41758
+ },
+ {
+  "p": 13,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 14394,
+  "total_transistors": 39826
+ },
+ {
+  "p": 13,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 16488,
+  "total_transistors": 42500
+ },
+ {
+  "p": 13,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14800,
+  "total_transistors": 40390
+ },
+ {
+  "p": 13,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26386,
+  "accumulator_transistors": 17500,
+  "total_transistors": 43886
+ },
+ {
+  "p": 13,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25408,
+  "accumulator_transistors": 16200,
+  "total_transistors": 41608
+ },
+ {
+  "p": 13,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25572,
+  "accumulator_transistors": 17800,
+  "total_transistors": 43372
+ },
+ {
+  "p": 13,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 16858,
+  "total_transistors": 42718
+ },
+ {
+  "p": 13,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25428,
+  "accumulator_transistors": 18276,
+  "total_transistors": 43704
+ },
+ {
+  "p": 13,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 16174,
+  "total_transistors": 42578
+ },
+ {
+  "p": 14,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 17284,
+  "total_transistors": 42794
+ },
+ {
+  "p": 14,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25874,
+  "accumulator_transistors": 17632,
+  "total_transistors": 43506
+ },
+ {
+  "p": 14,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25598,
+  "accumulator_transistors": 14102,
+  "total_transistors": 39700
+ },
+ {
+  "p": 14,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 26136,
+  "accumulator_transistors": 12334,
+  "total_transistors": 38470
+ },
+ {
+  "p": 14,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25416,
+  "accumulator_transistors": 13924,
+  "total_transistors": 39340
+ },
+ {
+  "p": 14,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 12666,
+  "total_transistors": 38210
+ },
+ {
+  "p": 14,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 14994,
+  "total_transistors": 40988
+ },
+ {
+  "p": 14,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 13132,
+  "total_transistors": 38536
+ },
+ {
+  "p": 14,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25612,
+  "accumulator_transistors": 14966,
+  "total_transistors": 40578
+ },
+ {
+  "p": 14,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25542,
+  "accumulator_transistors": 13496,
+  "total_transistors": 39038
+ },
+ {
+  "p": 14,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 15214,
+  "total_transistors": 41208
+ },
+ {
+  "p": 14,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 13414,
+  "total_transistors": 38818
+ },
+ {
+  "p": 14,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 15116,
+  "total_transistors": 40956
+ },
+ {
+  "p": 14,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25582,
+  "accumulator_transistors": 13886,
+  "total_transistors": 39468
+ },
+ {
+  "p": 14,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 15218,
+  "total_transistors": 41212
+ },
+ {
+  "p": 14,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 14234,
+  "total_transistors": 39638
+ },
+ {
+  "p": 14,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25998,
+  "accumulator_transistors": 14846,
+  "total_transistors": 40844
+ },
+ {
+  "p": 14,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 14218,
+  "total_transistors": 39622
+ },
+ {
+  "p": 14,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 16580,
+  "total_transistors": 42574
+ },
+ {
+  "p": 14,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25404,
+  "accumulator_transistors": 14554,
+  "total_transistors": 39958
+ },
+ {
+  "p": 14,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 16540,
+  "total_transistors": 42380
+ },
+ {
+  "p": 14,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25432,
+  "accumulator_transistors": 14810,
+  "total_transistors": 40242
+ },
+ {
+  "p": 14,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 16474,
+  "total_transistors": 42486
+ },
+ {
+  "p": 14,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14982,
+  "total_transistors": 40572
+ },
+ {
+  "p": 14,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25492,
+  "accumulator_transistors": 18140,
+  "total_transistors": 43632
+ },
+ {
+  "p": 14,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25408,
+  "accumulator_transistors": 16130,
+  "total_transistors": 41538
+ },
+ {
+  "p": 14,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25572,
+  "accumulator_transistors": 17520,
+  "total_transistors": 43092
+ },
+ {
+  "p": 14,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25304,
+  "accumulator_transistors": 15836,
+  "total_transistors": 41140
+ },
+ {
+  "p": 14,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 26416,
+  "accumulator_transistors": 17962,
+  "total_transistors": 44378
+ },
+ {
+  "p": 14,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 17244,
+  "total_transistors": 43328
+ },
+ {
+  "p": 15,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 18104,
+  "total_transistors": 43614
+ },
+ {
+  "p": 15,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 17386,
+  "total_transistors": 42970
+ },
+ {
+  "p": 15,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25394,
+  "accumulator_transistors": 14882,
+  "total_transistors": 40276
+ },
+ {
+  "p": 15,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25982,
+  "accumulator_transistors": 12986,
+  "total_transistors": 38968
+ },
+ {
+  "p": 15,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 26110,
+  "accumulator_transistors": 14074,
+  "total_transistors": 40184
+ },
+ {
+  "p": 15,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25450,
+  "accumulator_transistors": 12890,
+  "total_transistors": 38340
+ },
+ {
+  "p": 15,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25394,
+  "accumulator_transistors": 15024,
+  "total_transistors": 40418
+ },
+ {
+  "p": 15,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25982,
+  "accumulator_transistors": 13440,
+  "total_transistors": 39422
+ },
+ {
+  "p": 15,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25692,
+  "accumulator_transistors": 15458,
+  "total_transistors": 41150
+ },
+ {
+  "p": 15,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25398,
+  "accumulator_transistors": 13880,
+  "total_transistors": 39278
+ },
+ {
+  "p": 15,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 15556,
+  "total_transistors": 41568
+ },
+ {
+  "p": 15,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14250,
+  "total_transistors": 39840
+ },
+ {
+  "p": 15,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25398,
+  "accumulator_transistors": 15668,
+  "total_transistors": 41066
+ },
+ {
+  "p": 15,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26154,
+  "accumulator_transistors": 14298,
+  "total_transistors": 40452
+ },
+ {
+  "p": 15,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 16268,
+  "total_transistors": 42280
+ },
+ {
+  "p": 15,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14582,
+  "total_transistors": 40172
+ },
+ {
+  "p": 15,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 16572,
+  "total_transistors": 42584
+ },
+ {
+  "p": 15,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 14824,
+  "total_transistors": 40414
+ },
+ {
+  "p": 15,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 16458,
+  "total_transistors": 42470
+ },
+ {
+  "p": 15,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 15016,
+  "total_transistors": 40606
+ },
+ {
+  "p": 15,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25398,
+  "accumulator_transistors": 16884,
+  "total_transistors": 42282
+ },
+ {
+  "p": 15,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 26154,
+  "accumulator_transistors": 15086,
+  "total_transistors": 41240
+ },
+ {
+  "p": 15,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 26012,
+  "accumulator_transistors": 17256,
+  "total_transistors": 43268
+ },
+ {
+  "p": 15,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 15106,
+  "total_transistors": 40696
+ },
+ {
+  "p": 15,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26386,
+  "accumulator_transistors": 17390,
+  "total_transistors": 43776
+ },
+ {
+  "p": 15,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25408,
+  "accumulator_transistors": 15684,
+  "total_transistors": 41092
+ },
+ {
+  "p": 15,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25572,
+  "accumulator_transistors": 18560,
+  "total_transistors": 44132
+ },
+ {
+  "p": 15,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 16640,
+  "total_transistors": 42500
+ },
+ {
+  "p": 15,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 26416,
+  "accumulator_transistors": 17938,
+  "total_transistors": 44354
+ },
+ {
+  "p": 15,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 17098,
+  "total_transistors": 43502
+ },
+ {
+  "p": 16,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25588,
+  "accumulator_transistors": 18386,
+  "total_transistors": 43974
+ },
+ {
+  "p": 16,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25624,
+  "accumulator_transistors": 17838,
+  "total_transistors": 43462
+ },
+ {
+  "p": 16,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25708,
+  "accumulator_transistors": 15158,
+  "total_transistors": 40866
+ },
+ {
+  "p": 16,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25386,
+  "accumulator_transistors": 13722,
+  "total_transistors": 39108
+ },
+ {
+  "p": 16,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25538,
+  "accumulator_transistors": 14916,
+  "total_transistors": 40454
+ },
+ {
+  "p": 16,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 13812,
+  "total_transistors": 39406
+ },
+ {
+  "p": 16,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25708,
+  "accumulator_transistors": 15108,
+  "total_transistors": 40816
+ },
+ {
+  "p": 16,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25386,
+  "accumulator_transistors": 14100,
+  "total_transistors": 39486
+ },
+ {
+  "p": 16,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25692,
+  "accumulator_transistors": 16378,
+  "total_transistors": 42070
+ },
+ {
+  "p": 16,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 26016,
+  "accumulator_transistors": 14270,
+  "total_transistors": 40286
+ },
+ {
+  "p": 16,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 16916,
+  "total_transistors": 42276
+ },
+ {
+  "p": 16,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 14914,
+  "total_transistors": 40672
+ },
+ {
+  "p": 16,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 16000,
+  "total_transistors": 41502
+ },
+ {
+  "p": 16,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26230,
+  "accumulator_transistors": 15072,
+  "total_transistors": 41302
+ },
+ {
+  "p": 16,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 16410,
+  "total_transistors": 41770
+ },
+ {
+  "p": 16,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 14894,
+  "total_transistors": 40652
+ },
+ {
+  "p": 16,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 16270,
+  "total_transistors": 41630
+ },
+ {
+  "p": 16,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 14920,
+  "total_transistors": 40678
+ },
+ {
+  "p": 16,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 16978,
+  "total_transistors": 42338
+ },
+ {
+  "p": 16,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 14894,
+  "total_transistors": 40652
+ },
+ {
+  "p": 16,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25502,
+  "accumulator_transistors": 17512,
+  "total_transistors": 43014
+ },
+ {
+  "p": 16,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 26230,
+  "accumulator_transistors": 15258,
+  "total_transistors": 41488
+ },
+ {
+  "p": 16,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25360,
+  "accumulator_transistors": 17188,
+  "total_transistors": 42548
+ },
+ {
+  "p": 16,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25758,
+  "accumulator_transistors": 15428,
+  "total_transistors": 41186
+ },
+ {
+  "p": 16,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25472,
+  "accumulator_transistors": 17594,
+  "total_transistors": 43066
+ },
+ {
+  "p": 16,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 26028,
+  "accumulator_transistors": 15980,
+  "total_transistors": 42008
+ },
+ {
+  "p": 16,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25630,
+  "accumulator_transistors": 18724,
+  "total_transistors": 44354
+ },
+ {
+  "p": 16,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25608,
+  "accumulator_transistors": 17244,
+  "total_transistors": 42852
+ },
+ {
+  "p": 16,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25630,
+  "accumulator_transistors": 18630,
+  "total_transistors": 44260
+ },
+ {
+  "p": 16,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26328,
+  "accumulator_transistors": 17040,
+  "total_transistors": 43368
+ },
+ {
+  "p": 17,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 18796,
+  "total_transistors": 44306
+ },
+ {
+  "p": 17,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 17688,
+  "total_transistors": 43272
+ },
+ {
+  "p": 17,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 26148,
+  "accumulator_transistors": 15798,
+  "total_transistors": 41946
+ },
+ {
+  "p": 17,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25534,
+  "accumulator_transistors": 14284,
+  "total_transistors": 39818
+ },
+ {
+  "p": 17,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25686,
+  "accumulator_transistors": 16350,
+  "total_transistors": 42036
+ },
+ {
+  "p": 17,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 14596,
+  "total_transistors": 40634
+ },
+ {
+  "p": 17,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 26148,
+  "accumulator_transistors": 15940,
+  "total_transistors": 42088
+ },
+ {
+  "p": 17,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25534,
+  "accumulator_transistors": 14468,
+  "total_transistors": 40002
+ },
+ {
+  "p": 17,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25984,
+  "accumulator_transistors": 16010,
+  "total_transistors": 41994
+ },
+ {
+  "p": 17,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25412,
+  "accumulator_transistors": 14920,
+  "total_transistors": 40332
+ },
+ {
+  "p": 17,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 16848,
+  "total_transistors": 42442
+ },
+ {
+  "p": 17,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 15862,
+  "total_transistors": 41722
+ },
+ {
+  "p": 17,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25556,
+  "accumulator_transistors": 17070,
+  "total_transistors": 42626
+ },
+ {
+  "p": 17,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 15634,
+  "total_transistors": 41620
+ },
+ {
+  "p": 17,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 16954,
+  "total_transistors": 42548
+ },
+ {
+  "p": 17,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25452,
+  "accumulator_transistors": 16206,
+  "total_transistors": 41658
+ },
+ {
+  "p": 17,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 17336,
+  "total_transistors": 42930
+ },
+ {
+  "p": 17,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25304,
+  "accumulator_transistors": 15788,
+  "total_transistors": 41092
+ },
+ {
+  "p": 17,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 18332,
+  "total_transistors": 43926
+ },
+ {
+  "p": 17,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 16726,
+  "total_transistors": 42586
+ },
+ {
+  "p": 17,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25920,
+  "accumulator_transistors": 18014,
+  "total_transistors": 43934
+ },
+ {
+  "p": 17,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 16078,
+  "total_transistors": 42064
+ },
+ {
+  "p": 17,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25594,
+  "accumulator_transistors": 17640,
+  "total_transistors": 43234
+ },
+ {
+  "p": 17,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25860,
+  "accumulator_transistors": 16066,
+  "total_transistors": 41926
+ },
+ {
+  "p": 17,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 18408,
+  "total_transistors": 43992
+ },
+ {
+  "p": 17,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 26180,
+  "accumulator_transistors": 16796,
+  "total_transistors": 42976
+ },
+ {
+  "p": 17,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25572,
+  "accumulator_transistors": 17832,
+  "total_transistors": 43404
+ },
+ {
+  "p": 17,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25304,
+  "accumulator_transistors": 16728,
+  "total_transistors": 42032
+ },
+ {
+  "p": 17,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25428,
+  "accumulator_transistors": 18554,
+  "total_transistors": 43982
+ },
+ {
+  "p": 17,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 17476,
+  "total_transistors": 43880
+ },
+ {
+  "p": 18,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 18356,
+  "total_transistors": 43866
+ },
+ {
+  "p": 18,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 17718,
+  "total_transistors": 43302
+ },
+ {
+  "p": 18,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25478,
+  "accumulator_transistors": 16296,
+  "total_transistors": 41774
+ },
+ {
+  "p": 18,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25534,
+  "accumulator_transistors": 14156,
+  "total_transistors": 39690
+ },
+ {
+  "p": 18,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25422,
+  "accumulator_transistors": 16210,
+  "total_transistors": 41632
+ },
+ {
+  "p": 18,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 14790,
+  "total_transistors": 40374
+ },
+ {
+  "p": 18,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25478,
+  "accumulator_transistors": 16228,
+  "total_transistors": 41706
+ },
+ {
+  "p": 18,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25534,
+  "accumulator_transistors": 14862,
+  "total_transistors": 40396
+ },
+ {
+  "p": 18,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25478,
+  "accumulator_transistors": 16498,
+  "total_transistors": 41976
+ },
+ {
+  "p": 18,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25568,
+  "accumulator_transistors": 15144,
+  "total_transistors": 40712
+ },
+ {
+  "p": 18,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25686,
+  "accumulator_transistors": 17084,
+  "total_transistors": 42770
+ },
+ {
+  "p": 18,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25988,
+  "accumulator_transistors": 16540,
+  "total_transistors": 42528
+ },
+ {
+  "p": 18,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25576,
+  "accumulator_transistors": 17088,
+  "total_transistors": 42664
+ },
+ {
+  "p": 18,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25600,
+  "accumulator_transistors": 16238,
+  "total_transistors": 41838
+ },
+ {
+  "p": 18,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25686,
+  "accumulator_transistors": 17492,
+  "total_transistors": 43178
+ },
+ {
+  "p": 18,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25988,
+  "accumulator_transistors": 16164,
+  "total_transistors": 42152
+ },
+ {
+  "p": 18,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25598,
+  "accumulator_transistors": 17508,
+  "total_transistors": 43106
+ },
+ {
+  "p": 18,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25988,
+  "accumulator_transistors": 16276,
+  "total_transistors": 42264
+ },
+ {
+  "p": 18,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25636,
+  "accumulator_transistors": 18364,
+  "total_transistors": 44000
+ },
+ {
+  "p": 18,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25988,
+  "accumulator_transistors": 17062,
+  "total_transistors": 43050
+ },
+ {
+  "p": 18,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25444,
+  "accumulator_transistors": 18414,
+  "total_transistors": 43858
+ },
+ {
+  "p": 18,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25600,
+  "accumulator_transistors": 16606,
+  "total_transistors": 42206
+ },
+ {
+  "p": 18,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25686,
+  "accumulator_transistors": 18248,
+  "total_transistors": 43934
+ },
+ {
+  "p": 18,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25988,
+  "accumulator_transistors": 16570,
+  "total_transistors": 42558
+ },
+ {
+  "p": 18,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25344,
+  "accumulator_transistors": 19012,
+  "total_transistors": 44356
+ },
+ {
+  "p": 18,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25972,
+  "accumulator_transistors": 17452,
+  "total_transistors": 43424
+ },
+ {
+  "p": 18,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 18684,
+  "total_transistors": 44216
+ },
+ {
+  "p": 18,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 26092,
+  "accumulator_transistors": 17424,
+  "total_transistors": 43516
+ },
+ {
+  "p": 18,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25428,
+  "accumulator_transistors": 18358,
+  "total_transistors": 43786
+ },
+ {
+  "p": 18,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26404,
+  "accumulator_transistors": 17610,
+  "total_transistors": 44014
+ },
+ {
+  "p": 19,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25510,
+  "accumulator_transistors": 18724,
+  "total_transistors": 44234
+ },
+ {
+  "p": 19,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 18470,
+  "total_transistors": 44054
+ },
+ {
+  "p": 19,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 16934,
+  "total_transistors": 42928
+ },
+ {
+  "p": 19,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25890,
+  "accumulator_transistors": 15332,
+  "total_transistors": 41222
+ },
+ {
+  "p": 19,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25664,
+  "accumulator_transistors": 16894,
+  "total_transistors": 42558
+ },
+ {
+  "p": 19,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25396,
+  "accumulator_transistors": 15458,
+  "total_transistors": 40854
+ },
+ {
+  "p": 19,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 17426,
+  "total_transistors": 43420
+ },
+ {
+  "p": 19,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25426,
+  "accumulator_transistors": 16128,
+  "total_transistors": 41554
+ },
+ {
+  "p": 19,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25378,
+  "accumulator_transistors": 17708,
+  "total_transistors": 43086
+ },
+ {
+  "p": 19,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25610,
+  "accumulator_transistors": 15914,
+  "total_transistors": 41524
+ },
+ {
+  "p": 19,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25994,
+  "accumulator_transistors": 18056,
+  "total_transistors": 44050
+ },
+ {
+  "p": 19,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25426,
+  "accumulator_transistors": 15938,
+  "total_transistors": 41364
+ },
+ {
+  "p": 19,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 18574,
+  "total_transistors": 44118
+ },
+ {
+  "p": 19,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25598,
+  "accumulator_transistors": 16748,
+  "total_transistors": 42346
+ },
+ {
+  "p": 19,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25966,
+  "accumulator_transistors": 19074,
+  "total_transistors": 45040
+ },
+ {
+  "p": 19,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25786,
+  "accumulator_transistors": 16522,
+  "total_transistors": 42308
+ },
+ {
+  "p": 19,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 19358,
+  "total_transistors": 44902
+ },
+ {
+  "p": 19,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25880,
+  "accumulator_transistors": 17116,
+  "total_transistors": 42996
+ },
+ {
+  "p": 19,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 18696,
+  "total_transistors": 44240
+ },
+ {
+  "p": 19,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25786,
+  "accumulator_transistors": 16996,
+  "total_transistors": 42782
+ },
+ {
+  "p": 19,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 19932,
+  "total_transistors": 45476
+ },
+ {
+  "p": 19,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25598,
+  "accumulator_transistors": 17310,
+  "total_transistors": 42908
+ },
+ {
+  "p": 19,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25966,
+  "accumulator_transistors": 19432,
+  "total_transistors": 45398
+ },
+ {
+  "p": 19,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25786,
+  "accumulator_transistors": 18096,
+  "total_transistors": 43882
+ },
+ {
+  "p": 19,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25638,
+  "accumulator_transistors": 19678,
+  "total_transistors": 45316
+ },
+ {
+  "p": 19,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 18138,
+  "total_transistors": 43722
+ },
+ {
+  "p": 19,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 19268,
+  "total_transistors": 44812
+ },
+ {
+  "p": 19,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 26042,
+  "accumulator_transistors": 17310,
+  "total_transistors": 43352
+ },
+ {
+  "p": 19,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25544,
+  "accumulator_transistors": 19068,
+  "total_transistors": 44612
+ },
+ {
+  "p": 19,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25948,
+  "accumulator_transistors": 18316,
+  "total_transistors": 44264
+ },
+ {
+  "p": 20,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25938,
+  "accumulator_transistors": 20232,
+  "total_transistors": 46170
+ },
+ {
+  "p": 20,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 19248,
+  "total_transistors": 44832
+ },
+ {
+  "p": 20,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25494,
+  "accumulator_transistors": 17344,
+  "total_transistors": 42838
+ },
+ {
+  "p": 20,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 26306,
+  "accumulator_transistors": 16004,
+  "total_transistors": 42310
+ },
+ {
+  "p": 20,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25292,
+  "accumulator_transistors": 18034,
+  "total_transistors": 43326
+ },
+ {
+  "p": 20,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25558,
+  "accumulator_transistors": 16366,
+  "total_transistors": 41924
+ },
+ {
+  "p": 20,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25494,
+  "accumulator_transistors": 17588,
+  "total_transistors": 43082
+ },
+ {
+  "p": 20,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25804,
+  "accumulator_transistors": 16158,
+  "total_transistors": 41962
+ },
+ {
+  "p": 20,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25540,
+  "accumulator_transistors": 17764,
+  "total_transistors": 43304
+ },
+ {
+  "p": 20,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25940,
+  "accumulator_transistors": 16430,
+  "total_transistors": 42370
+ },
+ {
+  "p": 20,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25494,
+  "accumulator_transistors": 18292,
+  "total_transistors": 43786
+ },
+ {
+  "p": 20,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 26306,
+  "accumulator_transistors": 16612,
+  "total_transistors": 42918
+ },
+ {
+  "p": 20,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25566,
+  "accumulator_transistors": 19114,
+  "total_transistors": 44680
+ },
+ {
+  "p": 20,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26162,
+  "accumulator_transistors": 16340,
+  "total_transistors": 42502
+ },
+ {
+  "p": 20,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25524,
+  "accumulator_transistors": 19292,
+  "total_transistors": 44816
+ },
+ {
+  "p": 20,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25952,
+  "accumulator_transistors": 17650,
+  "total_transistors": 43602
+ },
+ {
+  "p": 20,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25524,
+  "accumulator_transistors": 19824,
+  "total_transistors": 45348
+ },
+ {
+  "p": 20,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25640,
+  "accumulator_transistors": 17526,
+  "total_transistors": 43166
+ },
+ {
+  "p": 20,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25566,
+  "accumulator_transistors": 19942,
+  "total_transistors": 45508
+ },
+ {
+  "p": 20,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 17902,
+  "total_transistors": 43452
+ },
+ {
+  "p": 20,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25418,
+  "accumulator_transistors": 19256,
+  "total_transistors": 44674
+ },
+ {
+  "p": 20,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25634,
+  "accumulator_transistors": 18104,
+  "total_transistors": 43738
+ },
+ {
+  "p": 20,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25524,
+  "accumulator_transistors": 19274,
+  "total_transistors": 44798
+ },
+ {
+  "p": 20,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25550,
+  "accumulator_transistors": 18670,
+  "total_transistors": 44220
+ },
+ {
+  "p": 20,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25584,
+  "accumulator_transistors": 19732,
+  "total_transistors": 45316
+ },
+ {
+  "p": 20,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25646,
+  "accumulator_transistors": 17592,
+  "total_transistors": 43238
+ },
+ {
+  "p": 20,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25524,
+  "accumulator_transistors": 19416,
+  "total_transistors": 44940
+ },
+ {
+  "p": 20,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25952,
+  "accumulator_transistors": 18392,
+  "total_transistors": 44344
+ },
+ {
+  "p": 20,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25566,
+  "accumulator_transistors": 19736,
+  "total_transistors": 45302
+ },
+ {
+  "p": 20,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25728,
+  "accumulator_transistors": 17900,
+  "total_transistors": 43628
+ },
+ {
+  "p": 21,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25434,
+  "accumulator_transistors": 20192,
+  "total_transistors": 45626
+ },
+ {
+  "p": 21,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 26082,
+  "accumulator_transistors": 18530,
+  "total_transistors": 44612
+ },
+ {
+  "p": 21,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25656,
+  "accumulator_transistors": 17994,
+  "total_transistors": 43650
+ },
+ {
+  "p": 21,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25772,
+  "accumulator_transistors": 16764,
+  "total_transistors": 42536
+ },
+ {
+  "p": 21,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25938,
+  "accumulator_transistors": 18076,
+  "total_transistors": 44014
+ },
+ {
+  "p": 21,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25596,
+  "accumulator_transistors": 16322,
+  "total_transistors": 41918
+ },
+ {
+  "p": 21,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25656,
+  "accumulator_transistors": 18712,
+  "total_transistors": 44368
+ },
+ {
+  "p": 21,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25772,
+  "accumulator_transistors": 16518,
+  "total_transistors": 42290
+ },
+ {
+  "p": 21,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25636,
+  "accumulator_transistors": 18998,
+  "total_transistors": 44634
+ },
+ {
+  "p": 21,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25798,
+  "accumulator_transistors": 17188,
+  "total_transistors": 42986
+ },
+ {
+  "p": 21,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25910,
+  "accumulator_transistors": 19166,
+  "total_transistors": 45076
+ },
+ {
+  "p": 21,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25772,
+  "accumulator_transistors": 17290,
+  "total_transistors": 43062
+ },
+ {
+  "p": 21,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25938,
+  "accumulator_transistors": 19642,
+  "total_transistors": 45580
+ },
+ {
+  "p": 21,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25596,
+  "accumulator_transistors": 17208,
+  "total_transistors": 42804
+ },
+ {
+  "p": 21,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25704,
+  "accumulator_transistors": 19520,
+  "total_transistors": 45224
+ },
+ {
+  "p": 21,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25586,
+  "accumulator_transistors": 18116,
+  "total_transistors": 43702
+ },
+ {
+  "p": 21,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25704,
+  "accumulator_transistors": 19962,
+  "total_transistors": 45666
+ },
+ {
+  "p": 21,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25826,
+  "accumulator_transistors": 18434,
+  "total_transistors": 44260
+ },
+ {
+  "p": 21,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25704,
+  "accumulator_transistors": 19296,
+  "total_transistors": 45000
+ },
+ {
+  "p": 21,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25586,
+  "accumulator_transistors": 18708,
+  "total_transistors": 44294
+ },
+ {
+  "p": 21,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25822,
+  "accumulator_transistors": 19914,
+  "total_transistors": 45736
+ },
+ {
+  "p": 21,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25652,
+  "accumulator_transistors": 19368,
+  "total_transistors": 45020
+ },
+ {
+  "p": 21,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25704,
+  "accumulator_transistors": 19844,
+  "total_transistors": 45548
+ },
+ {
+  "p": 21,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25586,
+  "accumulator_transistors": 18914,
+  "total_transistors": 44500
+ },
+ {
+  "p": 21,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25428,
+  "accumulator_transistors": 19480,
+  "total_transistors": 44908
+ },
+ {
+  "p": 21,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25940,
+  "accumulator_transistors": 19814,
+  "total_transistors": 45754
+ },
+ {
+  "p": 21,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25612,
+  "accumulator_transistors": 20294,
+  "total_transistors": 45906
+ },
+ {
+  "p": 21,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 26374,
+  "accumulator_transistors": 18714,
+  "total_transistors": 45088
+ },
+ {
+  "p": 21,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25712,
+  "accumulator_transistors": 20714,
+  "total_transistors": 46426
+ },
+ {
+  "p": 21,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25536,
+  "accumulator_transistors": 19676,
+  "total_transistors": 45212
+ },
+ {
+  "p": 22,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 26224,
+  "accumulator_transistors": 20978,
+  "total_transistors": 47202
+ },
+ {
+  "p": 22,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 26318,
+  "accumulator_transistors": 19830,
+  "total_transistors": 46148
+ },
+ {
+  "p": 22,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 25666,
+  "accumulator_transistors": 18846,
+  "total_transistors": 44512
+ },
+ {
+  "p": 22,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25610,
+  "accumulator_transistors": 16962,
+  "total_transistors": 42572
+ },
+ {
+  "p": 22,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 26542,
+  "accumulator_transistors": 19162,
+  "total_transistors": 45704
+ },
+ {
+  "p": 22,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 17336,
+  "total_transistors": 43374
+ },
+ {
+  "p": 22,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 25666,
+  "accumulator_transistors": 19038,
+  "total_transistors": 44704
+ },
+ {
+  "p": 22,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25610,
+  "accumulator_transistors": 17310,
+  "total_transistors": 42920
+ },
+ {
+  "p": 22,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 25390,
+  "accumulator_transistors": 19820,
+  "total_transistors": 45210
+ },
+ {
+  "p": 22,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25590,
+  "accumulator_transistors": 17494,
+  "total_transistors": 43084
+ },
+ {
+  "p": 22,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 25666,
+  "accumulator_transistors": 20212,
+  "total_transistors": 45878
+ },
+ {
+  "p": 22,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25610,
+  "accumulator_transistors": 17546,
+  "total_transistors": 43156
+ },
+ {
+  "p": 22,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 26542,
+  "accumulator_transistors": 19890,
+  "total_transistors": 46432
+ },
+ {
+  "p": 22,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26038,
+  "accumulator_transistors": 17810,
+  "total_transistors": 43848
+ },
+ {
+  "p": 22,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 20436,
+  "total_transistors": 46422
+ },
+ {
+  "p": 22,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 26336,
+  "accumulator_transistors": 18382,
+  "total_transistors": 44718
+ },
+ {
+  "p": 22,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 20392,
+  "total_transistors": 46378
+ },
+ {
+  "p": 22,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 26336,
+  "accumulator_transistors": 18816,
+  "total_transistors": 45152
+ },
+ {
+  "p": 22,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 20600,
+  "total_transistors": 46586
+ },
+ {
+  "p": 22,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 26336,
+  "accumulator_transistors": 18034,
+  "total_transistors": 44370
+ },
+ {
+  "p": 22,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25776,
+  "accumulator_transistors": 20808,
+  "total_transistors": 46584
+ },
+ {
+  "p": 22,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25634,
+  "accumulator_transistors": 18940,
+  "total_transistors": 44574
+ },
+ {
+  "p": 22,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 21364,
+  "total_transistors": 47350
+ },
+ {
+  "p": 22,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 26336,
+  "accumulator_transistors": 19630,
+  "total_transistors": 45966
+ },
+ {
+  "p": 22,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25888,
+  "accumulator_transistors": 21390,
+  "total_transistors": 47278
+ },
+ {
+  "p": 22,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25958,
+  "accumulator_transistors": 18104,
+  "total_transistors": 44062
+ },
+ {
+  "p": 22,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25986,
+  "accumulator_transistors": 20882,
+  "total_transistors": 46868
+ },
+ {
+  "p": 22,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 26336,
+  "accumulator_transistors": 19638,
+  "total_transistors": 45974
+ },
+ {
+  "p": 22,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25618,
+  "accumulator_transistors": 21098,
+  "total_transistors": 46716
+ },
+ {
+  "p": 22,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25760,
+  "accumulator_transistors": 20222,
+  "total_transistors": 45982
+ },
+ {
+  "p": 23,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25836,
+  "accumulator_transistors": 21236,
+  "total_transistors": 47072
+ },
+ {
+  "p": 23,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25656,
+  "accumulator_transistors": 20572,
+  "total_transistors": 46228
+ },
+ {
+  "p": 23,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 26226,
+  "accumulator_transistors": 19058,
+  "total_transistors": 45284
+ },
+ {
+  "p": 23,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 17960,
+  "total_transistors": 44044
+ },
+ {
+  "p": 23,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 18960,
+  "total_transistors": 44492
+ },
+ {
+  "p": 23,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 25646,
+  "accumulator_transistors": 17732,
+  "total_transistors": 43378
+ },
+ {
+  "p": 23,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 26226,
+  "accumulator_transistors": 18956,
+  "total_transistors": 45182
+ },
+ {
+  "p": 23,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 17476,
+  "total_transistors": 43560
+ },
+ {
+  "p": 23,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 26402,
+  "accumulator_transistors": 19836,
+  "total_transistors": 46238
+ },
+ {
+  "p": 23,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 25546,
+  "accumulator_transistors": 17994,
+  "total_transistors": 43540
+ },
+ {
+  "p": 23,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 26226,
+  "accumulator_transistors": 20118,
+  "total_transistors": 46344
+ },
+ {
+  "p": 23,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 18614,
+  "total_transistors": 44698
+ },
+ {
+  "p": 23,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25532,
+  "accumulator_transistors": 20944,
+  "total_transistors": 46476
+ },
+ {
+  "p": 23,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 25646,
+  "accumulator_transistors": 18052,
+  "total_transistors": 43698
+ },
+ {
+  "p": 23,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 26226,
+  "accumulator_transistors": 20574,
+  "total_transistors": 46800
+ },
+ {
+  "p": 23,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 26084,
+  "accumulator_transistors": 18380,
+  "total_transistors": 44464
+ },
+ {
+  "p": 23,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 26150,
+  "accumulator_transistors": 21290,
+  "total_transistors": 47440
+ },
+ {
+  "p": 23,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25454,
+  "accumulator_transistors": 19222,
+  "total_transistors": 44676
+ },
+ {
+  "p": 23,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 26150,
+  "accumulator_transistors": 21888,
+  "total_transistors": 48038
+ },
+ {
+  "p": 23,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25454,
+  "accumulator_transistors": 18996,
+  "total_transistors": 44450
+ },
+ {
+  "p": 23,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25722,
+  "accumulator_transistors": 21040,
+  "total_transistors": 46762
+ },
+ {
+  "p": 23,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25454,
+  "accumulator_transistors": 19288,
+  "total_transistors": 44742
+ },
+ {
+  "p": 23,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25546,
+  "accumulator_transistors": 21098,
+  "total_transistors": 46644
+ },
+ {
+  "p": 23,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25614,
+  "accumulator_transistors": 19836,
+  "total_transistors": 45450
+ },
+ {
+  "p": 23,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 25760,
+  "accumulator_transistors": 21926,
+  "total_transistors": 47686
+ },
+ {
+  "p": 23,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25504,
+  "accumulator_transistors": 19902,
+  "total_transistors": 45406
+ },
+ {
+  "p": 23,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25546,
+  "accumulator_transistors": 21618,
+  "total_transistors": 47164
+ },
+ {
+  "p": 23,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25614,
+  "accumulator_transistors": 20646,
+  "total_transistors": 46260
+ },
+ {
+  "p": 23,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 26390,
+  "accumulator_transistors": 23078,
+  "total_transistors": 49468
+ },
+ {
+  "p": 23,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 26016,
+  "accumulator_transistors": 20046,
+  "total_transistors": 46062
+ },
+ {
+  "p": 24,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25724,
+  "accumulator_transistors": 22044,
+  "total_transistors": 47768
+ },
+ {
+  "p": 24,
+  "q": 19,
+  "mode": "rz",
+  "block_product_transistors": 25644,
+  "accumulator_transistors": 21466,
+  "total_transistors": 47110
+ },
+ {
+  "p": 24,
+  "q": 5,
+  "mode": "rne",
+  "block_product_transistors": 26266,
+  "accumulator_transistors": 19406,
+  "total_transistors": 45672
+ },
+ {
+  "p": 24,
+  "q": 5,
+  "mode": "rz",
+  "block_product_transistors": 25588,
+  "accumulator_transistors": 17628,
+  "total_transistors": 43216
+ },
+ {
+  "p": 24,
+  "q": 6,
+  "mode": "rne",
+  "block_product_transistors": 25458,
+  "accumulator_transistors": 19800,
+  "total_transistors": 45258
+ },
+ {
+  "p": 24,
+  "q": 6,
+  "mode": "rz",
+  "block_product_transistors": 26196,
+  "accumulator_transistors": 17810,
+  "total_transistors": 44006
+ },
+ {
+  "p": 24,
+  "q": 7,
+  "mode": "rne",
+  "block_product_transistors": 26266,
+  "accumulator_transistors": 19594,
+  "total_transistors": 45860
+ },
+ {
+  "p": 24,
+  "q": 7,
+  "mode": "rz",
+  "block_product_transistors": 25588,
+  "accumulator_transistors": 17760,
+  "total_transistors": 43348
+ },
+ {
+  "p": 24,
+  "q": 8,
+  "mode": "rne",
+  "block_product_transistors": 26050,
+  "accumulator_transistors": 20600,
+  "total_transistors": 46650
+ },
+ {
+  "p": 24,
+  "q": 8,
+  "mode": "rz",
+  "block_product_transistors": 26118,
+  "accumulator_transistors": 18320,
+  "total_transistors": 44438
+ },
+ {
+  "p": 24,
+  "q": 9,
+  "mode": "rne",
+  "block_product_transistors": 26266,
+  "accumulator_transistors": 20784,
+  "total_transistors": 47050
+ },
+ {
+  "p": 24,
+  "q": 9,
+  "mode": "rz",
+  "block_product_transistors": 25588,
+  "accumulator_transistors": 18372,
+  "total_transistors": 43960
+ },
+ {
+  "p": 24,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25458,
+  "accumulator_transistors": 21184,
+  "total_transistors": 46642
+ },
+ {
+  "p": 24,
+  "q": 10,
+  "mode": "rz",
+  "block_product_transistors": 26196,
+  "accumulator_transistors": 18754,
+  "total_transistors": 44950
+ },
+ {
+  "p": 24,
+  "q": 11,
+  "mode": "rne",
+  "block_product_transistors": 26266,
+  "accumulator_transistors": 20982,
+  "total_transistors": 47248
+ },
+ {
+  "p": 24,
+  "q": 11,
+  "mode": "rz",
+  "block_product_transistors": 25568,
+  "accumulator_transistors": 18956,
+  "total_transistors": 44524
+ },
+ {
+  "p": 24,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25582,
+  "accumulator_transistors": 21374,
+  "total_transistors": 46956
+ },
+ {
+  "p": 24,
+  "q": 12,
+  "mode": "rz",
+  "block_product_transistors": 25642,
+  "accumulator_transistors": 19658,
+  "total_transistors": 45300
+ },
+ {
+  "p": 24,
+  "q": 13,
+  "mode": "rne",
+  "block_product_transistors": 25806,
+  "accumulator_transistors": 22248,
+  "total_transistors": 48054
+ },
+ {
+  "p": 24,
+  "q": 13,
+  "mode": "rz",
+  "block_product_transistors": 25958,
+  "accumulator_transistors": 19306,
+  "total_transistors": 45264
+ },
+ {
+  "p": 24,
+  "q": 14,
+  "mode": "rne",
+  "block_product_transistors": 25766,
+  "accumulator_transistors": 21020,
+  "total_transistors": 46786
+ },
+ {
+  "p": 24,
+  "q": 14,
+  "mode": "rz",
+  "block_product_transistors": 25476,
+  "accumulator_transistors": 20068,
+  "total_transistors": 45544
+ },
+ {
+  "p": 24,
+  "q": 15,
+  "mode": "rne",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 22056,
+  "total_transistors": 47370
+ },
+ {
+  "p": 24,
+  "q": 15,
+  "mode": "rz",
+  "block_product_transistors": 25958,
+  "accumulator_transistors": 20766,
+  "total_transistors": 46724
+ },
+ {
+  "p": 24,
+  "q": 16,
+  "mode": "rne",
+  "block_product_transistors": 26458,
+  "accumulator_transistors": 22400,
+  "total_transistors": 48858
+ },
+ {
+  "p": 24,
+  "q": 16,
+  "mode": "rz",
+  "block_product_transistors": 25976,
+  "accumulator_transistors": 20256,
+  "total_transistors": 46232
+ },
+ {
+  "p": 24,
+  "q": 17,
+  "mode": "rne",
+  "block_product_transistors": 25314,
+  "accumulator_transistors": 22626,
+  "total_transistors": 47940
+ },
+ {
+  "p": 24,
+  "q": 17,
+  "mode": "rz",
+  "block_product_transistors": 25958,
+  "accumulator_transistors": 20692,
+  "total_transistors": 46650
+ },
+ {
+  "p": 24,
+  "q": 18,
+  "mode": "rne",
+  "block_product_transistors": 25742,
+  "accumulator_transistors": 22118,
+  "total_transistors": 47860
+ },
+ {
+  "p": 24,
+  "q": 18,
+  "mode": "rz",
+  "block_product_transistors": 25680,
+  "accumulator_transistors": 20460,
+  "total_transistors": 46140
+ }
+]
