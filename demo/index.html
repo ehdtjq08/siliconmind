@@ -479,6 +479,8 @@ function renderReplay() {
 const FACT_CHECKS = {
   "20261029_160417": { needle: "RZ never viable",
     note: "Over-generalized: truncation does work with wider accumulators (P12 RZ measured +0.4%, P24 RZ exact). It fails only at the small widths the agent tested." },
+  "20261029_205831": { needle: "RZ fails everywhere",
+    note: "Over-generalized: truncation does work with wider accumulators (P12 RZ measured +0.4%). It fails at the P9-and-below widths this run tested." },
 };
 function mdLite(s) {
   return esc(s).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>").replace(/`([^`]+)`/g, "<code>$1</code>")

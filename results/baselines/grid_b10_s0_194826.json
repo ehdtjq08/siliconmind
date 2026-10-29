@@ -1,0 +1,135 @@
+{
+ "kind": "grid",
+ "budget": 10,
+ "evaluated": [
+  {
+   "p": 6,
+   "q": 8,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 572981.1880667469,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 4220155.47968744,
+   "block_product_transistors": 25380,
+   "accumulator_transistors": 9928,
+   "total_transistors": 35308
+  },
+  {
+   "p": 8,
+   "q": 8,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 284.0673075816021,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 1992.2791819155862,
+   "block_product_transistors": 25470,
+   "accumulator_transistors": 10038,
+   "total_transistors": 35508
+  },
+  {
+   "p": 10,
+   "q": 8,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 15.027273589845137,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 10.68240115575756,
+   "block_product_transistors": 25600,
+   "accumulator_transistors": 10916,
+   "total_transistors": 36516
+  },
+  {
+   "p": 6,
+   "q": 8,
+   "mode": "rne",
+   "segments": 4,
+   "ppl": 16.149600524333746,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 18.948826814961972,
+   "block_product_transistors": 25994,
+   "accumulator_transistors": 11056,
+   "total_transistors": 37050
+  },
+  {
+   "p": 8,
+   "q": 8,
+   "mode": "rne",
+   "segments": 4,
+   "ppl": 13.723246560934859,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 1.077675330486616,
+   "block_product_transistors": 25710,
+   "accumulator_transistors": 11538,
+   "total_transistors": 37248
+  },
+  {
+   "p": 6,
+   "q": 12,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 604478.7147919768,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 4452148.453500856,
+   "block_product_transistors": 25360,
+   "accumulator_transistors": 12120,
+   "total_transistors": 37480
+  },
+  {
+   "p": 10,
+   "q": 8,
+   "mode": "rne",
+   "segments": 4,
+   "ppl": 13.63383967602564,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 0.4191547650331362,
+   "block_product_transistors": 25298,
+   "accumulator_transistors": 12414,
+   "total_transistors": 37712
+  },
+  {
+   "p": 12,
+   "q": 8,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 13.618013738185061,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 0.3025898545545802,
+   "block_product_transistors": 25550,
+   "accumulator_transistors": 12476,
+   "total_transistors": 38026
+  },
+  {
+   "p": 8,
+   "q": 12,
+   "mode": "rz",
+   "segments": 4,
+   "ppl": 304.73536989744974,
+   "ppl_exact_accumulation": 13.576931321446521,
+   "delta_ppl_percent": 2144.5084436427906,
+   "block_product_transistors": 25476,
+   "accumulator_transistors": 12684,
+   "total_transistors": 38160
+  }
+ ],
+ "chosen": {
+  "p": 10,
+  "q": 8,
+  "mode": "rne",
+  "segments": 4,
+  "ppl": 13.63383967602564,
+  "ppl_exact_accumulation": 13.576931321446521,
+  "delta_ppl_percent": 0.4191547650331362,
+  "block_product_transistors": 25298,
+  "accumulator_transistors": 12414,
+  "total_transistors": 37712
+ },
+ "confirmed": {
+  "p": 10,
+  "q": 8,
+  "mode": "rne",
+  "segments": 32,
+  "ppl": 14.393315784852868,
+  "ppl_exact_accumulation": 14.375074147853276,
+  "delta_ppl_percent": 0.1268976897925711
+ }
+}
