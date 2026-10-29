@@ -49,12 +49,15 @@ def main():
                 return
             time.sleep(0.5)
             continue
-        job = json.loads(claimed.read_text())
-        unit.default, unit.per_layer = job["config"], job.get("per_layer", {})
         t0 = time.time()
-        rows = [segment_nll(model, torch.tensor([segs[i]], device="cuda")) for i in job["segments"]]
-        job.update(segment_nll=[r[0] for r in rows], segment_tokens=[r[1] for r in rows],
-                   seconds=time.time() - t0, worker=me)
+        try:
+            job = json.loads(claimed.read_text())
+            unit.default, unit.per_layer = job["config"], job.get("per_layer", {})
+            rows = [segment_nll(model, torch.tensor([segs[i]], device="cuda")) for i in job["segments"]]
+            job.update(segment_nll=[r[0] for r in rows], segment_tokens=[r[1] for r in rows],
+                       seconds=time.time() - t0, worker=me)
+        except Exception as e:                            # report the failure to the client instead of dying
+            job = {"error": f"{type(e).__name__}: {e}", "worker": me, "seconds": time.time() - t0, "config": None}
         tmp = jobs / "done" / (claimed.name + ".tmp")
         tmp.write_text(json.dumps(job))
         tmp.rename(jobs / "done" / claimed.name)

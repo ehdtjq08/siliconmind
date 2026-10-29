@@ -56,10 +56,18 @@ def chat(messages, tools=None, model="muse-spark-1.3", reasoning_effort=None, re
 
 # ---------------------------------------------------------------- tools
 
-def _ssh(cmd, stdin=None):
+def _ssh(cmd, stdin=None, retries=5):
+    """Run cmd on the worker box over one shared (multiplexed) connection; retry connection failures."""
     env = {k: v for k, v in os.environ.items() if k != "LD_LIBRARY_PATH"}   # anaconda's OpenSSL breaks ssh
-    return subprocess.run(["ssh", "-o", "BatchMode=yes", WORKER_HOST, cmd], input=stdin, text=True,
-                          capture_output=True, check=True, env=env).stdout
+    args = ["ssh", "-o", "BatchMode=yes", "-o", "ControlMaster=auto", "-o", "ControlPath=~/.ssh/cm-%C",
+            "-o", "ControlPersist=10m", WORKER_HOST, cmd]
+    for attempt in range(retries):
+        r = subprocess.run(args, input=stdin, text=True, capture_output=True, env=env)
+        if r.returncode == 0:
+            return r.stdout
+        if r.returncode != 255 or attempt == retries - 1:             # 255 = ssh itself failed
+            raise RuntimeError(f"ssh {cmd!r} exited {r.returncode}: {r.stderr.strip()[:300]}")
+        time.sleep(2 * (attempt + 1))
 
 
 def _unit_config(p, q, mode):
@@ -78,8 +86,10 @@ def _run_nll(config, segments, workers=2):
     n = workers if len(segments) >= 8 else 1
     chunks = [segments[k * len(segments) // n:(k + 1) * len(segments) // n] for k in range(n)]
     jids = [uuid.uuid4().hex for _ in chunks]
-    for jid, segs in zip(jids, chunks):
-        _ssh(f"cat > {WORKER_DIR}/jobs/pending/{jid}.json", stdin=json.dumps({"config": config, "segments": segs}))
+    pend = f"{WORKER_DIR}/jobs/pending"
+    for jid, segs in zip(jids, chunks):                     # write then rename, so a worker never sees a partial file
+        _ssh(f"cat > {pend}/{jid}.tmp && mv {pend}/{jid}.tmp {pend}/{jid}.json",
+             stdin=json.dumps({"config": config, "segments": segs}))
     done = {}
     while len(done) < len(jids):
         time.sleep(2)
@@ -89,6 +99,8 @@ def _run_nll(config, segments, workers=2):
                 if out.strip():
                     done[jid] = json.loads(out)
     parts = [done[j] for j in jids]
+    if errors := [p["error"] for p in parts if "error" in p]:
+        raise RuntimeError(f"worker failed: {errors[0]}")
     res = {"config": config, "segments": segments, "segment_nll": sum((p["segment_nll"] for p in parts), []),
            "segment_tokens": sum((p["segment_tokens"] for p in parts), []),
            "seconds": max(p["seconds"] for p in parts), "workers": [p["worker"] for p in parts]}

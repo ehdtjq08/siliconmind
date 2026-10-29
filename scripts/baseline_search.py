@@ -13,7 +13,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from siliconmind.agent import ROOT, SPACE, evaluate_accuracy, synthesize_area
+from siliconmind.agent import MODES, ROOT, SPACE, evaluate_accuracy, synthesize_area
 
 
 def search(kind, budget, tol, seed):
