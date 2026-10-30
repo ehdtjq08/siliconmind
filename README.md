@@ -21,22 +21,32 @@ Four independent agent runs, each allowed 10 accuracy evaluations, against non-a
 and against the exhaustive ground truth (every one of the 169 designs below 14,000 accumulator transistors, measured on
 32 held-out segments). Budget: perplexity within +1% of exact accumulation.
 
-| Method | Chosen design | Accumulator transistors | Perplexity change |
-|---|---|---:|---:|
-| Full-size accumulator | P24, exact block result, RNE | 22,044 | +0.02% |
-| Random search, 3 seeds | P15/Q9 RNE · P13/Q14 RZ · P12/Q7 RZ | 15,556 · 14,394 · 12,518 | +0.24% · +0.13% · +0.43% |
-| Coarse grid, cheapest first | P10/Q8 RNE | 12,414 | +0.13% |
-| **Muse Spark, run 1** | **P9/Q7 RNE** | **11,604 (−47%)** | **−0.13%** |
-| Muse Spark, runs 2–4 | P8/Q8 RNE | 11,538 | +0.94% |
-| Exhaustive ground truth | P8/Q5 RNE | 10,726 | +0.87% |
+| Method | Chosen design | Accumulator transistors | sky130 cell area (µm²) | Perplexity change (95% interval) |
+|---|---|---:|---:|---:|
+| Full-size accumulator | P24, exact block result, RNE | 22,044 | 14,294 | +0.02% (0.00 to +0.06) |
+| Random search, seed 1 | P15/Q9 RNE | 15,556 | 10,244 | +0.24% (−0.41 to +0.93) |
+| Random search, seed 2 | P13/Q14 RZ | 14,394 | 9,210 | +0.13% (−0.43 to +0.71) |
+| Random search, seed 3 | P12/Q7 RZ | 12,518 | 7,936 | +0.43% (−0.22 to +1.08) |
+| Coarse grid, cheapest first | P10/Q8 RNE | 12,414 | 8,339 | +0.13% (−0.37 to +0.63) |
+| **Muse Spark, run 1** | **P9/Q7 RNE** | **11,604 (−47%)** | **7,839 (−45%)** | **−0.13% (−0.56 to +0.32)** |
+| Muse Spark, runs 2–4 | P8/Q8 RNE | 11,538 | 7,406 | +0.94% (+0.42 to +1.48) |
+| Exhaustive: smallest measured within budget | P8/Q5 RNE | 10,726 | 7,282 | +0.87% (+0.41 to +1.36) |
+| Exhaustive: smallest 95% sure within budget | P9/Q7 RNE | 11,604 | 7,839 | −0.13% (−0.56 to +0.32) |
 
-Every agent run beats every baseline, and all four land 7.6–8.2% above the true optimum (the best baseline is 15.7%
-above). None of them found the optimum itself: no run tried rounding the block result below 7 bits, and the optimum
-keeps P8 but rounds block results to 5. At P8, Q between 5 and 8 moves perplexity by under 0.2 points.
+Every agent run beats every baseline. Taking each measurement at face value, the optimum is P8/Q5 and the agent lands
+7.6–8.2% above it (the best baseline is 15.7% above). None of the runs tried rounding the block result below 7 bits,
+which is where that optimum sits.
 
-P9/Q7 is the design carried to layout: it is 0.6% larger than P8/Q8, within the area estimate's noise, but it has
-real accuracy margin where every P8 design sits within 0.25 points of the limit. It also passes RTL verification with 0
+That optimum is borderline, though. The intervals come from a paired bootstrap over the 32 held-out segments
+(`scripts/confidence.py`), and every P8 design's interval crosses the budget: P8/Q5 is within it in 70% of
+resamples, P8/Q8 in 59%. If you require 95% confidence (a rule we added after the benchmark ran), the optimum is
+P9/Q7, exactly the design run 1 chose. P9/Q7 is the design carried to layout, and it passes RTL verification with 0
 mismatches.
+
+The area metric holds up in real cells. Mapping all 600 designs onto sky130_fd_sc_hd standard cells
+(`scripts/sky130_area.py`) ranks them almost exactly as the transistor estimate does (Spearman 0.99). In cell area,
+P9/Q7 ranks second among the designs that are 95% sure within budget, 1.5% behind P9/Q6, which is inside synthesis
+noise.
 
 ## The design space
 
@@ -63,6 +73,7 @@ shrinks the adder.
    Icarus Verilog against the reference: 0 mismatches on 14 designs × 3,000 random and corner-case vectors, and a
    deliberately broken sticky bit is caught.
 3. `scripts/synth_sweep.sh` — Yosys synthesis to CMOS gates (`abc -g cmos2`) for all 600 designs in the space.
+   `scripts/sky130_area.py` repeats this on sky130_fd_sc_hd standard cells as a cross-check of the area metric.
 
 ## Running it
 
@@ -90,11 +101,12 @@ test matches the reference.
 
 ## Caveats
 
-* Area comparisons use a Yosys transistor estimate (only the chosen design has been placed and routed); the heuristic
-  mapper adds about ±5% noise between designs.
+* The agent and the benchmark rank designs by a Yosys transistor estimate. The sky130 cell-area cross-check agrees
+  (Spearman 0.99), but both come from heuristic technology mapping, which adds a few percent of noise between
+  designs. Only the chosen design has been placed and routed.
 * Accuracy is perplexity of a 1B model on WikiText-2. Quick checks (4 segments) are noisy at about ±1.5%, which is why
-  finalists are confirmed on 32 held-out segments. The +1% budget is tight for the P8 designs: P8/Q8 measured +1.08%
-  on the quick-check segments and +0.94% on the held-out ones.
+  finalists are confirmed on 32 held-out segments. Even 32 segments leave about ±0.5 points of uncertainty, which is why
+  the intervals above matter.
 
 ## Credits
 

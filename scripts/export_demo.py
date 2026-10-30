@@ -59,6 +59,10 @@ def main():
         "areas": [{k: r[k] for k in ("p", "q", "mode", "accumulator_transistors")} for r in areas],
         "exhaustive_done": (ROOT / "results/exhaustive/confirm.json").exists(),
         "exhaustive_max_area": 14000,
+        "ci": [{k: r[k] for k in ("p", "q", "mode", "ci95", "p_within_budget")}
+               for r in load("results/exhaustive/confidence.json", [])],
+        "sky130": [{k: r[k] for k in ("p", "q", "mode", "accumulator_um2")}
+                   for r in load("results/exhaustive/areas_sky130.json", [])],
         "confirm": cached_deltas(CONFIRM_SEGMENTS),
         "screen": cached_deltas(SCREEN_SEGMENTS),
         "agent_runs": [{"name": Path(f).stem, "events": agent_events(f)} for f in runs],

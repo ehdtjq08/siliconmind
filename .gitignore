@@ -12,6 +12,7 @@ jobs/
 results/agent_cache/
 results/*.log
 results/smoke/
+results/synth_sky130/
 
 # cocotb build outputs
 test/sim_build/

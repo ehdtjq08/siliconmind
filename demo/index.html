@@ -10,7 +10,7 @@
   --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e; --muted: #898781;
   --grid: #e1e0d9; --axis: #c3c2b7; --border: rgba(11,11,11,0.10);
   --rne: #2a78d6; --rz: #eb6834; --block: #d6d4cc; --block-ink: #52514e;
-  --good: #0ca30c; --good-ink: #006300; --critical: #d03b3b; --changed: rgba(250,178,25,0.30);
+  --good: #0ca30c; --good-ink: #006300; --warning: #fab219; --warning-ink: #8a5c00; --critical: #d03b3b; --changed: rgba(250,178,25,0.30);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -18,7 +18,7 @@
     --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
     --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
     --rne: #3987e5; --rz: #d95926; --block: #3a3a37; --block-ink: #c3c2b7;
-    --good-ink: #0ca30c; --changed: rgba(250,178,25,0.28);
+    --good-ink: #0ca30c; --warning-ink: #fab219; --changed: rgba(250,178,25,0.28);
   }
 }
 :root[data-theme="dark"] {
@@ -26,7 +26,7 @@
   --page: #0d0d0d; --surface: #1a1a19; --ink: #f0efec; --ink-2: #c3c2b7; --muted: #898781;
   --grid: #2c2c2a; --axis: #383835; --border: rgba(255,255,255,0.10);
   --rne: #3987e5; --rz: #d95926; --block: #3a3a37; --block-ink: #c3c2b7;
-  --good-ink: #0ca30c; --changed: rgba(250,178,25,0.28);
+  --good-ink: #0ca30c; --warning-ink: #fab219; --changed: rgba(250,178,25,0.28);
 }
 * { box-sizing: border-box; }
 body { margin: 0; background: var(--page); color: var(--ink);
@@ -49,7 +49,9 @@ section { margin-top: 72px; }
 .tiles.small .value { font-size: 22px; }
 .status { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; }
 .status svg { flex: none; }
-.status.ok { color: var(--good-ink); } .status.bad { color: var(--critical); }
+.ci { color: var(--muted); font-size: 12px; white-space: nowrap; }
+#bench-table td:nth-child(1), #bench-table td:nth-child(3) { white-space: nowrap; }
+.status.ok { color: var(--good-ink); } .status.warn { color: var(--warning-ink); } .status.bad { color: var(--critical); }
 
 .shrink-grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
 #die { width: 100%; height: auto; display: block; }
@@ -259,13 +261,18 @@ const pct = (v, d = 2) => (v > 0 ? "+" : v < 0 ? "−" : "") + Math.abs(v).toFix
 const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const ICON_OK = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="var(--good)"/><path d="M4 7.2l2 2 4-4.4" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 const ICON_BAD = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="var(--critical)"/><path d="M4.6 4.6l4.8 4.8M9.4 4.6l-4.8 4.8" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/></svg>';
-const statusHTML = d => d == null ? '<span class="status" style="color:var(--muted)">not measured</span>'
-  : d <= BUDGET ? `<span class="status ok">${ICON_OK}within 1% budget</span>`
-  : `<span class="status bad">${ICON_BAD}over budget</span>`;
+const ICON_WARN = '<svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><circle cx="7" cy="7" r="7" fill="var(--warning)"/><path d="M7 3.6v4.2" stroke="#fff" stroke-width="1.8" stroke-linecap="round"/><circle cx="7" cy="10.3" r="1.05" fill="#fff"/></svg>';
+// Within budget only counts as safe when the 95% interval stays under it; otherwise it is borderline.
+const statusHTML = (d, k) => d == null ? '<span class="status" style="color:var(--muted)">not measured</span>'
+  : d > BUDGET ? `<span class="status bad">${ICON_BAD}over budget</span>`
+  : CI.has(k) && CI.get(k).ci95[1] > BUDGET ? `<span class="status warn">${ICON_WARN}borderline: ${Math.round(100 * CI.get(k).p_within_budget)}% sure</span>`
+  : `<span class="status ok">${ICON_OK}within 1% budget</span>`;
 
 const AREA = new Map(D.areas.map(r => [key(r.p, r.q, r.mode), r.accumulator_transistors]));
 const CONF = new Map(D.confirm.map(r => [key(r.p, r.q, r.mode), r.delta_ppl_percent]));
 const SCREEN = new Map(D.screen.map(r => [key(r.p, r.q, r.mode), r.delta_ppl_percent]));
+const CI = new Map((D.ci ?? []).map(r => [key(r.p, r.q, r.mode), r]));
+const SKY = new Map((D.sky130 ?? []).map(r => [key(r.p, r.q, r.mode), r.accumulator_um2]));
 const BLOCK = D.block_product_transistors;
 const FULL = AREA.get(FULL_KEY);
 $("#block-k").textContent = int(BLOCK);
@@ -380,7 +387,7 @@ function showPoint() {
     <div class="tile"><div class="label">Accumulator</div><div class="value">${int(acc)}</div>
       <div class="note">${k === FULL_KEY ? "transistors" : pct(100 * (acc / FULL - 1), 0) + " vs. full size"}</div></div>
     <div class="tile"><div class="label">Perplexity change</div><div class="value">${d == null ? "–" : pct(d)}</div>
-      <div class="note">${statusHTML(d)}</div></div>`;
+      <div class="note">${statusHTML(d, k)}</div></div>`;
   renderAnswer();
 }
 function renderAnswer() {
@@ -554,16 +561,21 @@ function tick() {
   }
   const feasible = [...CONF].filter(([k, d]) => d <= BUDGET && AREA.has(k)).sort((a, b) => AREA.get(a[0]) - AREA.get(b[0]));
   const nEx = [...CONF.keys()].filter(k => AREA.get(k) <= D.exhaustive_max_area).length;
+  const robust = feasible.filter(([k]) => CI.has(k) && CI.get(k).ci95[1] <= BUDGET);
   if (D.exhaustive_done && feasible.length)
     rows.push({ method: "Exhaustive search (ground truth)", key: feasible[0][0], evals: nEx, truth: true });
+  if (D.exhaustive_done && robust.length && robust[0][0] !== feasible[0][0])
+    rows.push({ method: "Exhaustive, 95% sure within budget", key: robust[0][0], evals: nEx, truth: true, robust: true });
   rows.push({ method: "Full-size accumulator", key: FULL_KEY, evals: 0, base: true });
   for (const r of rows) { r.acc = r.key ? AREA.get(r.key) : null; r.d = r.conf ?? (r.key ? CONF.get(r.key) : null); if (r.base && r.d == null) r.d = 0; }
 
-  const truth = rows.find(r => r.truth), gap = r => (r.acc / truth.acc - 1) * 100;
+  const truth = rows.find(r => r.truth && !r.robust), sure = rows.find(r => r.robust), gap = r => (r.acc / truth.acc - 1) * 100;
   const agentGaps = rows.filter(r => r.agent && r.acc).map(gap), baseGaps = rows.filter(r => !r.agent && !r.truth && !r.base && r.acc).map(gap);
+  const sureRuns = sure ? rows.filter(r => r.agent && r.key === sure.key).map(r => r.method.replace("Muse Spark agent, ", "")) : [];
   $("#bench-sub").textContent = D.exhaustive_done
     ? `Every method gets the same goal: the smallest accumulator within the 1% accuracy budget, confirmed on held-out data. The ground truth comes from measuring all ${nEx} designs below ${int(D.exhaustive_max_area)} transistors.` +
-      (truth && agentGaps.length ? ` Not quite: every agent run lands ${Math.min(...agentGaps).toFixed(1)}–${Math.max(...agentGaps).toFixed(1)}% above the optimum ${name(truth.key)}, while the best baseline is ${Math.min(...baseGaps).toFixed(1)}% above. The agent never tried rounding block sums below 7 bits, which is where the optimum sits.` : "")
+      (truth && agentGaps.length ? ` Taking each measurement at face value, every agent run lands ${Math.min(...agentGaps).toFixed(1)}–${Math.max(...agentGaps).toFixed(1)}% above the optimum ${name(truth.key)}, and the best baseline ${Math.min(...baseGaps).toFixed(1)}% above.` : "") +
+      (sure ? ` But that optimum is borderline: its 95% interval crosses the budget. The smallest design that is 95% sure to be within budget is ${name(sure.key)}${sureRuns.length ? `, exactly what ${sureRuns.join(", ")} chose` : ""}.` : "")
     : "Every method gets the same goal and the same 10 accuracy evaluations. The exhaustive ground truth is still running.";
 
   const B = { W: 1000, l: 270, r: 24, row: 34, top: 16 }, H = B.top + rows.length * B.row + 34;
@@ -585,9 +597,11 @@ function tick() {
           () => `<strong>${r.method}</strong><br>${name(r.key)}<br>${int(r.acc)} transistors · ${r.d == null ? "not confirmed" : pct(r.d)}`);
   });
   $("#bench-table").innerHTML = `<thead><tr><th>Method</th><th class="num">Accuracy evaluations</th><th>Chosen design</th>
-      <th class="num">Accumulator transistors</th><th class="num">Perplexity change</th><th>Budget</th></tr></thead><tbody>` +
+      <th class="num">Accumulator transistors</th><th class="num">sky130 cell area (µm²)</th><th class="num">Perplexity change (95% interval)</th><th>Budget</th></tr></thead><tbody>` +
     rows.map(r => `<tr><td>${esc(r.method)}</td><td class="num">${r.base ? "–" : int(r.evals)}</td><td>${r.key ? name(r.key) : "none within budget"}</td>
-      <td class="num">${r.acc == null ? "–" : int(r.acc)}</td><td class="num">${r.d == null ? "–" : pct(r.d)}</td><td>${r.key ? statusHTML(r.d) : ""}</td></tr>`).join("") + "</tbody>";
+      <td class="num">${r.acc == null ? "–" : int(r.acc)}</td><td class="num">${r.key && SKY.has(r.key) ? int(SKY.get(r.key)) : "–"}</td>
+      <td class="num">${r.d == null ? "–" : pct(r.d)}${r.key && CI.has(r.key) ? `<br><span class="ci">${pct(CI.get(r.key).ci95[0])} to ${pct(CI.get(r.key).ci95[1])}</span>` : ""}</td>
+      <td>${r.key ? statusHTML(r.d, r.key) : ""}</td></tr>`).join("") + "</tbody>";
 })();
 </script>
 </body>
