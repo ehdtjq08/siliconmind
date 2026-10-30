@@ -51,7 +51,7 @@ section { margin-top: 72px; }
 .status { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; }
 .status svg { flex: none; }
 .ci { color: var(--muted); font-size: 12px; white-space: nowrap; }
-#bench-table td:nth-child(1), #bench-table td:nth-child(3), #bigger-table td:nth-child(1) { white-space: nowrap; }
+#bench-table td:nth-child(1), #bench-table td:nth-child(3), #bigger-table td:nth-child(1), #v2-table td:nth-child(3) { white-space: nowrap; }
 .status.ok { color: var(--good-ink); } .status.warn { color: var(--warning-ink); } .status.bad { color: var(--critical); }
 
 .shrink-grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
@@ -200,6 +200,11 @@ html, body { overflow-x: hidden; }
       <svg id="bench-chart" viewBox="0 0 640 240" role="img" aria-label="Accumulator size chosen by each search method" style="width:100%;height:auto;display:block"></svg>
       <div class="table-wrap"><table id="bench-table"></table></div>
     </div>
+    <div class="card bigger" id="v2" hidden>
+      <h3>Agent v2: told about the uncertainty</h3>
+      <p class="sub" id="v2-sub"></p>
+      <div class="table-wrap"><table id="v2-table"></table></div>
+    </div>
     <div class="card bigger" id="bigger" hidden>
       <h3 id="bigger-h"></h3>
       <p class="sub" id="bigger-sub"></p>
@@ -303,11 +308,19 @@ function hover(target, html) {
 function agentChoice(run) {
   const ver = run.events.filter(e => e.kind === "tool" && e.name === "verify_rtl" && e.result.mismatches === 0);
   const conf = run.events.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && e.args.confirm);
+  const evals = run.events.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && !e.result.error).length;
+  // The design named in the final report wins; agents sometimes verify a runner-up after their pick.
+  const report = run.events.filter(e => e.kind === "say" && e.text).at(-1)?.text ?? "";
+  const m = report.match(/P\s*=\s*(\d+)\s*,\s*Q\s*=\s*(\d+|exact)\s*[^,]*,\s*(?:mode\s*=\s*)?(RNE|RZ)/i);
+  if (m) {
+    const k = key(+m[1], m[2].toLowerCase() === "exact" ? null : +m[2], m[3].toLowerCase());
+    const v = ver.find(e => key(e.args.p, e.args.q, e.args.mode) === k);
+    if (v) return { key: k, verify: v.result, evals };
+  }
   const pick = (ver.at(-1) || conf.at(-1));
   if (!pick) return null;
   const a = pick.args;
-  return { key: key(a.p, a.q, a.mode), verify: ver.at(-1)?.result,
-           evals: run.events.filter(e => e.kind === "tool" && e.name === "evaluate_accuracy" && !e.result.error).length };
+  return { key: key(a.p, a.q, a.mode), verify: ver.at(-1)?.result, evals };
 }
 
 // ---------------------------------------------------------------- hero
@@ -330,6 +343,8 @@ function agentChoice(run) {
 // ---------------------------------------------------------------- shrink the chip
 const PROMPT_LABELS = ["Why is the sky blue?", "17 × 23", "Haiku", "Study tips", "French"];
 const AGENT_KEY = D.agent_runs[0] ? agentChoice(D.agent_runs[0])?.key : null;
+const REPLAY = [...D.agent_runs.map((r, i) => ({ ...r, label: `Run ${i + 1}` })),
+                ...(D.agent_runs_v2 ?? []).map((r, i) => ({ ...r, label: `v2 run ${i + 1} (95% rule)` }))];
 // Slider steps are accumulator sizes (P/Q pairs); the tabs pick the rounding mode at that size.
 const GEN = new Map(D.generations.filter(g => g.point !== "bf16").map(g => [g.point.replace(/^x:x:/, "24:x:"), g.rows]));
 const FALLBACK = ["24:x", "12:x", "10:10", "9:7", "8:8", "7:7", "6:6", "5:5"];
@@ -463,7 +478,7 @@ function dot(k, d, filled, layer, extra = "") {
   return g;
 }
 function renderReplay() {
-  const run = D.agent_runs[runIdx], evs = run.events.slice(0, evIdx);
+  const run = REPLAY[runIdx], evs = run.events.slice(0, evIdx);
   axes();
   if ($("#truth").checked) {
     const g = svg("g", { opacity: 0.55 }, pareto);
@@ -534,28 +549,28 @@ function renderTranscript(run, evs, done) {
 }
 function stop() { clearTimeout(timer); timer = null; $("#play").textContent = "Play"; }
 function tick() {
-  const run = D.agent_runs[runIdx];
+  const run = REPLAY[runIdx];
   if (evIdx >= run.events.length) return stop();
   evIdx++; renderReplay();
   const e = run.events[evIdx - 1];
   timer = setTimeout(tick, e.kind === "say" ? 1400 : e.name === "synthesize_area" ? 250 : 900);
 }
 (function initReplay() {
-  if (!D.agent_runs.length) return;
+  if (!REPLAY.length) return;
   const sel = $("#run-select");
-  D.agent_runs.forEach((r, i) => sel.add(new Option(`Run ${i + 1}`, i)));
-  sel.hidden = D.agent_runs.length < 2;
+  REPLAY.forEach((r, i) => sel.add(new Option(r.label, i)));
+  sel.hidden = REPLAY.length < 2;
   sel.onchange = () => { stop(); runIdx = +sel.value; evIdx = 0; renderReplay(); };
   $("#play").onclick = () => {
     if (timer) return stop();
-    if (evIdx >= D.agent_runs[runIdx].events.length) evIdx = 0;
+    if (evIdx >= REPLAY[runIdx].events.length) evIdx = 0;
     $("#play").textContent = "Pause"; tick();
   };
-  $("#step").onclick = () => { stop(); evIdx = Math.min(evIdx + 1, D.agent_runs[runIdx].events.length); renderReplay(); };
+  $("#step").onclick = () => { stop(); evIdx = Math.min(evIdx + 1, REPLAY[runIdx].events.length); renderReplay(); };
   $("#reset").onclick = () => { stop(); evIdx = 0; renderReplay(); };
   $("#truth").checked = D.exhaustive_done;
   $("#truth").onchange = renderReplay;
-  evIdx = D.agent_runs[runIdx].events.length;            // open on the finished picture
+  evIdx = REPLAY[runIdx].events.length;            // open on the finished picture
   renderReplay();
 })();
 
@@ -617,6 +632,24 @@ function tick() {
       <td class="num">${r.acc == null ? "–" : int(r.acc)}</td><td class="num">${r.key && SKY.has(r.key) ? int(SKY.get(r.key)) : "–"}</td>
       <td class="num">${r.d == null ? "–" : pct(r.d)}${r.key && CI.has(r.key) ? `<br><span class="ci">${pct(CI.get(r.key).ci95[0])} to ${pct(CI.get(r.key).ci95[1])}</span>` : ""}</td>
       <td>${r.key ? statusHTML(r.d, r.key) : ""}</td></tr>`).join("") + "</tbody>";
+})();
+
+// ---------------------------------------------------------------- agent v2: the 95% rule
+(function v2() {
+  const runs = D.agent_runs_v2 ?? [];
+  if (!runs.length) return;
+  const sure = k => CI.has(k) && CI.get(k).ci95[1] <= BUDGET;
+  const rows = runs.map((r, i) => ({ i, ...agentChoice(r) })).filter(r => r.key);
+  const v1 = D.agent_runs.map(agentChoice).filter(Boolean);
+  const acc = rs => rs.map(r => AREA.get(r.key));
+  const best = [...CI].filter(([k, c]) => c.ci95[1] <= BUDGET && AREA.has(k)).sort((a, b) => AREA.get(a[0]) - AREA.get(b[0]))[0]?.[0];
+  const hit = rows.filter(r => r.key === best).map(r => `run ${r.i + 1}`);
+  $("#v2").hidden = false;
+  $("#v2-sub").textContent = `Same task, but the accuracy tool also returns the 95% interval, and a design only counts when the interval's upper end is within budget. ${rows.filter(r => sure(r.key)).length} of ${rows.length} v2 runs delivered a design that is 95% sure, against ${v1.filter(r => sure(r.key)).length} of ${v1.length} for the original agent${hit.length ? `, and ${hit.join(", ")} found the smallest such design, ${name(best)}` : ""}. The price is caution: v2 designs range from ${int(Math.min(...acc(rows)))} to ${int(Math.max(...acc(rows)))} transistors, against ${int(Math.min(...acc(v1)))}–${int(Math.max(...acc(v1)))} for the original. Four runs each is a small sample.`;
+  $("#v2-table").innerHTML = `<thead><tr><th>Run</th><th class="num">Accuracy evaluations</th><th>Chosen design</th><th class="num">Accumulator transistors</th><th class="num">Perplexity change (95% interval)</th><th>Budget</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>v2 run ${r.i + 1}</td><td class="num">${r.evals}</td><td>${name(r.key)}</td><td class="num">${int(AREA.get(r.key))}</td>
+      <td class="num">${CONF.has(r.key) ? pct(CONF.get(r.key)) : "–"}${CI.has(r.key) ? `<br><span class="ci">${pct(CI.get(r.key).ci95[0])} to ${pct(CI.get(r.key).ci95[1])}</span>` : ""}</td>
+      <td>${statusHTML(CONF.get(r.key), r.key)}</td></tr>`).join("") + "</tbody>";
 })();
 
 // ---------------------------------------------------------------- power, performance, area

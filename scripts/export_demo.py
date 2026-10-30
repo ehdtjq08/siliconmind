@@ -54,6 +54,7 @@ def main():
     areas = load("results/exhaustive/areas.json", [])
     block = statistics.median(r["block_product_transistors"] for r in areas) if areas else None
     runs = sorted(glob.glob(str(ROOT / "results/agent_runs/*.jsonl")))
+    runs_v2 = sorted(glob.glob(str(ROOT / "results/agent_runs_v2/*.jsonl")))
     data = {
         "block_product_transistors": block,
         "areas": [{k: r[k] for k in ("p", "q", "mode", "accumulator_transistors")} for r in areas],
@@ -70,6 +71,7 @@ def main():
         "confirm": cached_deltas(CONFIRM_SEGMENTS),
         "screen": cached_deltas(SCREEN_SEGMENTS),
         "agent_runs": [{"name": Path(f).stem, "events": agent_events(f)} for f in runs],
+        "agent_runs_v2": [{"name": Path(f).stem, "events": agent_events(f)} for f in runs_v2],
         "baselines": [load(Path(f).relative_to(ROOT)) for f in sorted(glob.glob(str(ROOT / "results/baselines/*.json")))],
         "generations": [load(Path(f).relative_to(ROOT)) for f in sorted(glob.glob(str(ROOT / "results/demo/gen/*.json")))],
     }

@@ -8,10 +8,10 @@ The other model's workers take jobs from their own directory on the worker box, 
 import argparse
 import json
 
-from confidence import paired_bootstrap
 from siliconmind.agent import CONFIRM_SEGMENTS, ROOT, _run_nll, _unit_config, synthesize_area
+from siliconmind.stats import paired_bootstrap
 
-# full size, the chosen design, the agent's other pick, the face-value optimum, the best baselines
+# full size, the chosen design, the agent's other pick, a borderline P8 design, the best baselines
 DESIGNS = "24:x:rne,9:7:rne,8:8:rne,8:5:rne,10:8:rne,12:7:rz"
 
 

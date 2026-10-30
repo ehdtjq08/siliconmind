@@ -48,6 +48,23 @@ The area metric holds up in real cells: mapping all 600 designs onto sky130_fd_s
 P9/Q7 is second among the designs that are 95% sure within budget, 1.1% behind P9/Q6, which is inside synthesis
 noise.
 
+### Agent v2: told about the uncertainty
+
+`python -m siliconmind.agent --robust` runs the same task, but confirm evaluations also return the 95% interval, and a
+design only counts when the interval's upper end is within budget.
+
+| Run | Chosen design | Accumulator transistors | Perplexity change (95% interval) |
+|---|---|---:|---:|
+| v2 run 1 | P12/Q8 RNE | 13,702 | −0.21% (−0.70 to +0.30) |
+| v2 run 2 | P9/Q9 RNE | 12,308 | −0.30% (−0.88 to +0.29) |
+| v2 run 3 | P10/exact RNE | 16,490 | −0.09% (−0.65 to +0.49) |
+| v2 run 4 | **P9/Q7 RNE** | **11,520** | −0.13% (−0.56 to +0.32) |
+
+All four v2 runs deliver a design that is 95% sure to be within budget; the original agent did so in one run of four.
+Run 4 finds the smallest such design, after confirming that P8/Q7's interval crosses the budget. The price is caution:
+v2 designs range from 11,520 to 16,490 transistors, and two of the four are larger than the coarse grid's pick. Four
+runs each is a small sample.
+
 ### Speed and energy
 
 The accumulator's add-and-round is the one path a pipeline cannot cut, so its delay sets the unit's peak clock.

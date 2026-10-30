@@ -17,6 +17,8 @@ import urllib.request
 import uuid
 from pathlib import Path
 
+from .stats import paired_bootstrap
+
 ROOT = Path(__file__).resolve().parents[1]
 # GPU box running scripts/eval_worker.py: environment, else ~/.config/siliconmind/worker.json {"host", "dir"}
 _WORKER_CFG = Path("~/.config/siliconmind/worker.json").expanduser()
@@ -109,14 +111,18 @@ def _run_nll(config, segments, workers=2, jobs="jobs", cache=CACHE):
     return res
 
 
-def evaluate_accuracy(p, q=None, mode="rne", confirm=False):
+def evaluate_accuracy(p, q=None, mode="rne", confirm=False, interval=False):
     segs = CONFIRM_SEGMENTS if confirm else SCREEN_SEGMENTS
     ref = _run_nll(_unit_config(None, None, None), segs)
     res = _run_nll(_unit_config(p, q, mode), segs)
     tok = sum(ref["segment_tokens"])
     d = math.exp((sum(res["segment_nll"]) - sum(ref["segment_nll"])) / tok) - 1
-    return {"p": p, "q": q, "mode": mode, "segments": len(segs), "ppl": math.exp(sum(res["segment_nll"]) / tok),
-            "ppl_exact_accumulation": math.exp(sum(ref["segment_nll"]) / tok), "delta_ppl_percent": 100 * d}
+    out = {"p": p, "q": q, "mode": mode, "segments": len(segs), "ppl": math.exp(sum(res["segment_nll"]) / tok),
+           "ppl_exact_accumulation": math.exp(sum(ref["segment_nll"]) / tok), "delta_ppl_percent": 100 * d}
+    if interval and confirm:                      # paired bootstrap over the held-out segments
+        b = paired_bootstrap(res["segment_nll"], ref["segment_nll"], ref["segment_tokens"], budget=1.0)
+        out["delta_ppl_percent_ci95"] = b["ci95"]
+    return out
 
 
 def synthesize_area(p, q=None, mode="rne"):
@@ -173,6 +179,12 @@ TOOLS = [
 ]
 IMPL = {"evaluate_accuracy": evaluate_accuracy, "synthesize_area": synthesize_area, "verify_rtl": verify_rtl}
 
+# v2: the same task, but a design only counts when it is 95% sure to be within budget, and confirmations say how sure
+TOOLS_ROBUST = json.loads(json.dumps(TOOLS))
+TOOLS_ROBUST[0]["function"]["description"] += (" With confirm=true the result also has delta_ppl_percent_ci95, a 95% "
+                                                "interval from a paired bootstrap over the 32 segments.")
+IMPL_ROBUST = {**IMPL, "evaluate_accuracy": lambda **kw: evaluate_accuracy(**kw, interval=True)}
+
 
 # ---------------------------------------------------------------- pareto plot
 
@@ -215,11 +227,21 @@ you will see the current Pareto plot. When done, reply with a short final report
 saving vs the P=24 RNE exact-Q baseline, its confirmed perplexity change, and what you learned."""
 
 
-def run_agent(budget=10, log_path=None, reasoning_effort="medium", max_turns=30):
-    log_path = Path(log_path or ROOT / f"results/agent_runs/{time.strftime('%Y%m%d_%H%M%S')}.jsonl")
+SYSTEM_ROBUST = SYSTEM.replace(
+    "stays within +1.0%. Screening evaluations use 4 segments and are noisy (about +/-1.5%), so confirm finalists\n"
+    "with confirm=true before deciding.",
+    "stays within +1.0% with 95% confidence: the upper end of the 95% interval that a confirm=true evaluation returns\n"
+    "must be at or below +1.0%. Screening evaluations use 4 segments and are noisy (about +/-1.5%), so confirm\n"
+    "finalists with confirm=true before deciding.")
+
+
+def run_agent(budget=10, log_path=None, reasoning_effort="medium", max_turns=30, robust=False):
+    runs_dir = "results/agent_runs_v2" if robust else "results/agent_runs"
+    log_path = Path(log_path or ROOT / f"{runs_dir}/{time.strftime('%Y%m%d_%H%M%S')}.jsonl")
     log_path.parent.mkdir(parents=True, exist_ok=True)
     log = log_path.open("a")
-    messages = [{"role": "system", "content": SYSTEM.format(budget=budget)},
+    tools, impl = (TOOLS_ROBUST, IMPL_ROBUST) if robust else (TOOLS, IMPL)
+    messages = [{"role": "system", "content": (SYSTEM_ROBUST if robust else SYSTEM).format(budget=budget)},
                 {"role": "user", "content": "Start the design exploration."}]
     points, areas, used = [], {}, 0
 
@@ -228,7 +250,7 @@ def run_agent(budget=10, log_path=None, reasoning_effort="medium", max_turns=30)
         log.flush()
 
     for turn in range(max_turns):
-        resp = chat(messages, tools=TOOLS, reasoning_effort=reasoning_effort)
+        resp = chat(messages, tools=tools, reasoning_effort=reasoning_effort)
         msg = resp["choices"][0]["message"]
         record("assistant", content=msg.get("content"), tool_calls=msg.get("tool_calls"), usage=resp.get("usage"))
         messages.append({k: v for k, v in msg.items() if k in ("role", "content", "tool_calls")})
@@ -241,7 +263,7 @@ def run_agent(budget=10, log_path=None, reasoning_effort="medium", max_turns=30)
                 result = {"error": "accuracy evaluation budget exhausted; finish with what you have"}
             else:
                 try:
-                    result = IMPL[name](**args)
+                    result = impl[name](**args)
                 except Exception as e:                                   # report tool errors to the agent
                     result = {"error": f"{type(e).__name__}: {e}"}
                 if name == "evaluate_accuracy" and "error" not in result:
@@ -264,7 +286,8 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--budget", type=int, default=10)
     ap.add_argument("--effort", default="medium")
+    ap.add_argument("--robust", action="store_true", help="v2: a design must be 95%% sure to be within budget")
     a = ap.parse_args()
-    report, path = run_agent(budget=a.budget, reasoning_effort=a.effort)
+    report, path = run_agent(budget=a.budget, reasoning_effort=a.effort, robust=a.robust)
     print(report)
     print("log:", path)
