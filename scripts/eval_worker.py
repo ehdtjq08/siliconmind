@@ -22,6 +22,8 @@ def main():
     ap.add_argument("--model", default="models/Llama-3.2-1B")
     ap.add_argument("--jobs", default="jobs")
     ap.add_argument("--seq", type=int, default=1024)
+    ap.add_argument("--block-chunk", type=int, default=32,
+                    help="blocks per emulation step; lower it to fit bigger models (results are identical)")
     args = ap.parse_args()
 
     jobs = Path(args.jobs)
@@ -31,7 +33,7 @@ def main():
 
     model = AutoModelForCausalLM.from_pretrained(args.model, dtype=torch.bfloat16).cuda().eval()
     unit = UnitConfig({"kind": "bf16"})
-    patch_model(model, unit)
+    patch_model(model, unit, args.block_chunk)
     me = f"{os.uname().nodename}:gpu{os.environ.get('CUDA_VISIBLE_DEVICES', '0')}"
     print(f"worker {me} ready", flush=True)
 

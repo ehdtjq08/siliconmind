@@ -39,6 +39,7 @@ h2 { font-size: 26px; line-height: 1.2; margin: 0 0 6px; }
 .sub { color: var(--ink-2); margin: 0 0 20px; max-width: 760px; }
 section { margin-top: 72px; }
 .card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+.bigger { margin-top: 16px; } .bigger h3 { margin: 0 0 6px; font-size: 17px; } .bigger .sub { margin: 0; }
 
 .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); gap: 12px; }
 .tile { min-width: 0; }
@@ -50,7 +51,7 @@ section { margin-top: 72px; }
 .status { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 500; }
 .status svg { flex: none; }
 .ci { color: var(--muted); font-size: 12px; white-space: nowrap; }
-#bench-table td:nth-child(1), #bench-table td:nth-child(3) { white-space: nowrap; }
+#bench-table td:nth-child(1), #bench-table td:nth-child(3), #bigger-table td:nth-child(1) { white-space: nowrap; }
 .status.ok { color: var(--good-ink); } .status.warn { color: var(--warning-ink); } .status.bad { color: var(--critical); }
 
 .shrink-grid { display: grid; grid-template-columns: 340px 1fr; gap: 20px; align-items: start; }
@@ -198,6 +199,11 @@ html, body { overflow-x: hidden; }
     <div class="card">
       <svg id="bench-chart" viewBox="0 0 640 240" role="img" aria-label="Accumulator size chosen by each search method" style="width:100%;height:auto;display:block"></svg>
       <div class="table-wrap"><table id="bench-table"></table></div>
+    </div>
+    <div class="card bigger" id="bigger" hidden>
+      <h3 id="bigger-h"></h3>
+      <p class="sub" id="bigger-sub"></p>
+      <div class="table-wrap"><table id="bigger-table"></table></div>
     </div>
   </section>
 
@@ -602,6 +608,26 @@ function tick() {
       <td class="num">${r.acc == null ? "–" : int(r.acc)}</td><td class="num">${r.key && SKY.has(r.key) ? int(SKY.get(r.key)) : "–"}</td>
       <td class="num">${r.d == null ? "–" : pct(r.d)}${r.key && CI.has(r.key) ? `<br><span class="ci">${pct(CI.get(r.key).ci95[0])} to ${pct(CI.get(r.key).ci95[1])}</span>` : ""}</td>
       <td>${r.key ? statusHTML(r.d, r.key) : ""}</td></tr>`).join("") + "</tbody>";
+})();
+
+// ---------------------------------------------------------------- the same designs on a bigger model
+(function bigger() {
+  const [model, rows] = Object.entries(D.bigger_model ?? {})[0] ?? [];
+  if (!rows?.length) return;
+  const roles = { [AGENT_KEY]: "Muse Spark's pick, run 1 (the chip)", [FULL_KEY]: "Full-size accumulator" };
+  const label = k => roles[k] ?? { "8:8:rne": "Muse Spark's pick, runs 2–4", "8:5:rne": "Face-value optimum on 1B",
+                                    "10:8:rne": "Coarse grid's pick", "12:7:rz": "Random search's pick" }[k] ?? "";
+  const full = rows.find(r => key(r.p, r.q, r.mode) === FULL_KEY);
+  $("#bigger").hidden = false;
+  $("#bigger-h").textContent = `Does it hold on a bigger model? ${model}`;
+  $("#bigger-sub").textContent = `The designs above were chosen on Llama-3.2-1B. Re-measured on ${model} with the same 32 held-out segments, the chip's design stays within budget with room to spare, and the P8 designs stay borderline. On ${model} even the full-size accumulator moves single segments by about ±1%: 4-bit activation rounding turns tiny arithmetic differences into discrete flips, so differences under about ${full ? ((full.ci95[1] - full.ci95[0]) / 2).toFixed(1) : "0.4"} points are not resolvable.`;
+  $("#bigger-table").innerHTML = `<thead><tr><th>Design</th><th></th><th class="num">Perplexity change on 1B</th><th class="num">on ${esc(model)} (95% interval)</th><th>Budget on ${esc(model)}</th></tr></thead><tbody>` +
+    rows.map(r => { const k = key(r.p, r.q, r.mode), ci = r.ci95[1] > BUDGET;
+      const st = r.delta_ppl_percent > BUDGET ? `<span class="status bad">${ICON_BAD}over budget</span>`
+        : ci ? `<span class="status warn">${ICON_WARN}borderline: ${Math.round(100 * r.p_within_budget)}% sure</span>`
+        : `<span class="status ok">${ICON_OK}within 1% budget</span>`;
+      return `<tr><td>${name(k)}</td><td>${esc(label(k))}</td><td class="num">${CONF.has(k) ? pct(CONF.get(k)) : "–"}</td>
+        <td class="num">${pct(r.delta_ppl_percent)}<br><span class="ci">${pct(r.ci95[0])} to ${pct(r.ci95[1])}</span></td><td>${st}</td></tr>`; }).join("") + "</tbody>";
 })();
 </script>
 </body>

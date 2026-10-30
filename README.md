@@ -48,6 +48,25 @@ The area metric holds up in real cells. Mapping all 600 designs onto sky130_fd_s
 P9/Q7 ranks second among the designs that are 95% sure within budget, 1.5% behind P9/Q6, which is inside synthesis
 noise.
 
+### Does it hold on a bigger model?
+
+The designs were chosen on Llama-3.2-1B. Re-measured on Llama-3.2-3B with the same 32 held-out segments
+(`scripts/model_check.py`):
+
+| Design | On 1B | On 3B (95% interval) |
+|---|---:|---:|
+| Full-size accumulator, P24 | +0.02% | −0.03% (−0.46 to +0.38) |
+| **P9/Q7 RNE, the chip** | **−0.13%** | **+0.19% (−0.28 to +0.65)** |
+| P8/Q8 RNE, agent runs 2–4 | +0.94% | +0.80% (+0.28 to +1.31) |
+| P8/Q5 RNE, face-value optimum on 1B | +0.87% | +0.87% (+0.42 to +1.30) |
+| P10/Q8 RNE, coarse grid | +0.13% | −0.03% (−0.56 to +0.50) |
+| P12/Q7 RZ, random search | +0.43% | +0.89% (+0.41 to +1.34) |
+
+The chip's design stays within budget with margin, and the P8 designs stay borderline. On 3B even the full-size
+accumulator moves single segments by about ±1%: rounding activations to 4 bits turns tiny arithmetic differences into
+discrete flips. The runs are deterministic (re-runs match bit for bit), so this is a property of the quantized model,
+and it means 32 segments cannot resolve differences much below 0.4 points on 3B.
+
 ## The design space
 
 Each step the unit computes one 16-element NVFP4 block: the 16 products of E2M1 values are summed exactly (a 13-bit

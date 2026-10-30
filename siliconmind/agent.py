@@ -74,19 +74,20 @@ def _unit_config(p, q, mode):
     return {"kind": "nvfp4", "p": p, "q": q, "mode": mode} if p else {"kind": "nvfp4", "p": None}
 
 
-def _run_nll(config, segments, workers=2):
+def _run_nll(config, segments, workers=2, jobs="jobs", cache=CACHE):
     """Per-segment NLL on the worker box, cached locally by (config, segments).
 
-    Long segment lists are split into contiguous chunks so each GPU worker takes one."""
+    Long segment lists are split into contiguous chunks so each GPU worker takes one. Workers serving a different model
+    take jobs from their own `jobs` directory, and their results need their own `cache`."""
     key = json.dumps([config, segments], sort_keys=True)
-    CACHE.mkdir(parents=True, exist_ok=True)
-    cf = CACHE / (uuid.uuid5(uuid.NAMESPACE_OID, key).hex + ".json")
+    cache.mkdir(parents=True, exist_ok=True)
+    cf = cache / (uuid.uuid5(uuid.NAMESPACE_OID, key).hex + ".json")
     if cf.exists():
         return json.loads(cf.read_text())
     n = workers if len(segments) >= 8 else 1
     chunks = [segments[k * len(segments) // n:(k + 1) * len(segments) // n] for k in range(n)]
     jids = [uuid.uuid4().hex for _ in chunks]
-    pend = f"{WORKER_DIR}/jobs/pending"
+    pend = f"{WORKER_DIR}/{jobs}/pending"
     for jid, segs in zip(jids, chunks):                     # write then rename, so a worker never sees a partial file
         _ssh(f"cat > {pend}/{jid}.tmp && mv {pend}/{jid}.tmp {pend}/{jid}.json",
              stdin=json.dumps({"config": config, "segments": segs}))
@@ -95,7 +96,7 @@ def _run_nll(config, segments, workers=2):
         time.sleep(2)
         for jid in jids:
             if jid not in done:
-                out = _ssh(f"cat {WORKER_DIR}/jobs/done/{jid}.json 2>/dev/null || true")
+                out = _ssh(f"cat {WORKER_DIR}/{jobs}/done/{jid}.json 2>/dev/null || true")
                 if out.strip():
                     done[jid] = json.loads(out)
     parts = [done[j] for j in jids]

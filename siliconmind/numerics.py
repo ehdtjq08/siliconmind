@@ -106,7 +106,7 @@ def block_dot_accumulate(qx, sx, qw, sw, p=None, mode="rne", promote=None, q=Non
     wide = torch.zeros_like(acc) if promote else None
     for c0 in range(0, nb, block_chunk):
         c1 = min(nb, c0 + block_chunk)
-        P = torch.bmm(xb[c0:c1], wb[c0:c1])                 # exact in fp32: multiples of 1/4, <= 576
+        P = torch.bmm(xb[c0:c1], wb[c0:c1].float())         # exact in fp32: multiples of 1/4, <= 576
         S = sx[:, c0:c1].T.unsqueeze(2) * sw[:, c0:c1].T.unsqueeze(1)   # exact: 4b x 4b significands
         R = (P * S).double()                                # exact: <= 20 significant bits
         if q is not None:

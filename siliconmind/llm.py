@@ -37,7 +37,7 @@ class EmuLinear(nn.Module):
         self.weight = lin.weight
         self.bias = lin.bias
         qw, sw, gw = quantize_nvfp4(lin.weight.data)
-        self.register_buffer("qw", qw, persistent=False)
+        self.register_buffer("qw", qw.to(torch.bfloat16), persistent=False)   # E2M1 values are exact in bf16
         self.register_buffer("sw", sw, persistent=False)
         self.register_buffer("gw", gw, persistent=False)
 
@@ -53,12 +53,12 @@ class EmuLinear(nn.Module):
         return y if self.bias is None else y + self.bias
 
 
-def patch_model(model, unit: UnitConfig):
+def patch_model(model, unit: UnitConfig, block_chunk: int = 32):
     names = [n for n, m in model.named_modules() if isinstance(m, nn.Linear) and LINEAR_RE.match(n)]
     for n in names:
         parent_name, child = n.rsplit(".", 1)
         parent = model.get_submodule(parent_name)
-        setattr(parent, child, EmuLinear(getattr(parent, child), n, unit))
+        setattr(parent, child, EmuLinear(getattr(parent, child), n, unit, block_chunk))
     return names
 
 

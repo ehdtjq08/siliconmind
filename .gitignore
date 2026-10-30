@@ -19,3 +19,4 @@ test/sim_build/
 test/results.xml
 test/*.fst
 results/tt_main/
+results/model_check/*/cache/

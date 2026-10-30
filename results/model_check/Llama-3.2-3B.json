@@ -1,0 +1,80 @@
+[
+ {
+  "p": 24,
+  "q": null,
+  "mode": "rne",
+  "segments": 32,
+  "accumulator_transistors": 22044,
+  "delta_ppl_percent": -0.027626822190007082,
+  "ci95": [
+   -0.46125882697628096,
+   0.37681627465464973
+  ],
+  "p_within_budget": 1.0
+ },
+ {
+  "p": 9,
+  "q": 7,
+  "mode": "rne",
+  "segments": 32,
+  "accumulator_transistors": 11604,
+  "delta_ppl_percent": 0.1893559679789503,
+  "ci95": [
+   -0.280167135059089,
+   0.6530444122508213
+  ],
+  "p_within_budget": 0.9997
+ },
+ {
+  "p": 8,
+  "q": 8,
+  "mode": "rne",
+  "segments": 32,
+  "accumulator_transistors": 11538,
+  "delta_ppl_percent": 0.7985978236316635,
+  "ci95": [
+   0.2849209886595918,
+   1.3082058791927405
+  ],
+  "p_within_budget": 0.78
+ },
+ {
+  "p": 8,
+  "q": 5,
+  "mode": "rne",
+  "segments": 32,
+  "accumulator_transistors": 10726,
+  "delta_ppl_percent": 0.8674493401793323,
+  "ci95": [
+   0.42416196816424556,
+   1.3003639130163716
+  ],
+  "p_within_budget": 0.7181
+ },
+ {
+  "p": 10,
+  "q": 8,
+  "mode": "rne",
+  "segments": 32,
+  "accumulator_transistors": 12414,
+  "delta_ppl_percent": -0.027870626660506347,
+  "ci95": [
+   -0.5560528807649973,
+   0.49922733673835934
+  ],
+  "p_within_budget": 1.0
+ },
+ {
+  "p": 12,
+  "q": 7,
+  "mode": "rz",
+  "segments": 32,
+  "accumulator_transistors": 12518,
+  "delta_ppl_percent": 0.8872544151873187,
+  "ci95": [
+   0.41088930326582257,
+   1.3401537346527372
+  ],
+  "p_within_budget": 0.6764
+ }
+]
