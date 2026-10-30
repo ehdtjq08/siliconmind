@@ -17,36 +17,54 @@ After every round the agent also sees the current area-vs-accuracy plot as an im
 
 ## Result
 
-Four independent agent runs, each allowed 10 accuracy evaluations, against non-agent searches with the same budget
-and against the exhaustive ground truth (every one of the 169 designs below 14,000 accumulator transistors, measured on
-32 held-out segments). Budget: perplexity within +1% of exact accumulation.
+Four independent agent runs, each allowed 10 accuracy evaluations, against non-agent searches with the same budget,
+against Muse Spark answering without tools, and against the exhaustive ground truth (every one of the 162 designs
+below 14,000 accumulator transistors, measured on 32 held-out segments). Budget: perplexity within +1% of exact
+accumulation. Intervals are 95%, from a paired bootstrap over the segments (`scripts/confidence.py`).
 
-| Method | Chosen design | Accumulator transistors | sky130 cell area (µm²) | Perplexity change (95% interval) |
-|---|---|---:|---:|---:|
-| Full-size accumulator | P24, exact block result, RNE | 22,044 | 14,294 | +0.02% (0.00 to +0.06) |
-| Random search, seed 1 | P15/Q9 RNE | 15,556 | 10,244 | +0.24% (−0.41 to +0.93) |
-| Random search, seed 2 | P13/Q14 RZ | 14,394 | 9,210 | +0.13% (−0.43 to +0.71) |
-| Random search, seed 3 | P12/Q7 RZ | 12,518 | 7,936 | +0.43% (−0.22 to +1.08) |
-| Coarse grid, cheapest first | P10/Q8 RNE | 12,414 | 8,339 | +0.13% (−0.37 to +0.63) |
-| **Muse Spark, run 1** | **P9/Q7 RNE** | **11,604 (−47%)** | **7,839 (−45%)** | **−0.13% (−0.56 to +0.32)** |
-| Muse Spark, runs 2–4 | P8/Q8 RNE | 11,538 | 7,406 | +0.94% (+0.42 to +1.48) |
-| Exhaustive: smallest measured within budget | P8/Q5 RNE | 10,726 | 7,282 | +0.87% (+0.41 to +1.36) |
-| Exhaustive: smallest 95% sure within budget | P9/Q7 RNE | 11,604 | 7,839 | −0.13% (−0.56 to +0.32) |
+| Method | Accuracy evals | Chosen design | Accumulator transistors | sky130 cell area (µm²) | Perplexity change (95% interval) |
+|---|---:|---|---:|---:|---:|
+| Full-size accumulator | – | P24, exact block result, RNE | 21,486 | 14,095 | +0.02% (0.00 to +0.06) |
+| Muse Spark without tools, 4 runs | 1 each | P14/Q12 · P16/exact · P14/Q10 · P16/exact | 15,990–18,134 | 9,961–12,203 | all within budget |
+| Random search, 3 seeds | 10 | P15/Q9 RNE · P13/Q14 RZ · P12/Q7 RZ | 16,012 · 14,456 · 12,552 | 10,411 · 9,303 · 8,065 | +0.24% · +0.13% · +0.43% (−0.22 to +1.08) |
+| Bayesian optimization (TPE), 3 seeds | 10 | P9/Q8 RNE · P18/Q7 RZ · P12/Q13 RNE | 12,564 · 15,488 · 15,136 | 7,861 · 9,688 · 9,849 | +0.41% (−0.18 to +1.01) · +0.19% · +0.12% |
+| Coarse grid, cheapest first | 10 | P10/Q8 RNE | 12,456 | 8,268 | +0.13% (−0.37 to +0.63) |
+| **Muse Spark, run 1** | **9** | **P9/Q7 RNE** | **11,520 (−46%)** | **7,797 (−45%)** | **−0.13% (−0.56 to +0.32)** |
+| Muse Spark, runs 2–4 | 10 | P8/Q8 RNE | 11,706 | 7,787 | +0.94% (+0.42 to +1.48) |
+| Exhaustive: smallest measured within budget | 162 | P8/Q6 RNE | 11,152 | 7,367 | +0.82% (+0.27 to +1.39) |
+| Exhaustive: smallest 95% sure within budget | 162 | P9/Q7 RNE | 11,520 | 7,797 | −0.13% (−0.56 to +0.32) |
 
-Every agent run beats every baseline. Taking each measurement at face value, the optimum is P8/Q5 and the agent lands
-7.6–8.2% above it (the best baseline is 15.7% above). None of the runs tried rounding the block result below 7 bits,
-which is where that optimum sits.
+Every agent run finds a smaller accumulator than every baseline; the best baseline (coarse grid) is 8% larger than
+run 1. Without tools, Muse Spark plays safe and picks accumulators 39–57% larger. Taking each measurement at face
+value, the smallest in-budget design is P8/Q6, and the agent lands 3.3–5.0% above it (the best baseline is 11.7%
+above).
 
-That optimum is borderline, though. The intervals come from a paired bootstrap over the 32 held-out segments
-(`scripts/confidence.py`), and every P8 design's interval crosses the budget: P8/Q5 is within it in 70% of
-resamples, P8/Q8 in 59%. If you require 95% confidence (a rule we added after the benchmark ran), the optimum is
-P9/Q7, exactly the design run 1 chose. P9/Q7 is the design carried to layout, and it passes RTL verification with 0
-mismatches.
+That face-value optimum is borderline, though: every P8 design's interval crosses the budget (P8/Q6 is within it in
+73% of resamples, P8/Q8 in 59%). If you require 95% confidence (a rule we added after the benchmark ran), the optimum
+is P9/Q7, exactly the design run 1 chose. P9/Q7 is the design carried to layout.
 
-The area metric holds up in real cells. Mapping all 600 designs onto sky130_fd_sc_hd standard cells
+The area metric holds up in real cells: mapping all 600 designs onto sky130_fd_sc_hd standard cells
 (`scripts/sky130_area.py`) ranks them almost exactly as the transistor estimate does (Spearman 0.99). In cell area,
-P9/Q7 ranks second among the designs that are 95% sure within budget, 1.5% behind P9/Q6, which is inside synthesis
+P9/Q7 is second among the designs that are 95% sure within budget, 1.1% behind P9/Q6, which is inside synthesis
 noise.
+
+### Speed and energy
+
+The accumulator's add-and-round is the one path a pipeline cannot cut, so its delay sets the unit's peak clock.
+`scripts/ppa.py` times it for every design with OpenSTA, and simulates the whole multiply-accumulate unit (block
+product, accumulator and its register) at gate level on 9,216 real Llama-3.2-1B blocks from six layers
+(`scripts/capture_operands.py`) to get its energy:
+
+| Design | Accumulate loop | Unit energy per block |
+|---|---:|---:|
+| Full-size accumulator, P24 | 34.2 ns | 26.3 pJ |
+| **P9/Q7 RNE, the chip** | **20.8 ns (−39%)** | **21.9 pJ (−17%)** |
+| P8/Q8 RNE | 20.1 ns | 21.7 pJ |
+| P10/Q8 RNE, coarse grid | 22.4 ns | 22.1 pJ |
+
+The block product is the same in every design, so whole-unit energy moves less than the accumulator itself. On every
+design measured, the gate-level results match the RTL bit for bit. Limits: typical corner, no wire parasitics,
+area-oriented mapping, and zero-delay switching activity (no glitch power).
 
 ### Does it hold on a bigger model?
 
@@ -58,7 +76,7 @@ The designs were chosen on Llama-3.2-1B. Re-measured on Llama-3.2-3B with the sa
 | Full-size accumulator, P24 | +0.02% | −0.03% (−0.46 to +0.38) |
 | **P9/Q7 RNE, the chip** | **−0.13%** | **+0.19% (−0.28 to +0.65)** |
 | P8/Q8 RNE, agent runs 2–4 | +0.94% | +0.80% (+0.28 to +1.31) |
-| P8/Q5 RNE, face-value optimum on 1B | +0.87% | +0.87% (+0.42 to +1.30) |
+| P8/Q5 RNE, borderline on 1B | +0.87% | +0.87% (+0.42 to +1.30) |
 | P10/Q8 RNE, coarse grid | +0.13% | −0.03% (−0.56 to +0.50) |
 | P12/Q7 RZ, random search | +0.43% | +0.89% (+0.41 to +1.34) |
 
@@ -92,7 +110,8 @@ shrinks the adder.
    Icarus Verilog against the reference: 0 mismatches on 14 designs × 3,000 random and corner-case vectors, and a
    deliberately broken sticky bit is caught.
 3. `scripts/synth_sweep.sh` — Yosys synthesis to CMOS gates (`abc -g cmos2`) for all 600 designs in the space.
-   `scripts/sky130_area.py` repeats this on sky130_fd_sc_hd standard cells as a cross-check of the area metric.
+   `scripts/sky130_area.py` repeats this on sky130_fd_sc_hd standard cells as a cross-check of the area metric, and
+   `scripts/ppa.py` simulates sky130 gate-level netlists on real Llama blocks: 0 mismatches against the RTL.
 
 ## Running it
 
@@ -120,6 +139,12 @@ test matches the reference.
 
 ## Caveats
 
+* Correction (Oct 30): the synthesis scripts passed P, Q and the rounding mode with Yosys `chparam`, which makes
+  them unsigned. That made the exponent arithmetic unsigned, so for negative accumulator exponents the synthesized
+  circuit differed from the simulated RTL. The gate-level power simulation caught it. Synthesis now passes them as
+  Verilog literals through a wrapper, as the Tiny Tapeout tile always did, and every area here is re-synthesized
+  (on average 1.8% different; rank correlation 0.99 with the old numbers). The agent runs and the random and grid
+  baselines made their choices with the old numbers; their choices are rescored here.
 * The agent and the benchmark rank designs by a Yosys transistor estimate. The sky130 cell-area cross-check agrees
   (Spearman 0.99), but both come from heuristic technology mapping, which adds a few percent of noise between
   designs. Only the chosen design has been placed and routed.

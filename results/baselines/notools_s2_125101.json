@@ -1,0 +1,23 @@
+{
+ "kind": "notools",
+ "budget": 1,
+ "evaluated": [],
+ "chosen": {
+  "p": 14,
+  "q": 10,
+  "mode": "rne",
+  "block_product_transistors": 25840,
+  "accumulator_transistors": 15116,
+  "total_transistors": 40956
+ },
+ "reply": "Design based on microscaling error analysis: long reductions over up to 512 blocks need ~9b for growth plus input precision, RNE avoids bias accumulation of RZ, and block-product rounding to ~10b keeps relative error ~0.1%. Choosing P moderately above FP16/TF32 and Q at FP16 level gives substantial saving over FP32 while preserving <1% perplexity margin.\n\n{\"p\": 14, \"q\": 10, \"mode\": \"rne\"}",
+ "confirmed": {
+  "p": 14,
+  "q": 10,
+  "mode": "rne",
+  "segments": 32,
+  "ppl": 14.39607284173871,
+  "ppl_exact_accumulation": 14.375074147853276,
+  "delta_ppl_percent": 0.14607711702530057
+ }
+}

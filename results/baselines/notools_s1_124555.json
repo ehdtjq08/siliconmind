@@ -1,0 +1,23 @@
+{
+ "kind": "notools",
+ "budget": 1,
+ "evaluated": [],
+ "chosen": {
+  "p": 16,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25588,
+  "accumulator_transistors": 18386,
+  "total_transistors": 43974
+ },
+ "reply": "Based on accumulation error scaling ~sqrt(N)*2^-P for unbiased rounding, RNE with P=16 gives <0.05% dot-product error even for N=512 blocks, well within 1% perplexity margin, while RZ would accumulate systematic bias ~N*2^-P and need larger P. Keeping the 19-bit block product exact avoids additional per-block error and extra rounding bias, allowing minimal P.\n\n{\"p\": 16, \"q\": null, \"mode\": \"rne\"}",
+ "confirmed": {
+  "p": 16,
+  "q": null,
+  "mode": "rne",
+  "segments": 32,
+  "ppl": 14.374331220163452,
+  "ppl_exact_accumulation": 14.375074147853276,
+  "delta_ppl_percent": -0.005168165966873417
+ }
+}

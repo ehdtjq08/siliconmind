@@ -1,0 +1,23 @@
+{
+ "kind": "notools",
+ "budget": 1,
+ "evaluated": [],
+ "chosen": {
+  "p": 16,
+  "q": 19,
+  "mode": "rne",
+  "block_product_transistors": 25784,
+  "accumulator_transistors": 18134,
+  "total_transistors": 43918
+ },
+ "reply": "Based on microscaling accumulation analysis, FP32 mantissa (P=24) is overkill for Llama-3.2-1B; unbiased rounding allows large reduction while keeping dot-product error <<1%. P=16 with exact 19-bit block product and RNE keeps relative sum error ~1e-4 over ~256 terms, safely within +1.0% perplexity, with ~33% mantissa reduction and no Q-rounder overhead. RZ would introduce linear bias accumulation requiring larger P, so RNE is net smaller.\n\n{\"p\": 16, \"q\": null, \"mode\": \"rne\"}",
+ "confirmed": {
+  "p": 16,
+  "q": null,
+  "mode": "rne",
+  "segments": 32,
+  "ppl": 14.374331220163452,
+  "ppl_exact_accumulation": 14.375074147853276,
+  "delta_ppl_percent": -0.005168165966873417
+ }
+}

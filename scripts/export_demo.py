@@ -65,6 +65,8 @@ def main():
                    for r in load("results/exhaustive/areas_sky130.json", [])],
         "bigger_model": {Path(f).stem: load(Path(f).relative_to(ROOT))
                          for f in sorted(glob.glob(str(ROOT / "results/model_check/*.json")))},
+        "timing": [{k: r[k] for k in ("p", "q", "mode", "acc_loop_ns")} for r in load("results/ppa/timing.json", [])],
+        "power": load("results/ppa/power.json", []),
         "confirm": cached_deltas(CONFIRM_SEGMENTS),
         "screen": cached_deltas(SCREEN_SEGMENTS),
         "agent_runs": [{"name": Path(f).stem, "events": agent_events(f)} for f in runs],

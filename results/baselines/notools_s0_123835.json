@@ -1,0 +1,23 @@
+{
+ "kind": "notools",
+ "budget": 1,
+ "evaluated": [],
+ "chosen": {
+  "p": 14,
+  "q": 12,
+  "mode": "rne",
+  "block_product_transistors": 25998,
+  "accumulator_transistors": 14846,
+  "total_transistors": 40844
+ },
+ "reply": "Conservative balanced precision with unbiased rounding keeps long-dot error well under 1% while saving much area vs FP32.\n\n{\"p\": 14, \"q\": 12, \"mode\": \"rne\"}",
+ "confirmed": {
+  "p": 14,
+  "q": 12,
+  "mode": "rne",
+  "segments": 32,
+  "ppl": 14.351604413403983,
+  "ppl_exact_accumulation": 14.375074147853276,
+  "delta_ppl_percent": -0.16326687575936027
+ }
+}

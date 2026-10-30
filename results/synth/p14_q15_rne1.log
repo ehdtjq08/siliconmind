@@ -1,43 +1,7 @@
 
 6. Printing statistics.
 
-=== $paramod$b66836abe75352698e147d59e37318ee10cc9bfc\fp_acc_add ===
-
-   Number of wires:               4359
-   Number of wire bits:           4610
-   Number of public wires:          21
-   Number of public wire bits:     272
-   Number of ports:                  9
-   Number of port bits:             84
-   Number of memories:               0
-   Number of memory bits:            0
-   Number of processes:              0
-   Number of cells:               4363
-     $_NAND_                      1956
-     $_NOR_                       1918
-     $_NOT_                        489
-
-   Estimated number of transistors:      16474
-
-=== $paramod\fp4_block_prod\XW=s32'00000000000000000000000000001110 ===
-
-   Number of wires:               6794
-   Number of wire bits:           7105
-   Number of public wires:          45
-   Number of public wire bits:     356
-   Number of ports:                  7
-   Number of port bits:            178
-   Number of memories:               0
-   Number of memory bits:            0
-   Number of processes:              0
-   Number of cells:               6782
-     $_NAND_                      3084
-     $_NOR_                       3140
-     $_NOT_                        558
-
-   Estimated number of transistors:      26012
-
-=== fp4_block_dot ===
+=== $paramod$0b3a2021fb638da99f17b913aee3f121f8e61d32\fp4_block_dot ===
 
    Number of wires:                 13
    Number of wire bits:            228
@@ -49,30 +13,83 @@
    Number of memory bits:            0
    Number of processes:              0
    Number of cells:                  2
-     $paramod$b66836abe75352698e147d59e37318ee10cc9bfc\fp_acc_add      1
+     $paramod$b7dc63ee9cf8bac53021796b745b445c1e7351d6\fp_acc_add      1
      $paramod\fp4_block_prod\XW=s32'00000000000000000000000000001110      1
+
+   Estimated number of transistors:          0+
+
+=== $paramod$b7dc63ee9cf8bac53021796b745b445c1e7351d6\fp_acc_add ===
+
+   Number of wires:               4432
+   Number of wire bits:           4679
+   Number of public wires:          21
+   Number of public wire bits:     268
+   Number of ports:                  9
+   Number of port bits:             84
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               4436
+     $_NAND_                      1962
+     $_NOR_                       1965
+     $_NOT_                        509
+
+   Estimated number of transistors:      16726
+
+=== $paramod\fp4_block_prod\XW=s32'00000000000000000000000000001110 ===
+
+   Number of wires:               6829
+   Number of wire bits:           7140
+   Number of public wires:          45
+   Number of public wire bits:     356
+   Number of ports:                  7
+   Number of port bits:            178
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:               6817
+     $_NAND_                      3087
+     $_NOR_                       3166
+     $_NOT_                        564
+
+   Estimated number of transistors:      26140
+
+=== synth_top ===
+
+   Number of wires:                 10
+   Number of wire bits:            194
+   Number of public wires:          10
+   Number of public wire bits:     194
+   Number of ports:                 10
+   Number of port bits:            194
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  1
+     $paramod$0b3a2021fb638da99f17b913aee3f121f8e61d32\fp4_block_dot      1
 
    Estimated number of transistors:          0+
 
 === design hierarchy ===
 
-   fp4_block_dot                     1
-     $paramod$b66836abe75352698e147d59e37318ee10cc9bfc\fp_acc_add      1
-     $paramod\fp4_block_prod\XW=s32'00000000000000000000000000001110      1
+   synth_top                         1
+     $paramod$0b3a2021fb638da99f17b913aee3f121f8e61d32\fp4_block_dot      1
+       $paramod$b7dc63ee9cf8bac53021796b745b445c1e7351d6\fp_acc_add      1
+       $paramod\fp4_block_prod\XW=s32'00000000000000000000000000001110      1
 
-   Number of wires:              11166
-   Number of wire bits:          11943
-   Number of public wires:          79
-   Number of public wire bits:     856
-   Number of ports:                 26
-   Number of port bits:            456
+   Number of wires:              11284
+   Number of wire bits:          12241
+   Number of public wires:          89
+   Number of public wire bits:    1046
+   Number of ports:                 36
+   Number of port bits:            650
    Number of memories:               0
    Number of memory bits:            0
    Number of processes:              0
-   Number of cells:              11145
-     $_NAND_                      5040
-     $_NOR_                       5058
-     $_NOT_                       1047
+   Number of cells:              11253
+     $_NAND_                      5049
+     $_NOR_                       5131
+     $_NOT_                       1073
 
-   Estimated number of transistors:      42486
+   Estimated number of transistors:      42866
 

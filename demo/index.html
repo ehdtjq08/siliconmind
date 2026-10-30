@@ -232,13 +232,20 @@ html, body { overflow-x: hidden; }
       <figcaption>The P9 / Q7 design as routed sky130 layout: one 2×2 Tiny Tapeout tile, 5,744 standard cells, 69%
         utilization. Byte-serial I/O loads a 16-element block, then one clock steps the accumulator.</figcaption>
     </figure>
+    <div class="card bigger" id="ppa" hidden>
+      <h3>Area, speed and energy in sky130</h3>
+      <p class="sub" id="ppa-sub"></p>
+      <div class="table-wrap"><table id="ppa-table"></table></div>
+    </div>
   </section>
 
   <footer>
     <p>Accuracy: WikiText-2 perplexity of Llama-3.2-1B on 1,024-token segments, relative to exact accumulation with the
       same NVFP4 quantization. Quick checks use segments 0–3; confirmations use held-out segments 16–47.</p>
     <p>Area: Yosys transistor estimate (<code>abc -g cmos2</code>). The block-product stage is identical in every design
-      (about <span id="block-k"></span> transistors); the heuristic mapper adds roughly ±5% noise between designs.</p>
+      (about <span id="block-k"></span> transistors); the heuristic mapper adds roughly ±5% noise between designs.
+      Areas were re-synthesized on Oct 30 after we found the synthesis script passed P and Q as unsigned values
+      (see the README); the agent and the random and grid baselines chose with the earlier numbers.</p>
     <p>Built with Llama. Agent: Muse Spark via the Meta Model API. Model: Llama 3.2 (Llama 3.2 Community License).</p>
   </footer>
 </main>
@@ -559,9 +566,11 @@ function tick() {
     const c = agentChoice(r);
     if (c) rows.push({ method: D.agent_runs.length > 1 ? `Muse Spark agent, run ${i + 1}` : "Muse Spark agent", key: c.key, evals: c.evals, agent: true });
   });
-  const seeds = {};
-  for (const b of D.baselines) {
-    const label = b.kind === "random" ? `Random search, seed ${(seeds.random = (seeds.random ?? 0) + 1)}` : "Coarse grid, cheapest first";
+  const seeds = {}, ORDER = ["tpe", "grid", "random", "notools"];
+  const NAMES = { tpe: "Bayesian optimization (TPE), seed", random: "Random search, seed", notools: "Muse Spark without tools, run" };
+  for (const b of [...D.baselines].sort((x, y) => ORDER.indexOf(x.kind) - ORDER.indexOf(y.kind))) {
+    seeds[b.kind] = (seeds[b.kind] ?? 0) + 1;
+    const label = b.kind === "grid" ? "Coarse grid, cheapest first" : `${NAMES[b.kind] ?? b.kind} ${seeds[b.kind]}`;
     rows.push({ method: label, key: b.chosen ? key(b.chosen.p, b.chosen.q, b.chosen.mode) : null,
                 evals: b.evaluated.length + (b.confirmed ? 1 : 0), conf: b.confirmed?.delta_ppl_percent });
   }
@@ -610,12 +619,28 @@ function tick() {
       <td>${r.key ? statusHTML(r.d, r.key) : ""}</td></tr>`).join("") + "</tbody>";
 })();
 
+// ---------------------------------------------------------------- power, performance, area
+(function ppa() {
+  if (!D.power?.length) return;
+  const T = new Map(D.timing.map(r => [key(r.p, r.q, r.mode), r.acc_loop_ns]));
+  const rows = D.power.map(r => ({ k: key(r.p, r.q, r.mode), ...r }));
+  const full = rows.find(r => r.k === FULL_KEY), ok = rows.every(r => r.gate_matches_rtl);
+  const vs = (v, f) => f ? ` <span class="ci">${pct(100 * (v / f - 1), 0)}</span>` : "";
+  $("#ppa").hidden = false;
+  $("#ppa-sub").textContent = `Accumulate loop: the accumulator's adder and rounding, timed with OpenSTA on sky130 cells. It is the one path a pipeline cannot cut, so it sets the unit's peak clock. Energy: the whole multiply-accumulate unit (block product, accumulator and its register) simulated at gate level on ${int(full ? full.steps : rows[0].steps)} real Llama-3.2-1B blocks from six layers${ok ? ", with every gate-level result matching the RTL bit for bit" : ""}. The block product is the same in every design, so whole-unit energy moves less than the accumulator itself.`;
+  $("#ppa-table").innerHTML = `<thead><tr><th>Design</th><th class="num">Accumulator cell area (µm²)</th><th class="num">Accumulate loop (ns)</th><th class="num">Unit energy per block (pJ)</th></tr></thead><tbody>` +
+    rows.map(r => `<tr><td>${name(r.k)}${r.k === AGENT_KEY ? ' <span class="badge">the chip</span>' : ""}</td>
+      <td class="num">${SKY.has(r.k) ? int(SKY.get(r.k)) : "–"}${r.k !== FULL_KEY && SKY.has(r.k) && full ? vs(SKY.get(r.k), SKY.get(FULL_KEY)) : ""}</td>
+      <td class="num">${T.has(r.k) ? T.get(r.k).toFixed(1) : "–"}${r.k !== FULL_KEY && full && T.has(r.k) ? vs(T.get(r.k), T.get(FULL_KEY)) : ""}</td>
+      <td class="num">${r.energy_pj_per_step.toFixed(1)}${r.k !== FULL_KEY && full ? vs(r.energy_pj_per_step, full.energy_pj_per_step) : ""}</td></tr>`).join("") + "</tbody>";
+})();
+
 // ---------------------------------------------------------------- the same designs on a bigger model
 (function bigger() {
   const [model, rows] = Object.entries(D.bigger_model ?? {})[0] ?? [];
   if (!rows?.length) return;
   const roles = { [AGENT_KEY]: "Muse Spark's pick, run 1 (the chip)", [FULL_KEY]: "Full-size accumulator" };
-  const label = k => roles[k] ?? { "8:8:rne": "Muse Spark's pick, runs 2–4", "8:5:rne": "Face-value optimum on 1B",
+  const label = k => roles[k] ?? { "8:8:rne": "Muse Spark's pick, runs 2–4", "8:5:rne": "P8 design, borderline on 1B",
                                     "10:8:rne": "Coarse grid's pick", "12:7:rz": "Random search's pick" }[k] ?? "";
   const full = rows.find(r => key(r.p, r.q, r.mode) === FULL_KEY);
   $("#bigger").hidden = false;
