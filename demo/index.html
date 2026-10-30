@@ -557,10 +557,13 @@ function tick() {
   if (D.exhaustive_done && feasible.length)
     rows.push({ method: "Exhaustive search (ground truth)", key: feasible[0][0], evals: nEx, truth: true });
   rows.push({ method: "Full-size accumulator", key: FULL_KEY, evals: 0, base: true });
-  for (const r of rows) { r.acc = r.key ? AREA.get(r.key) : null; r.d = r.conf ?? (r.key ? CONF.get(r.key) : null); if (r.base) r.d = 0; }
+  for (const r of rows) { r.acc = r.key ? AREA.get(r.key) : null; r.d = r.conf ?? (r.key ? CONF.get(r.key) : null); if (r.base && r.d == null) r.d = 0; }
 
+  const truth = rows.find(r => r.truth), gap = r => (r.acc / truth.acc - 1) * 100;
+  const agentGaps = rows.filter(r => r.agent && r.acc).map(gap), baseGaps = rows.filter(r => !r.agent && !r.truth && !r.base && r.acc).map(gap);
   $("#bench-sub").textContent = D.exhaustive_done
-    ? `Every method gets the same goal: the smallest accumulator within the 1% accuracy budget, confirmed on held-out data. The ground truth comes from measuring all ${nEx} designs below ${int(D.exhaustive_max_area)} transistors.`
+    ? `Every method gets the same goal: the smallest accumulator within the 1% accuracy budget, confirmed on held-out data. The ground truth comes from measuring all ${nEx} designs below ${int(D.exhaustive_max_area)} transistors.` +
+      (truth && agentGaps.length ? ` Not quite: every agent run lands ${Math.min(...agentGaps).toFixed(1)}–${Math.max(...agentGaps).toFixed(1)}% above the optimum ${name(truth.key)}, while the best baseline is ${Math.min(...baseGaps).toFixed(1)}% above. The agent never tried rounding block sums below 7 bits, which is where the optimum sits.` : "")
     : "Every method gets the same goal and the same 10 accuracy evaluations. The exhaustive ground truth is still running.";
 
   const B = { W: 1000, l: 270, r: 24, row: 34, top: 16 }, H = B.top + rows.length * B.row + 34;

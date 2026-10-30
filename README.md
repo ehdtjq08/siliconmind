@@ -17,15 +17,26 @@ After every round the agent also sees the current area-vs-accuracy plot as an im
 
 ## Result
 
-| Design | Accumulator transistors | Perplexity change (32 held-out segments) |
-|---|---:|---:|
-| Full-size accumulator (P24, exact block product) | 22,044 | 0% |
-| Best design found by hand during development (P10/Q10) | 12,878 | −0.16%* |
-| **Muse Spark's design (P9/Q7, round to nearest even)** | **11,604 (−47%)** | **−0.13%** |
+Four independent agent runs, each allowed 10 accuracy evaluations, against non-agent searches with the same budget
+and against the exhaustive ground truth (every one of the 169 designs below 14,000 accumulator transistors, measured on
+32 held-out segments). Budget: perplexity within +1% of exact accumulation.
 
-\* measured on a different 16-segment set. The agent's design also passes RTL verification with 0 mismatches.
-A comparison against random and grid search with the same budget, and against the exhaustive ground truth, is in the
-demo page.
+| Method | Chosen design | Accumulator transistors | Perplexity change |
+|---|---|---:|---:|
+| Full-size accumulator | P24, exact block result, RNE | 22,044 | +0.02% |
+| Random search, 3 seeds | P15/Q9 RNE · P13/Q14 RZ · P12/Q7 RZ | 15,556 · 14,394 · 12,518 | +0.24% · +0.13% · +0.43% |
+| Coarse grid, cheapest first | P10/Q8 RNE | 12,414 | +0.13% |
+| **Muse Spark, run 1** | **P9/Q7 RNE** | **11,604 (−47%)** | **−0.13%** |
+| Muse Spark, runs 2–4 | P8/Q8 RNE | 11,538 | +0.94% |
+| Exhaustive ground truth | P8/Q5 RNE | 10,726 | +0.87% |
+
+Every agent run beats every baseline, and all four land 7.6–8.2% above the true optimum (the best baseline is 15.7%
+above). None of them found the optimum itself: no run tried rounding the block result below 7 bits, and the optimum
+keeps P8 but rounds block results to 5. At P8, Q between 5 and 8 moves perplexity by under 0.2 points.
+
+P9/Q7 is the design carried to layout: it is 0.6% larger than P8/Q8, within the area estimate's noise, but it has
+real accuracy margin where every P8 design sits within 0.25 points of the limit. It also passes RTL verification with 0
+mismatches.
 
 ## The design space
 
@@ -73,12 +84,17 @@ in a byte-serial interface on a 2x2 tile; on every push GitHub Actions hardens i
 Tiny Tapeout precheck, and re-runs `test/test.py` on the gate-level netlist. The test steps the accumulator through
 chains of random blocks and compares it with the exact reference after every step (`scripts/tt_vectors.py`).
 
+For P9/Q7 the flow passes end to end: 5,744 standard cells placed and routed at 69% utilization, all precheck checks
+clean, timing met at 10 MHz in every corner (worst setup slack 6.2 ns at ss, 100 °C, 1.60 V), and the gate-level
+test matches the reference.
+
 ## Caveats
 
-* Area is a Yosys transistor estimate, not a placed-and-routed layout; the heuristic mapper adds about ±5% noise
-  between designs.
+* Area comparisons use a Yosys transistor estimate (only the chosen design has been placed and routed); the heuristic
+  mapper adds about ±5% noise between designs.
 * Accuracy is perplexity of a 1B model on WikiText-2. Quick checks (4 segments) are noisy at about ±1.5%, which is why
-  finalists are confirmed on 32 held-out segments.
+  finalists are confirmed on 32 held-out segments. The +1% budget is tight for the P8 designs: P8/Q8 measured +1.08%
+  on the quick-check segments and +0.94% on the held-out ones.
 
 ## Credits
 
