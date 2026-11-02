@@ -1,0 +1,50 @@
+{
+ "p10_q8_rne": {
+  "cells": 6048,
+  "area_um2": 51285.4,
+  "slack_tt_ns": 5.575508212930568,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ },
+ "p12_q7_rz": {
+  "cells": 6044,
+  "area_um2": 51837.2,
+  "slack_tt_ns": 4.973078090092159,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ },
+ "p24_qx_rne": {
+  "cells": 7431,
+  "area_um2": 61456.4,
+  "slack_tt_ns": -0.6662723894520372,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ },
+ "p8_q8_rne": {
+  "cells": 5906,
+  "area_um2": 49886.6,
+  "slack_tt_ns": 5.1226651037686635,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ },
+ "p9_q6_rne": {
+  "cells": 5921,
+  "area_um2": 50184.4,
+  "slack_tt_ns": 4.555623562885643,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ },
+ "p9_q7_rne": {
+  "cells": 5841,
+  "area_um2": 49491.2,
+  "slack_tt_ns": 4.564292184507082,
+  "drc": 0,
+  "lvs": 0,
+  "antenna": 0
+ }
+}

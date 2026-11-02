@@ -3,6 +3,9 @@
 **Muse Spark designs the accumulator of a 4-bit AI chip, and every design it proposes is checked against real silicon
 cost and real LLM accuracy, bit for bit.**
 
+**[Try the live demo](https://ehdtjq08.github.io/siliconmind/demo/)**: shrink the accumulator yourself and watch
+Llama's answers, replay an agent run, and see the chip's layout.
+
 NVFP4 dot-product units multiply 4-bit numbers cheaply, but they still add the results into a wide accumulator, and
 that adder is a large share of the unit. How narrow can it get before the model running on the chip gets worse? The
 answer depends on both the hardware and the model, so SiliconMind gives an agent tools for both and lets it search:
@@ -83,6 +86,27 @@ The block product is the same in every design, so whole-unit energy moves less t
 design measured, the gate-level results match the RTL bit for bit. Limits: typical corner, no wire parasitics,
 area-oriented mapping, and zero-delay switching activity (no glitch power).
 
+### Placed and routed
+
+`scripts/pnr_runs.py` places and routes the whole multiply-accumulate unit (input registers, block product,
+accumulator and its register) with LibreLane on sky130_fd_sc_hd, targeting a 40 ns clock
+(`results/pnr/summary.json`):
+
+| Design | Standard cells | Cell area (µm²) | Setup slack, typical corner |
+|---|---:|---:|---:|
+| Full-size accumulator, P24 | 7,431 | 61,456 | −0.67 ns (misses 25 MHz) |
+| **P9/Q7 RNE, the chip** | **5,841** | **49,491 (−19%)** | **+4.56 ns** |
+| P8/Q8 RNE, agent runs 2–4 | 5,906 | 49,887 | +5.12 ns |
+| P9/Q6 RNE | 5,921 | 50,184 | +4.56 ns |
+| P10/Q8 RNE, coarse grid | 6,048 | 51,285 | +5.58 ns |
+| P12/Q7 RZ, random search | 6,044 | 51,837 | +4.97 ns |
+
+All six are DRC, LVS and antenna clean. Narrowing the accumulator shrinks the whole unit by 19%, even though the
+block product is the same in every design. After routing, P9/Q7 is the smallest of the six, so the 1.1% cell-area
+edge P9/Q6 had in synthesis was noise. The slack is for the whole single-cycle path (block product, then
+accumulate). At the slow corner (ss, 100 °C, 1.60 V) all six need a slower clock (worst slack −26 to −38 ns); the
+Tiny Tapeout tile below runs at 10 MHz and meets every corner.
+
 ### Does it hold on a bigger model?
 
 The designs were chosen on Llama-3.2-1B. Re-measured on Llama-3.2-3B with the same 32 held-out segments
@@ -101,6 +125,26 @@ The chip's design stays within budget with margin, and the P8 designs stay borde
 accumulator moves single segments by about ±1%: rounding activations to 4 bits turns tiny arithmetic differences into
 discrete flips. The runs are deterministic (re-runs match bit for bit), so this is a property of the quantized model,
 and it means 32 segments cannot resolve differences much below 0.4 points on 3B.
+
+### Five models, six zero-shot benchmarks
+
+The budget was set on one model and one dataset. To check the chip elsewhere, five open models ran with every
+decoder matrix multiply on the emulated unit, using lm-evaluation-harness prompts and metrics on ARC-Easy,
+ARC-Challenge, PIQA, WinoGrande, LAMBADA and HellaSwag (full evaluation sets, 21,848 items). Each cell is the change
+in average accuracy against exact accumulation with the same NVFP4 weights and activations, in points, with a 95%
+paired bootstrap interval:
+
+| Model | Exact accumulation, avg accuracy | P24 | **P9/Q7, the chip** | P8/Q8 |
+|---|---:|---:|---:|---:|
+| Llama-3.2-1B | 56.65 | −0.02 | **−0.32 (−1.03 to +0.46)** | −0.04 (−0.86 to +0.75) |
+| Llama-3.2-3B | 66.08 | +0.03 | **−0.11 (−0.76 to +0.56)** | −0.23 (−0.88 to +0.44) |
+| Qwen2.5-1.5B | 61.37 | −0.04 | **−0.50 (−1.26 to +0.25)** | −0.37 (−1.15 to +0.36) |
+| Qwen2.5-3B | 65.71 | −0.01 | **+0.39 (−0.29 to +1.09)** | +0.02 (−0.73 to +0.73) |
+| Mistral-7B-v0.3 | 73.16 | −0.30 | **−0.26 (−0.73 to +0.18)** | −0.62 (−1.10 to −0.19) |
+
+For P9/Q7, every interval contains zero. P8/Q8, the pick of agent runs 2–4, loses 0.6 points on Mistral-7B, and that
+interval excludes zero. The bigger cost is NVFP4 itself: without calibration, exact accumulation is 1.0–4.4 points
+below bf16 on these models. The evaluation harness for this table is not in the repository yet.
 
 ## The design space
 
@@ -164,7 +208,7 @@ test matches the reference.
   baselines made their choices with the old numbers; their choices are rescored here.
 * The agent and the benchmark rank designs by a Yosys transistor estimate. The sky130 cell-area cross-check agrees
   (Spearman 0.99), but both come from heuristic technology mapping, which adds a few percent of noise between
-  designs. Only the chosen design has been placed and routed.
+  designs. Six designs have been placed and routed; the rest are ranked by synthesis alone.
 * Accuracy is perplexity of a 1B model on WikiText-2. Quick checks (4 segments) are noisy at about ±1.5%, which is why
   finalists are confirmed on 32 held-out segments. Even 32 segments leave about ±0.5 points of uncertainty, which is why
   the intervals above matter.
