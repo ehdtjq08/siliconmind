@@ -3,8 +3,8 @@
 **Muse Spark designs the accumulator of a 4-bit AI chip, and every design it proposes is checked against real silicon
 cost and real LLM accuracy, bit for bit.**
 
-**[Try the live demo](https://ehdtjq08.github.io/siliconmind/demo/)**: shrink the accumulator yourself and watch
-Llama's answers, replay an agent run, and see the chip's layout.
+**[Watch the 3-minute video](https://youtu.be/npCvxI2Hu80)** · **[Try the live demo](https://ehdtjq08.github.io/siliconmind/demo/)**:
+shrink the accumulator yourself and watch Llama's answers, replay an agent run, and see the chip's layout.
 
 NVFP4 dot-product units multiply 4-bit numbers cheaply, but they still add the results into a wide accumulator, and
 that adder is a large share of the unit. How narrow can it get before the model running on the chip gets worse? The
